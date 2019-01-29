@@ -4,21 +4,33 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Settings and Account
+      Account and Settings
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
+    <ion-item>
+          Account
       <div class="item-note" slot="end">
-        {{item.note}}
+          <ion-icon name="contact"></ion-icon>
+      </div>
+    </ion-item>
+    <ion-item>
+          Sign Out
+      <div class="item-note" slot="end">
+      <ion-icon name="undo"></ion-icon>
+      </div>
+    </ion-item>
+        <ion-item (click)="buttonClick()">
+          About Bronco Nutrition
+      <div class="item-note" slot="end">
+      <ion-icon name="information-circle"></ion-icon>
       </div>
     </ion-item>
   </ion-list>
+  
   <!--
     <div *ngIf="selectedItem" padding>
       You navigated here from <b>{{selectedItem.title }}</b>
