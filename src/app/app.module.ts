@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 
-var config{
+var config={
 	apiKey: "AIzaSyDWUlN2Hsj78UGO4BxZD1AEKYTud_RFWsM",
 	authDomain: "bronco-nutrition-firebase.firebaseapp.com", 
 	databaseURL: "https://bronco-nutrition-firebase.firebaseio.com",
