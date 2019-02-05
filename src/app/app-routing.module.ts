@@ -26,7 +26,8 @@ const routes: Routes = [
   {
     path: 'settings',
     loadChildren: './settings/settings.module#SettingsPageModule'
-  },  { path: 'login', loadChildren: './login/login.module#LoginPageModule' }
+  },  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' }
 
 ];
 
