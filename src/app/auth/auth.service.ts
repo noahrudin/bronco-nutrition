@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from "@angular/router";
+import { NavController } from '@ionic/angular';
 import { auth } from 'firebase/app';
-import { AngularFireAuth } from  "@angular/fire/auth";
+import { AngularFireAuth } from "@angular/fire/auth";
 import { User } from 'firebase';
 import * as firebase from 'firebase/app';
 
@@ -10,7 +11,7 @@ import * as firebase from 'firebase/app';
 })
 export class AuthService {
 	private user: User;
-  constructor(public afAuth: AngularFireAuth, public router: Router) { 
+  constructor(public afAuth: AngularFireAuth, public router: Router, public navCtrl: NavController) { 
 		this.afAuth.authState.subscribe(user => {
 			if(user) {
 				this.user=user;
@@ -31,7 +32,7 @@ export class AuthService {
         var errorMsg = error.message;
         alert("Error signing in: " + errorMsg);
       });
-			this.router.navigate(['/loginSuccess']);
+			this.navCtrl.navigateRoot(['/home']);
 		} catch(e){
       alert("Error! "+e.message);
 		}
