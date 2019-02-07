@@ -17,6 +17,11 @@
           <div padding>
             <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block" (click)="authService.login(email.value,password.value)">Login</ion-button>
           </div>
+		   <div padding>
+		  <ion-toggle (click)="">
+		  Remember Me
+		  </ion-toggle>
+		  </div>
         </ion-col>
       </ion-row>
 	  <ion-row>
