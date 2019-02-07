@@ -1,6 +1,7 @@
 import { NavController } from '@ionic/angular';
 import { AboutPage } from "../about/about.page";
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../auth/auth.service';
 
 @Component({
   selector: 'app-list',
@@ -15,6 +16,9 @@ export class SettingsPage implements OnInit {
     //this.NavController.push(AboutPage);
     console.log("hello")
   }
+   constructor(private authService: AuthService){
+   
+   }
 
   ngOnInit() {
   }
