@@ -16,13 +16,8 @@
           </div>
           <div padding>
             <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block" (click)="authService.login(email.value,password.value)">Login</ion-button>
-          </div>
-		   <div padding>
-		  <ion-toggle (click)="">
-		  Remember Me
-		  </ion-toggle>
-		  </div>
-        </ion-col>
+		 </div>
+		</ion-col>
       </ion-row>
 	  <ion-row>
           <div text-center>
@@ -30,6 +25,14 @@
           register</a> first!
           </div>
       </ion-row>
+	  <ion-row>
+	   
+		  <ion-toggle (click)="autheService.isLoggedIn()">
+			Remember Me
+			</ion-toggle>
+		
+			
+	  </ion-row>
     </ion-grid>
   </form>
 </ion-content>

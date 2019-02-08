@@ -50,7 +50,10 @@ export class AuthService {
 				alert("Error!"+e.message);
 			}
 			
-		} 
+		}
+		async rememberMe(){
+			
+		}
 	
 	
 	
