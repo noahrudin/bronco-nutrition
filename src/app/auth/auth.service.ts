@@ -32,7 +32,7 @@ export class AuthService {
         var errorMsg = error.message;
         alert("Error signing in: " + errorMsg);
       });
-			this.navCtrl.navigateRoot(['/home']);
+			this.navCtrl.navigateRoot(['./home']);
 		} catch(e){
 			alert("Error! "+e.message);
 		}
@@ -45,9 +45,14 @@ export class AuthService {
 		this.router.navigate(['./login']);
 	}
 	
+  // ask firebase if we have a user logged in currently.
 	get isLoggedIn(): boolean {
-		const  user = JSON.parse(localStorage.getItem('user'));
-		return  user !== null;
+    if(firebase.auth().currentUser) {
+      return true;
+    }
+    else {
+      return false;
+    }
 	}
 	
 	async signup(email: string, password: string){
