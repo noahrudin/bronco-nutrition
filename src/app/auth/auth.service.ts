@@ -40,9 +40,9 @@ export class AuthService {
 	}
 	
 	async logout(){
-		await this.afAuth.auth.signOut();
+		await firebase.auth().signOut();
 		localStorage.removeItem('user');
-		this.router.navigate(['./login']);
+		this.navCtrl.navigateRoot(['./login']);
 	}
 	
   // ask firebase if we have a user logged in currently.
