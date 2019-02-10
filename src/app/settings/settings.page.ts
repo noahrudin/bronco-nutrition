@@ -1,6 +1,8 @@
 import { NavController } from '@ionic/angular';
 import { AboutPage } from "../about/about.page";
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-list',
@@ -11,15 +13,38 @@ import { Component, OnInit } from '@angular/core';
 
 export class SettingsPage implements OnInit {
 
-  buttonClick = () =>{
-    //this.NavController.push(AboutPage);
-    console.log("hello")
+  constructor(private alertController: AlertController, 
+              private authService: AuthService, 
+              private navCtrl: NavController) { }
+
+  aboutButtonClick() {
+    // need to add an about page to navigate to.
+    // this.navCtrl.navigateForward('about');
   }
 
-  ngOnInit() {
+  signoutButtonClick() {
+    this.displaySignoutAlert();
   }
-  // add back when alpha.4 is out
-  // navigate(item) {
-  //   this.router.navigate(['/list', JSON.stringify(item)]);
-  // }
+
+  ngOnInit() { }
+
+  async displaySignoutAlert() {
+    const newAlert = await this.alertController.create({
+      header: 'Sign Out',
+      subHeader: '',
+      message: 'Are you sure?',
+      buttons: [
+        {
+          text: 'OK', 
+          handler: () => {
+            this.navCtrl.navigateRoot(['/login']);
+          }
+        },
+        {
+          text: 'Cancel'
+        }
+      ]
+    });
+    await newAlert.present();
+  }
 }

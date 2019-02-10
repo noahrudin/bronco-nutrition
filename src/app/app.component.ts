@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { NavController } from '@ionic/angular';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-root',
@@ -40,13 +42,22 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private navCtrl: NavController,
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
+
+      // check if the user is logged in and show login if needed.
+      firebase.auth().onAuthStateChanged((user) => {
+        if(user) {
+          // user is logged in. skip to home page.
+          this.navCtrl.navigateRoot(['/home']);
+        }
+      });
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
