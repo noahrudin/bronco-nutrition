@@ -50,6 +50,7 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
+      this.splashScreen.show();
 
       // check if the user is logged in and show login if needed.
       firebase.auth().onAuthStateChanged((user) => {

@@ -27,7 +27,6 @@ export class AuthService {
       firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
         .then(async function() {
         await firebase.auth().signInWithEmailAndPassword(email,password);
-        this.navCtrl.navigateRoot(['./home']);
       })
       .catch(function(error) {
         var errorMsg = error.message;
@@ -36,6 +35,10 @@ export class AuthService {
 		} catch(e){
 			alert("Error! "+e.message);
 		}
+
+    if(this.isLoggedIn) {
+      this.navCtrl.navigateRoot(['./home']);
+    }
 		
 	}
 	
