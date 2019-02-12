@@ -26,13 +26,13 @@ export class AuthService {
 		try{
       firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
         .then(async function() {
-        return await firebase.auth().signInWithEmailAndPassword(email,password);
+        await firebase.auth().signInWithEmailAndPassword(email,password);
+        this.navCtrl.navigateRoot(['./home']);
       })
       .catch(function(error) {
         var errorMsg = error.message;
         alert("Error signing in: " + errorMsg);
       });
-			this.navCtrl.navigateRoot(['./home']);
 		} catch(e){
 			alert("Error! "+e.message);
 		}
@@ -62,7 +62,5 @@ export class AuthService {
 		}catch(e){
 				alert("Error!"+e.message);
 		}
-			
 	} 
-	
 }
