@@ -17,9 +17,8 @@ export class SettingsPage implements OnInit {
               private authService: AuthService, 
               private navCtrl: NavController) { }
 
-  aboutButtonClick() {
-    // need to add an about page to navigate to.
-    // this.navCtrl.navigateForward('about');
+  accountButtonClick() {
+    this.navCtrl.navigateForward('account');
   }
 
   signoutButtonClick() {

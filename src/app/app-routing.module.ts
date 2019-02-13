@@ -32,7 +32,11 @@ const routes: Routes = [
   },
   { path: 'register',
     loadChildren: './register/register.module#RegisterPageModule' 
+  },
+  { path: 'account',
+    loadChildren: './account/account.module#AccountPageModule'
   }
+
 
 ];
 
