@@ -6,3 +6,7 @@
 `npm i -g`
 `ionic-serve -l`
 - This will pull up a browser window with both iOS and Android emulators.
+- To push, run
+  `./pushScript.sh`
+- To pull, run
+  `./pullScript.sh`
