@@ -24,21 +24,14 @@ export class AuthService {
 	
 	async login(email: string, password: string){
 		try{
-      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-        .then(async function() {
+		firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
         await firebase.auth().signInWithEmailAndPassword(email,password);
-      })
-      .catch(function(error) {
-        var errorMsg = error.message;
-        alert("Error signing in: " + errorMsg);
-      });
-		} catch(e){
-			alert("Error! "+e.message);
+     	this.navCtrl.navigateRoot(['./home']); 
 		}
-
-    if(this.isLoggedIn) {
-      this.navCtrl.navigateRoot(['./home']);
-    }
+		catch(error){
+		var errorMsg = error.message;
+		alert("Error signing in: "+errorMsg);
+		};
 		
 	}
 	
