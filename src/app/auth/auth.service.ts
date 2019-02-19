@@ -5,6 +5,7 @@ import { auth } from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { User } from 'firebase';
 import * as firebase from 'firebase/app';
+import { Action } from 'rxjs/internal/scheduler/Action';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +15,8 @@ export class AuthService {
 		this.afAuth.authState.subscribe(user => {
 			if(user) {
 				this.user=user;
-				localStorage.setItem('user',JSON.stringify(this.user));
+                localStorage.setItem('user', JSON.stringify(this.user));
+                this.navCtrl.navigateRoot(['./home']);
 			}else{
 				localStorage.setItem('user',null);
 			}
@@ -23,10 +25,10 @@ export class AuthService {
 	}
 	
 	async login(email: string, password: string){
-		try{
-		firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-        await firebase.auth().signInWithEmailAndPassword(email,password);
-     	this.navCtrl.navigateRoot(['./home']); 
+        try {
+                firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+                await firebase.auth().signInWithEmailAndPassword(email,password);
+     	        this.navCtrl.navigateRoot(['./home']); 
 		}
 		catch(error){
 		var errorMsg = error.message;
@@ -36,9 +38,10 @@ export class AuthService {
 	}
 	
 	async logout(){
-		await firebase.auth().signOut();
-		localStorage.removeItem('user');
-		this.navCtrl.navigateRoot(['./login']);
+        await firebase.auth().signOut();
+        localStorage.removeItem('user');
+        this.navCtrl.navigateRoot(['./login']);
+       
 	}
 	
   // ask firebase if we have a user logged in currently.
@@ -53,10 +56,31 @@ export class AuthService {
 	
 	async signup(email: string, password: string){
 		try{
-			await this.afAuth.auth.createUserWithEmailAndPassword(email,password)
-			this.router.navigate(['./login']);
+            await this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+            this.confirm_Signup(email);
+            this.router.navigate(['./login']);
 		}catch(e){
 				alert("Error!"+e.message);
 		}
-	} 
+    }
+    accountUserName(): String {
+          return this.user.displayName;
+    }
+
+    accountFirstLastName(firstname: string, lastname: string): void {
+        this.user.displayName = firstname + lastname;
+    }
+
+    resetPassword(new_password: string, conf_password: string) {
+        if (this.afAuth.auth.confirmPasswordReset(new_password, conf_password)) {
+            this.user.updatePassword(new_password);
+        } else {
+            alert("Error!: Passwords must match!");
+        }
+    }
+
+    confirm_Signup(email: string) {
+        this.user.sendEmailVerification();
+    }
+
 }
