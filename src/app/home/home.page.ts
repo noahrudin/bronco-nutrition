@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,23 @@ import { MenuController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(public menuCtrl: MenuController) { }
+  constructor(public menuCtrl: MenuController, private navCtrl: NavController) { }
+
+  SearchButtonClick() {
+    this.navCtrl.navigateForward('browse');
+  }
+
+  ListButtonClick() {
+    this.navCtrl.navigateForward('list');
+  }
+
+  ResourcesButtonClick() {
+    this.navCtrl.navigateForward('resources');
+  }
+
+  SettingsButtonClick() {
+    this.navCtrl.navigateForward('settings');
+  }
 
   ngOnInit() { }
 

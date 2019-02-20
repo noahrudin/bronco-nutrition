@@ -10,24 +10,28 @@
 </ion-header>
 
 <ion-content>
-    <ion-card class="welcome-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
-      <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-      </ion-card-content>
-    </ion-card>
-    <ion-card class="welcome-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
-      <ion-card-header>
-        <ion-card-subtitle>Boise River Cafe</ion-card-subtitle>
-        <ion-card-title>Delicious Chicken Sandwich</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Yum yum</p>
-      </ion-card-content>
-    </ion-card>
+    <ion-searchbar animated debounce="500" placeholder="Search Here" ></ion-searchbar>
+
+    <ion-card>
+        <ion-item>
+          <ion-icon name="list-box" slot="start"></ion-icon>
+          <ion-label>Search for Recipes</ion-label>
+          <ion-button fill="outline" slot="end">Go</ion-button>
+        </ion-item>
+        <ion-card-content>
+          Find a Meal on our Nutritionist-Approved Database!
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+          <ion-item>
+            <ion-icon name="pizza" slot="start"></ion-icon>
+            <ion-label>Search for Food Items</ion-label>
+            <ion-button fill="outline" slot="end">Go</ion-button>
+          </ion-item>
+          <ion-card-content>
+            Find Individual Food Items a la Carte!
+          </ion-card-content>
+        </ion-card>
 </ion-content>
+
+
