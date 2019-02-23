@@ -82,5 +82,11 @@ export class AuthService {
     confirm_Signup(email: string) {
         this.user.sendEmailVerification();
     }
-
+    FireBase_TitleSheets(): any {
+        var db = firebase.database();
+        db.ref('/masterSheet/').once('value').then(function (readData) {
+            var data = (readData.val());
+            return data;
+        });
+    }
 }
