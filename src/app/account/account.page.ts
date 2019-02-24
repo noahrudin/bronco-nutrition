@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['account.page.scss'],
 })
 export class AccountPage {
+    
+    constructor() {
 
+    }
 }
