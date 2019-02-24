@@ -23,13 +23,15 @@ export class FirebaseService {
         });
     }
 
-   get getUser() {
-       return this.afData.database.ref("Users/").on('value', () => {
-           this.email = this.afData.object('Users/email');
-           this.firstname = this.afData.object('Users/firstname');
-           this.lastname = this.afData.object('Users/lastname');
-       });
-
+     getUser(email,firstname,lastname) {
+        email = this.afData.object('Users/email');
+        firstname = this.afData.object('Users/firstname');
+        lastname = this.afData.object('Users/lastname');
+        return {
+            email: email,
+            firstname: firstname,
+            lastname: lastname
+        };
     }
     delete() {
 
