@@ -36,6 +36,8 @@ export class Recipe {
     return Number(servings);
   }
 
+  // parse out the 3 basic nutrition macros from
+  // the firebase data store.
   static parseMacros(macros: string): Macro[] {
     const returnArray: Macro[] = [];
     if (macros.indexOf('C') !== -1 ) {

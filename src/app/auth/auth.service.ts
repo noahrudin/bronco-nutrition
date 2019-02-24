@@ -5,7 +5,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase';
 import * as firebase from 'firebase';
 import { Recipe } from '../Recipe';
-import { CastExpr } from '@angular/compiler';
 
 
 const RECIPE_NAME_INDEX = 0;
@@ -26,7 +25,7 @@ export const snapshotToRecipeArray = snapshot => {
       const prepTime = Recipe.parsePrepTime(item[PREP_TIME_INDEX]);
 
       const newRecipe = new Recipe(title, numServings, macros,
-                                  prepTime, item[INGREDIENTS_INDEX], 
+                                  prepTime, item[INGREDIENTS_INDEX],
                                   item[STEPS_INDEX]);
       returnArr.push(newRecipe);
   });
