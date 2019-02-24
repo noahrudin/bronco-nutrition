@@ -1,4 +1,8 @@
-enum Macro { Carbohydrates, Protein, Fiber};
+enum Macro { Carbohydrates, Protein, Fiber}
+
+const CARBS_STR = 'C';
+const PROTEIN_STR = 'P';
+const FIBER_STR = 'F';
 
 export class Recipe {
   constructor(private title: string, private numServings: number, private macros: Macro[],
@@ -28,4 +32,28 @@ export class Recipe {
     return this.steps;
   }
 
+  static parseNumServings(servings: string): number {
+    return Number(servings);
+  }
+
+  static parseMacros(macros: string): Macro[] {
+    const returnArray: Macro[] = [];
+    if (macros.indexOf('C') !== -1 ) {
+      returnArray.push(Macro.Carbohydrates);
+    }
+
+    if (macros.indexOf('P') !== -1) {
+      returnArray.push(Macro.Protein);
+    }
+
+    if (macros.indexOf('F') !== -1) {
+      returnArray.push(Macro.Fiber);
+    }
+
+    return returnArray;
+  }
+
+  static parsePrepTime(time: string): number {
+    return Number(time);
+  }
 }

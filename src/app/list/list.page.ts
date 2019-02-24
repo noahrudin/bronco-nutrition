@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth/auth.service'
+import { AuthService } from '../auth/auth.service';
 import { Recipe } from '../Recipe';
 
 @Component({
@@ -13,7 +13,7 @@ export class ListPage implements OnInit {
   public items: Array<{ title: string }> = [];
 
   constructor(private firebaseAuth: AuthService) {
-    // grab the recipes we got from firebase, and 
+    // grab the recipes we got from firebase, and
     // put use their titles for the UI list.
     this.recipes = this.firebaseAuth.getRecipes;
     for (let i = 1; i < 11; i++) {
