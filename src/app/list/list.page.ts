@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service'
+import { Recipe } from '../Recipe';
 
 @Component({
   selector: 'app-list',
@@ -7,33 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPage implements OnInit {
   private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
+  private recipes: Array<Recipe>;
+  public items: Array<{ title: string }> = [];
+
+  constructor(private firebaseAuth: AuthService) {
+    // grab the recipes we got from firebase, and 
+    // put use their titles for the UI list.
+    this.recipes = this.firebaseAuth.getRecipes;
     for (let i = 1; i < 11; i++) {
       this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
+        title: this.recipes[i].getRecipeTitle
       });
     }
   }
 
   ngOnInit() {
+
   }
+
   // add back when alpha.4 is out
   // navigate(item) {
   //   this.router.navigate(['/list', JSON.stringify(item)]);
   // }
+
 }
