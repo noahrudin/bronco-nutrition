@@ -26,15 +26,22 @@ const routes: Routes = [
   {
     path: 'settings',
     loadChildren: './settings/settings.module#SettingsPageModule'
-  },  
-  { path: 'login', 
-    loadChildren: './login/login.module#LoginPageModule' 
   },
-  { path: 'register',
-    loadChildren: './register/register.module#RegisterPageModule' 
+  {
+    path: 'login',
+    loadChildren: './login/login.module#LoginPageModule'
   },
-  { path: 'account',
+  {
+    path: 'register',
+    loadChildren: './register/register.module#RegisterPageModule'
+  },
+  {
+    path: 'account',
     loadChildren: './account/account.module#AccountPageModule'
+  },
+  {
+    path: 'recipepage',
+    loadChildren: './recipepage/recipepage.module#RecipePageModule'
   }
 
 

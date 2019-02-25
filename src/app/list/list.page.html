@@ -10,11 +10,9 @@
 </ion-header>
 
 <ion-content>
-
-<ion-list>
-      <ion-item>
-        <ion-label slot="start">Recipe #1</ion-label>
-        <ion-button fill="outline" slot="end">View</ion-button>
-      </ion-item>
+  <ion-list>
+    <ion-item [class.highlight]="item.selected" *ngFor="let item of items; let i = index" (click)=listItemTapped(i) >
+      {{item.title}}
+    </ion-item>
   </ion-list>
 </ion-content>
