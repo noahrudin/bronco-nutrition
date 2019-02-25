@@ -16,8 +16,12 @@ const routes: Routes = [
     loadChildren: './browse/browse.module#BrowsePageModule'
   },
   {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
+    path: 'about',
+    loadChildren: './about/about.module#AboutPageModule'
+  },
+  {
+    path: 'recipelist',
+    loadChildren: './recipelist/recipelist.module#RecipeListPageModule'
   },
   {
     path: 'resources',
@@ -38,10 +42,6 @@ const routes: Routes = [
   {
     path: 'account',
     loadChildren: './account/account.module#AccountPageModule'
-  },
-  {
-    path: 'recipepage',
-    loadChildren: './recipepage/recipepage.module#RecipePageModule'
   }
 
 

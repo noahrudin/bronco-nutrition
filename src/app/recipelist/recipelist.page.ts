@@ -6,10 +6,10 @@ import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-list',
-  templateUrl: 'list.page.html',
-  styleUrls: ['list.page.scss']
+  templateUrl: 'recipelist.page.html',
+  styleUrls: ['recipelist.page.scss']
 })
-export class ListPage implements OnInit {
+export class RecipeListPage implements OnInit {
   private selectedItem: any;
   private recipes: Array<Recipe>;
   public items: Array<{ title: string }> = [];
@@ -19,10 +19,12 @@ export class ListPage implements OnInit {
     // grab the recipes we got from firebase, and
     // put use their titles for the UI list.
     this.recipes = this.firebaseAuth.getRecipes;
-    for (let i = 1; i < 11; i++) {
+    var i = 1;
+    while(this.recipes[i]){ //check for valid element, live
       this.items.push({
         title: this.recipes[i].getRecipeTitle
       });
+      i++;
     }
   }
 
@@ -36,6 +38,6 @@ export class ListPage implements OnInit {
   // }
 
   listItemTapped(index: number) {
-    console.log('tapped item #' + index);
+    console.log('tapped item #' + (index + 1));
   }
 }

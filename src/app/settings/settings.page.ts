@@ -11,6 +11,7 @@ import { AlertController } from '@ionic/angular';
 })
 
 
+
 export class SettingsPage implements OnInit {
 
   constructor(private alertController: AlertController, 
@@ -23,6 +24,10 @@ export class SettingsPage implements OnInit {
 
   signoutButtonClick() {
     this.displaySignoutAlert();
+  }
+
+  aboutButtonClick(){
+    this.navCtrl.navigateForward('about');
   }
 
   ngOnInit() { }

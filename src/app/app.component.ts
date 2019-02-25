@@ -23,8 +23,8 @@ export class AppComponent {
       icon: 'search'
     },
     {
-      title: 'List',
-      url: '/list',
+      title: 'Recipe List',
+      url: '/recipelist',
       icon: 'list'
     },
     {
@@ -53,14 +53,14 @@ export class AppComponent {
       this.splashScreen.show();
 
       // check if the user is logged in and show login if needed.
-      //firebase.auth().onAuthStateChanged((user) => {
-        //if(user) {
+      firebase.auth().onAuthStateChanged((user) => {
+        if(user) {
           // user is logged in. skip to home page.
-          //this.navCtrl.navigateRoot(['/home']);
-        //}
+          this.navCtrl.navigateRoot(['/home']);
+        }
       });
-      //this.statusBar.styleDefault();
-      //this.splashScreen.hide();
-    //});
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    });
   }
 }
