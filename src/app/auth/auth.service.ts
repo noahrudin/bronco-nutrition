@@ -39,13 +39,15 @@ export const snapshotToRecipeArray = snapshot => {
 export class AuthService {
   private user: User;
   private recipes = [];
-  private ref = firebase.database().ref('recipeSheet/');
+    private ref = firebase.database().ref('recipeSheet/');
+    private username: string;
 
   constructor(public afAuth: AngularFireAuth, public router: Router, public navCtrl: NavController) {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.user = user;
-        localStorage.setItem('user', JSON.stringify(this.user));
+          localStorage.setItem('user', JSON.stringify(this.user));
+          this.username = localStorage.getItem(this.user.email);
         this.navCtrl.navigateRoot(['./home']);
       } else {
         localStorage.setItem('user', null);
@@ -93,22 +95,22 @@ export class AuthService {
       this.accountFirstLastName(firstname, lastname);
       
       this.router.navigate(['./login']);
+
 		}catch(e){
       alert("Error!"+e.message);
 		}
   }
+
 
   accountEmail(): string  {
     return  this.user.email ;
   }
 
   accountUserName(): string {
-    return this.user.displayName;
+    return this.username;
   }
 
-  accountFirstLastName(firstname: string, lastname: string): void {
-    this.user.displayName = firstname + lastname;
-  }
+  
 
   resetPassword(new_password: string, conf_password: string) {
     if (this.afAuth.auth.confirmPasswordReset(new_password, conf_password)) {
@@ -121,6 +123,11 @@ export class AuthService {
   confirm_Signup(email: string) {
     this.user.sendEmailVerification();
   }
+
+    accountFirstLastName(firstname: string, lastname: string): void {
+        this.username = firstname + lastname;
+    }
+
 
   get getRecipes(): Array<Recipe> {
     return this.recipes;
