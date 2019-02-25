@@ -11,7 +11,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items">
+    <ion-item [class.highlight]="item.selected" *ngFor="let item of items; let i = index" (click)=listItemTapped(i) >
       {{item.title}}
     </ion-item>
   </ion-list>

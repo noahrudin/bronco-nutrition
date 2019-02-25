@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Recipe } from '../Recipe';
+import { NavController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-list',
@@ -12,7 +14,8 @@ export class ListPage implements OnInit {
   private recipes: Array<Recipe>;
   public items: Array<{ title: string }> = [];
 
-  constructor(private firebaseAuth: AuthService) {
+  constructor(private firebaseAuth: AuthService,
+              private navCtrl: NavController) {
     // grab the recipes we got from firebase, and
     // put use their titles for the UI list.
     this.recipes = this.firebaseAuth.getRecipes;
@@ -32,4 +35,7 @@ export class ListPage implements OnInit {
   //   this.router.navigate(['/list', JSON.stringify(item)]);
   // }
 
+  listItemTapped(index: number) {
+    console.log('tapped item #' + index);
+  }
 }
