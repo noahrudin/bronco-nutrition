@@ -10,24 +10,29 @@ import { Action } from 'rxjs/internal/scheduler/Action';
   providedIn: 'root'
 })
 export class AuthService {
-	private user: User;
-  constructor(public afAuth: AngularFireAuth, public router: Router, public navCtrl: NavController) { 
-		this.afAuth.authState.subscribe(user => {
-			if(user) {
+    private user: User;
+    private username: string;
+    constructor(public afAuth: AngularFireAuth, public router: Router, public navCtrl: NavController) {
+      this.afAuth.authState.subscribe(user => {
+          if (user) {
 				this.user=user;
-                localStorage.setItem('user', JSON.stringify(this.user));
+              localStorage.setItem('user', JSON.stringify(this.user));
+              this.username = localStorage.getItem(this.user.email);
                 this.navCtrl.navigateRoot(['./home']);
 			}else{
 				localStorage.setItem('user',null);
 			}
-		})
+      })
+
+     
   
 	}
 	
 	async login(email: string, password: string){
         try {
-                firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-                await firebase.auth().signInWithEmailAndPassword(email,password);
+            
+            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+            await firebase.auth().signInWithEmailAndPassword(email, password);
      	        this.navCtrl.navigateRoot(['./home']); 
 		}
 		catch(error){
@@ -54,21 +59,28 @@ export class AuthService {
     }
 	}
 	
-	async signup(email: string, password: string){
+	async signup(firstname: string,lastname:string,email: string, password: string){
 		try{
             await this.afAuth.auth.createUserWithEmailAndPassword(email, password)
             this.confirm_Signup(email);
+            this.accountFirstLastName(firstname, lastname);
+            
             this.router.navigate(['./login']);
 		}catch(e){
 				alert("Error!"+e.message);
 		}
     }
-    accountUserName(): String {
-          return this.user.displayName;
+    accountUserName(): string {
+        localStorage.setItem(this.user.email, this.username);
+        return this.username;
+    }
+
+    accountEmail(): string  {
+        return  this.user.email ;
     }
 
     accountFirstLastName(firstname: string, lastname: string): void {
-        this.user.displayName = firstname + lastname;
+        this.username = firstname + lastname;
     }
 
     resetPassword(new_password: string, conf_password: string) {
