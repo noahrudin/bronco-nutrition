@@ -23,7 +23,7 @@
               </ion-item>
           </div>
           <div padding>
-            <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block" (click)="authService.signup(email.value,password.value)"(click)="authService.accountFirstLastName(firstname.value,lastname.value)">Sign Up</ion-button>
+            <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block" (click)="authService.signup(firstname.value,lastname.value,email.value,password.value)">Sign Up</ion-button>
           </div>
         </ion-col>
       </ion-row>

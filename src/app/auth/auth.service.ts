@@ -6,7 +6,6 @@ import { User } from 'firebase';
 import * as firebase from 'firebase';
 import { Recipe } from '../Recipe';
 
-
 const RECIPE_NAME_INDEX = 0;
 const NUM_SERVINGS_INDEX = 1;
 const MACROS_INDEX = 2;
@@ -85,15 +84,30 @@ export class AuthService {
     } else {
       return false;
     }
-  }
+	}
+	
+	async signup(firstname: string,lastname:string,email: string, password: string){
+		try{
+            await this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+            this.confirm_Signup(email);
+            this.accountFirstLastName(firstname, lastname);
+            
+            this.router.navigate(['./login']);
+		}catch(e){
+				alert("Error!"+e.message);
+		}
+    }
+    accountUserName(): string {
+        localStorage.setItem(this.user.email, this.username);
+        return this.username;
+    }
 
-  async signup(email: string, password: string) {
-    try {
-      await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
-      this.confirm_Signup(email);
-      this.router.navigate(['./login']);
-    } catch (e) {
-      alert('Error!' + e.message);
+    accountEmail(): string  {
+        return  this.user.email ;
+    }
+
+    accountFirstLastName(firstname: string, lastname: string): void {
+        this.username = firstname + lastname;
     }
   }
 
