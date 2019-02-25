@@ -88,30 +88,21 @@ export class AuthService {
 	
 	async signup(firstname: string,lastname:string,email: string, password: string){
 		try{
-            await this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-            this.confirm_Signup(email);
-            this.accountFirstLastName(firstname, lastname);
-            
-            this.router.navigate(['./login']);
+      await this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+      this.confirm_Signup(email);
+      this.accountFirstLastName(firstname, lastname);
+      
+      this.router.navigate(['./login']);
 		}catch(e){
-				alert("Error!"+e.message);
+      alert("Error!"+e.message);
 		}
-    }
-    accountUserName(): string {
-        localStorage.setItem(this.user.email, this.username);
-        return this.username;
-    }
-
-    accountEmail(): string  {
-        return  this.user.email ;
-    }
-
-    accountFirstLastName(firstname: string, lastname: string): void {
-        this.username = firstname + lastname;
-    }
   }
 
-  accountUserName(): String {
+  accountEmail(): string  {
+    return  this.user.email ;
+  }
+
+  accountUserName(): string {
     return this.user.displayName;
   }
 
