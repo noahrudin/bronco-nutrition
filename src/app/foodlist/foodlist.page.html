@@ -4,14 +4,14 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Recipe List
+      Food and Snack List
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item [class.highlight]="item.selected" *ngFor="let item of items; let i = index" (click)=listItemClick(i) detail >
+    <ion-item [class.highlight]="item.selected" *ngFor="let item of items; let i = index">
       {{item.title}}
     </ion-item>
   </ion-list>

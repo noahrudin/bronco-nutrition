@@ -16,7 +16,7 @@ export class HomePage {
   }
 
   ListButtonClick() {
-    this.navCtrl.navigateForward('list');
+    this.navCtrl.navigateForward('recipelist');
   }
 
   ResourcesButtonClick() {

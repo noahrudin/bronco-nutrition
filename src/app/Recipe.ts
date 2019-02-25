@@ -1,8 +1,8 @@
-enum Macro { Carbohydrates, Protein, Fiber}
+enum Macro { Carbohydrates, Protein, Fat}
 
 const CARBS_STR = 'C';
 const PROTEIN_STR = 'P';
-const FIBER_STR = 'F';
+const FAT_STR = 'F';
 
 export class Recipe {
   constructor(private title: string, private numServings: number, private macros: Macro[],
@@ -49,7 +49,7 @@ export class Recipe {
     }
 
     if (macros.indexOf('F') !== -1) {
-      returnArray.push(Macro.Fiber);
+      returnArray.push(Macro.Fat);
     }
 
     return returnArray;

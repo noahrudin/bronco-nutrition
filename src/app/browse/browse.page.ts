@@ -14,4 +14,8 @@ export class BrowsePage{
       this.navCtrl.navigateForward('recipelist');
     }
 
+    foodButtonClick() {
+      this.navCtrl.navigateForward('foodlist');
+    }
+
 }

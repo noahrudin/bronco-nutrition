@@ -6,10 +6,10 @@ import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-list',
-  templateUrl: 'recipelist.page.html',
-  styleUrls: ['recipelist.page.scss']
+  templateUrl: 'foodlist.page.html',
+  styleUrls: ['foodlist.page.scss']
 })
-export class RecipeListPage implements OnInit {
+export class FoodListPage implements OnInit {
   private selectedItem: any;
   private recipes: Array<Recipe>;
   public items: Array<{ title: string }> = [];
@@ -37,8 +37,4 @@ export class RecipeListPage implements OnInit {
   //   this.router.navigate(['/list', JSON.stringify(item)]);
   // }
 
-  listItemClick(index: number) {
-    //console.log('tapped item #' + (index + 1));
-    this.navCtrl.navigateForward('recipedetails');
-  }
 }

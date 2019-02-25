@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Recipe } from '../Recipe';
 import { NavController } from '@ionic/angular';
 
-
 @Component({
-  selector: 'app-list',
-  templateUrl: 'recipelist.page.html',
-  styleUrls: ['recipelist.page.scss']
+  selector: 'app-home',
+  templateUrl: 'recipedetails.page.html',
+  styleUrls: ['recipedetails.page.scss'],
 })
-export class RecipeListPage implements OnInit {
+export class RecipeDetailsPage{
   private selectedItem: any;
   private recipes: Array<Recipe>;
   public items: Array<{ title: string }> = [];
@@ -37,8 +36,4 @@ export class RecipeListPage implements OnInit {
   //   this.router.navigate(['/list', JSON.stringify(item)]);
   // }
 
-  listItemClick(index: number) {
-    //console.log('tapped item #' + (index + 1));
-    this.navCtrl.navigateForward('recipedetails');
-  }
 }
