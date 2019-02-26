@@ -10,7 +10,12 @@
 </ion-header>
 
 <ion-content>
-    <ion-searchbar animated debounce="500" placeholder="Search Here" ></ion-searchbar>
+    <ion-searchbar animated debounce="500" placeholder="Search Here" name= "search"(ionInput)="getRecipes($event)" ></ion-searchbar>
+    <ion-list>
+        <ion-item *ngFor="let recipe of recipeList">
+        {{recipe}}
+        </ion-item>
+    </ion-list>
 
     <ion-card>
         <ion-item>
