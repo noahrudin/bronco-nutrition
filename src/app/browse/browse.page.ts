@@ -14,16 +14,7 @@ export class BrowsePage{
     public recipeList: Array<any>;
   constructor( 
       private navCtrl: NavController) {
-      console.log(this.recipedb.startAt(0));
-      this.recipedb.on('value', recipeList => {
-          let recipes = [];
-          recipeList.forEach(recipe => {
-              recipes.push(recipe.val());
-              return false;
-          });
-          this.recipeList = recipes;
-          this.loadedRecipeList = recipes;
-      });
+      
 
   }
 
@@ -34,16 +25,35 @@ export class BrowsePage{
     foodButtonClick() {
       this.navCtrl.navigateForward('foodlist');
     }
+    drawRecipes(search){
+        console.log(this.recipedb.startAt(0));
+        this.recipedb.on('value', recipeList => {
+            let recipes = [];
+            if(search != "empty"){
+            recipeList.forEach(recipe => {
+                recipes.push(recipe.val());
+                return false;
+            });
+        }
+            this.recipeList = recipes;
+            this.loadedRecipeList = recipes;
+        });
+    
+    }
     initializeRecipes() {
-        this.recipeList = this.loadedRecipeList;
+            this.recipeList = this.loadedRecipeList;
     }
 
     getRecipes(searchbar: any) {
-        this.initializeRecipes();
+        
         var search = searchbar.srcElement.value;
+        this.initializeRecipes();
         if (!search) {
+        this.drawRecipes("empty");
             return ;
         }
+        this.drawRecipes(search);
+        
         this.recipeList = this.recipeList.filter((val) => {
             if (val && search) {
                 if ((val[0].indexOf(search)>-1)||(val[0].toLowerCase().indexOf(search)>-1)) {
