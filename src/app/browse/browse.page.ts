@@ -46,7 +46,7 @@ export class BrowsePage{
         }
         this.recipeList = this.recipeList.filter((val) => {
             if (val && search) {
-                if (val[0].indexOf(search)>-1) {
+                if ((val[0].indexOf(search)>-1)||(val[0].toLowerCase().indexOf(search)>-1)) {
                   
                     return true;
                 }
