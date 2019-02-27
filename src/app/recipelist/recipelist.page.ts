@@ -10,7 +10,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['recipelist.page.scss']
 })
 export class RecipeListPage implements OnInit {
-  private selectedItem: any;
+  private static selectedRecipe: Recipe;
   private recipes: Array<Recipe>;
   public items: Array<{ title: string }> = [];
 
@@ -19,17 +19,19 @@ export class RecipeListPage implements OnInit {
     // grab the recipes we got from firebase, and
     // put use their titles for the UI list.
     this.recipes = this.firebaseAuth.getRecipes;
-    var i = 1;
-    while(this.recipes[i]){ //check for valid element, live
+    for(let i = 1; i < this.recipes.length; i++){
       this.items.push({
         title: this.recipes[i].getRecipeTitle
       });
-      i++;
     }
   }
 
   ngOnInit() {
 
+  }
+
+  static get getSelectedRecipe() {
+    return RecipeListPage.selectedRecipe;
   }
 
   // add back when alpha.4 is out
@@ -39,6 +41,7 @@ export class RecipeListPage implements OnInit {
 
   listItemClick(index: number) {
     //console.log('tapped item #' + (index + 1));
+    RecipeListPage.selectedRecipe = this.recipes[index + 1];
     this.navCtrl.navigateForward('recipedetails');
   }
 }

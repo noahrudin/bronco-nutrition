@@ -4,35 +4,63 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Recipe Name + Macro Icon
+      {{recipeTitle}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-label>
-      Serving Size
-      </ion-label>
-    </ion-item>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Serving Size</ion-card-subtitle>
+      <ion-card-title>{{servingSize}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
 
-    <ion-item>
-      <ion-label>
-      Cook Time
-      </ion-label>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label text-wrap>
-      Ingredients.
-      </ion-label>
-    </ion-item>  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Prep Time</ion-card-subtitle>
+      <ion-card-title>{{prepTime}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
 
-    <ion-item>
-      <ion-label text-wrap>
-      Steps.
-      </ion-label>
-    </ion-item> 
-  </ion-list>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Ingredients</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let ingredient of ingredients;">
+          {{ingredient.name}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+ <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Steps</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let step of steps;">
+          {{step.str}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+ <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Macros</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          {{macroString}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

@@ -1,12 +1,13 @@
-enum Macro { Carbohydrates, Protein, Fat}
+export enum Macro { Carbohydrates, Protein, Fat}
 
 const CARBS_STR = 'C';
 const PROTEIN_STR = 'P';
 const FAT_STR = 'F';
 
 export class Recipe {
+
   constructor(private title: string, private numServings: number, private macros: Macro[],
-              private prepTime: number, private ingredients: string[], private steps: string[]) { }
+              private prepTime: string, private ingredients: string[], private steps: string[]) { }
 
   get getRecipeTitle() {
     return this.title;
@@ -55,7 +56,18 @@ export class Recipe {
     return returnArray;
   }
 
-  static parsePrepTime(time: string): number {
-    return Number(time);
+  static parseSteps(stepsStr: string): string[] {
+     let steps = stepsStr.split("\n");
+     let regex = /\d. /;
+
+     for(let i = 0; i < steps.length; i++) {
+       steps[i] = steps[i].replace(regex, "");
+     }
+
+     return steps;
+  }
+
+  static parseIngredients(ingredientsStr: string): string[] {
+    return ingredientsStr.split(", ");
   }
 }
