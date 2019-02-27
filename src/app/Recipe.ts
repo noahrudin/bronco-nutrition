@@ -68,6 +68,6 @@ export class Recipe {
   }
 
   static parseIngredients(ingredientsStr: string): string[] {
-    return ingredientsStr.split(", ");
+    return ingredientsStr.split("\n");
   }
 }

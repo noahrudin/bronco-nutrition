@@ -52,11 +52,11 @@ export class RecipeDetailsPage{
 
   stringifyMacro(macro: Macro): string{
     if (macro === Macro.Carbohydrates) {
-      return 'C';
+      return 'Carbohydrates';
     } else if (macro === Macro.Fat) {
-      return 'F';
+      return 'Fats';
     } else {
-      return 'P';
+      return 'Protein';
     }
   }
 

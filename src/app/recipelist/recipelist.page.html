@@ -10,9 +10,10 @@
 </ion-header>
 
 <ion-content>
+  <ion-card>
   <ion-list>
     <ion-item [class.highlight]="item.selected" *ngFor="let item of items; let i = index" (click)=listItemClick(i) detail >
       {{item.title}}
     </ion-item>
-  </ion-list>
+  </ion-list></ion-card>
 </ion-content>
