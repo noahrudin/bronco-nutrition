@@ -1,32 +1,76 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Recipe } from '../Recipe';
+import { Macro } from '../Recipe'
 import { NavController } from '@ionic/angular';
+import { RecipeListPage } from '../recipelist/recipelist.page'
 
 @Component({
   selector: 'app-home',
   templateUrl: 'recipedetails.page.html',
   styleUrls: ['recipedetails.page.scss'],
 })
-export class RecipeDetailsPage{
-  private selectedItem: any;
-  private recipes: Array<Recipe>;
-  public items: Array<{ title: string }> = [];
 
-  constructor(private firebaseAuth: AuthService,
-              private navCtrl: NavController) {
-    // grab the recipes we got from firebase, and
-    // put use their titles for the UI list.
-    this.recipes = this.firebaseAuth.getRecipes;
-    var i = 1;
-    while(this.recipes[i]){ //check for valid element, live
-      this.items.push({
-        title: this.recipes[i].getRecipeTitle
+export class RecipeDetailsPage{
+  private recipeToDisplay: Recipe;
+  public recipeTitle: string;
+  public servingSize: string;
+  public prepTime: string;
+  public macros: Macro[];
+  public macroString: string;
+  public ingredients: Array <{ name: string }> = [];
+  public steps: Array<{ str: string }> = [];
+
+  constructor(private navCtrl: NavController) {
+    this.recipeToDisplay = RecipeListPage.getSelectedRecipe;
+    this.recipeTitle = this.recipeToDisplay.getRecipeTitle;
+    this.servingSize = this.recipeToDisplay.getNumServings.toString();
+    this.prepTime = this.recipeToDisplay.getPrepTime;
+    this.macros = this.recipeToDisplay.getMacros;
+     
+    // populate lists of ingredients and steps
+    this.setupIngredientsList();
+    this.setupStepsList();
+    this.macroString = this.getMacroString();
+  }
+
+  setupIngredientsList() {
+    for(let i = 0; i < this.recipeToDisplay.getIngredients.length; i++) {
+      this.ingredients.push({
+        name: this.recipeToDisplay.getIngredients[i]
       });
-      i++;
     }
   }
 
+  setupStepsList() {
+    for(let i = 0; i < this.recipeToDisplay.getSteps.length; i++) {
+      this.steps.push({
+        str: this.recipeToDisplay.getSteps[i]
+      });
+    }
+  }
+
+  stringifyMacro(macro: Macro): string{
+    if (macro === Macro.Carbohydrates) {
+      return 'C';
+    } else if (macro === Macro.Fat) {
+      return 'F';
+    } else {
+      return 'P';
+    }
+  }
+
+  getMacroString(): string {
+    let macroString: string = '';
+    for (let i = 0; i < this.macros.length; i++) {
+      macroString += this.stringifyMacro(this.macros[i]);
+      if(i < this.macros.length - 1) {
+        macroString += ', '
+      }
+    }
+    return macroString;
+  }
+   
   ngOnInit() {
 
   }

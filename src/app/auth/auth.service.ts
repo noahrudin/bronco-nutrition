@@ -21,11 +21,13 @@ export const snapshotToRecipeArray = snapshot => {
       const title = item[RECIPE_NAME_INDEX];
       const numServings = Recipe.parseNumServings(item[NUM_SERVINGS_INDEX]);
       const macros = Recipe.parseMacros(item[MACROS_INDEX]);
-      const prepTime = Recipe.parsePrepTime(item[PREP_TIME_INDEX]);
+      const prepTime = item[PREP_TIME_INDEX];
+      const ingredients = Recipe.parseIngredients(item[INGREDIENTS_INDEX]);
+      const steps = Recipe.parseSteps(item[STEPS_INDEX]);
 
       const newRecipe = new Recipe(title, numServings, macros,
-                                  prepTime, item[INGREDIENTS_INDEX],
-                                  item[STEPS_INDEX]);
+                                  prepTime, ingredients,
+                                  steps);
       returnArr.push(newRecipe);
   });
 
