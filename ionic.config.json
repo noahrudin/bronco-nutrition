@@ -1,5 +1,7 @@
 {
   "name": "nutrition-sidemenu",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
