@@ -10,6 +10,7 @@
 </ion-header>
 
 <ion-content>
+<<<<<<< HEAD
           <ion-button fill = "outline" expand="block" lines = "none" (click)=foodListClick() detail>
             Browse a la Carte Food Items
           </ion-button>
@@ -22,6 +23,31 @@
       </ion-card>
     </ion-list>
 
+=======
+        <slide-recipes>
+            Recipes
+        </slide-recipes>
+    <ion-card>
+        <ion-item>
+          <ion-icon name="list-box" slot="start"></ion-icon>
+          <ion-label>Browse Recipes</ion-label>
+          <ion-button (click)="recipeButtonClick()" fill="outline" slot="end">Go</ion-button>
+        </ion-item>
+        <ion-card-content>
+          Find a Meal on our Nutritionist-Approved Database!
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+          <ion-item>
+            <ion-icon name="pizza" slot="start"></ion-icon>
+            <ion-label>Browse Food/Snack Items</ion-label>
+            <ion-button (click)="foodButtonClick()" fill="outline" slot="end">Go</ion-button>
+          </ion-item>
+          <ion-card-content>
+            Find Individual Food Items a la Carte!
+          </ion-card-content>
+        </ion-card>
+>>>>>>> pulling master
 </ion-content>
 
 
