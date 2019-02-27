@@ -6,7 +6,7 @@ const FAT_STR = 'F';
 
 export class Recipe {
 
-  constructor(private title: string, private numServings: number, private macros: Macro[],
+  constructor(private title: string, private numServings: string, private macros: Macro[],
               private prepTime: string, private ingredients: string[], private steps: string[]) { }
 
   get getRecipeTitle() {
@@ -33,8 +33,8 @@ export class Recipe {
     return this.steps;
   }
 
-  static parseNumServings(servings: string): number {
-    return Number(servings);
+  static parseNumServings(servings: string): string {
+    return servings;
   }
 
   // parse out the 3 basic nutrition macros from

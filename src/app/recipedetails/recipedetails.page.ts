@@ -24,7 +24,7 @@ export class RecipeDetailsPage{
   constructor(private navCtrl: NavController) {
     this.recipeToDisplay = RecipeListPage.getSelectedRecipe;
     this.recipeTitle = this.recipeToDisplay.getRecipeTitle;
-    this.servingSize = this.recipeToDisplay.getNumServings.toString();
+    this.servingSize = this.recipeToDisplay.getNumServings;
     this.prepTime = this.recipeToDisplay.getPrepTime;
     this.macros = this.recipeToDisplay.getMacros;
      
