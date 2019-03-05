@@ -24,13 +24,13 @@ export class RecipeListPage implements OnInit {
         title: this.recipes[i].getRecipeTitle
       });
     }
-  }
-
+    }
+    
   ngOnInit() {
 
   }
 
-  static get getSelectedRecipe() {
+ static get getSelectedRecipe() {
     return RecipeListPage.selectedRecipe;
   }
 

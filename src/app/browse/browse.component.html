@@ -3,27 +3,22 @@
 <ion-list>
     <ion-item *ngFor="let recipe of recipeList">
     
-
-<ion-slides pager="true" [options]="slideOpts">
-    <ion-slide>
-        {{recipe}}
-    </ion-slide>
-    <ion-slide>
-        <ion-card>
-            
-        </ion-card>
-    </ion-slide>
-    <ion-slide>
-        <ion-card >
-            
-        </ion-card>
-    </ion-slide>
-    <ion-slide>
-        <ion-card >
-            
-        </ion-card>
-    </ion-slide>
-    </ion-slides>
+       
+        <ion-slides pager="false" [options]="slideOpts" (click)="GotoRecipeDetails()">
+            <ion-slide>
+                {{recipe[0]}}   
+            </ion-slide>
+            <ion-slide>
+                {{recipe[1]}}   
+            </ion-slide>
+            <ion-slide>
+                {{recipe[3]}}   
+            </ion-slide>
+                <ion-slide>
+                {{recipe[2]}}   
+            </ion-slide>
+        </ion-slides>
+        
     </ion-item>
     </ion-list>
  </ion-content>

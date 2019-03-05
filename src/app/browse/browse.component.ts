@@ -1,6 +1,12 @@
 import { Component, Input,OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import * as firebase from 'firebase';
+import { Recipe } from '../Recipe';
+import { AuthService } from '../auth/auth.service';
+
+
+
+
 
 @Component({
     selector: 'slide-recipes',
@@ -9,66 +15,77 @@ import * as firebase from 'firebase';
 })
 export class BrowseComponent implements OnInit { 
 
-    private recipedb: firebase.database.Reference = firebase.database().ref('masterSheet/');
-    private fooddb: firebase.database.Reference = firebase.database().ref('foodSheet/');
-    public loadedRecipeList: Array<any>;
+    private recipedb: firebase.database.Reference = firebase.database().ref('recipeSheet/');
+    public loadedRecipeList: Array<any>
     public componentRecipe: any;
     public recipeList: Array<any>;
-    private recipe: any;
-
+    
+   
     slideOpts = {
         effect: 'flip'
     }
 
-    constructor() {
-
-     
+    constructor(private afAuth: AuthService,private nav: NavController) {
+       
     }
+    
+       
 
+    
 
 
     drawRecipes(search) {
-        console.log(this.recipedb.startAt(0));
+        let recipes:Array<Recipe> = [];
         this.recipedb.on('value', recipeList => {
-            let recipes = [];
             if (search != "empty") {
-                recipeList.forEach(recipe => {
-                    recipes.push(recipe.val());
-                    return false;
-                });
+                recipeList.forEach(recipe =>{ 
+                recipes.push(recipe.val());
+                return false;
+            });
             }
+});
+                 console.log(recipes)
+           
             this.recipeList = recipes;
+
             this.loadedRecipeList = recipes;
-        });
+       
 
     }
     initializeRecipes() {
         this.recipeList = this.loadedRecipeList;
+        
     }
 
     getRecipes(searchbar: any) {
 
-        var search = searchbar.srcElement.value;
+        var search:Recipe = searchbar.srcElement.value;
+
         this.initializeRecipes();
         if (!search) {
             this.drawRecipes("empty");
             return;
         }
         this.drawRecipes(search);
-
         this.recipeList = this.recipeList.filter((val) => {
+            console.log(val[0]);
             if (val && search) {
                 if ((val[0].indexOf(search) > -1) || (val[0].toLowerCase().indexOf(search) > -1)) {
-                    this.componentRecipe = search;
+
+           
                     return true;
                 }
                 return false;
             }
 
         })
-
+       
     }
 
+    GotoRecipeDetails() {
+        this.nav.navigateForward('recipedetails');
+        
+    }
 
   ngOnInit() {
   }
