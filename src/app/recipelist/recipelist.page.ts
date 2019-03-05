@@ -40,7 +40,6 @@ export class RecipeListPage implements OnInit {
   // }
 
   listItemClick(index: number) {
-    //console.log('tapped item #' + (index + 1));
     RecipeListPage.selectedRecipe = this.recipes[index + 1];
     this.navCtrl.navigateForward('recipedetails');
   }
