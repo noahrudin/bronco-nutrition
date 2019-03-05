@@ -28,10 +28,6 @@ const routes: Routes = [
     loadChildren: './recipedetails/recipedetails.module#RecipeDetailsPageModule'
   },
   {
-    path: 'resourcesdetails',
-    loadChildren: './resourcesdetails/resourcesdetails.module#ResourcesDetailsPageModule'
-  },
-  {
     path: 'recipelist',
     loadChildren: './recipelist/recipelist.module#RecipeListPageModule'
   },
