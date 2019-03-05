@@ -4,6 +4,7 @@ import { Recipe } from '../Recipe';
 import { Macro } from '../Recipe'
 import { NavController } from '@ionic/angular';
 import { RecipeListPage } from '../recipelist/recipelist.page'
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,8 @@ export class RecipeDetailsPage{
   public ingredients: Array <{ name: string }> = [];
   public steps: Array<{ str: string }> = [];
 
-  constructor(private navCtrl: NavController) {
+  constructor(private navCtrl: NavController, 
+              public toastController: ToastController) {
     this.recipeToDisplay = RecipeListPage.getSelectedRecipe;
     this.recipeTitle = this.recipeToDisplay.getRecipeTitle;
     this.servingSize = this.recipeToDisplay.getNumServings;
@@ -32,6 +34,25 @@ export class RecipeDetailsPage{
     this.setupIngredientsList();
     this.setupStepsList();
     this.macroString = this.getMacroString();
+  }
+
+
+  bookmarkClick(){
+    console.log("button clicked");
+    this.presentToast();
+    this.bookmarkRecipe();
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Recipe Bookmarked',
+      duration: 1500
+    });
+    toast.present();
+  }
+
+  bookmarkRecipe(){
+    //skeleton to be filled in by Austin/Tony
   }
 
   setupIngredientsList() {
