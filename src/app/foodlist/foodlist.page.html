@@ -6,13 +6,19 @@
     <ion-title>
       Food and Snack List
     </ion-title>
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-card-content>Take a look at approved grazing items!
+      </ion-card-content></ion-card>
+  <ion-card>
   <ion-list>
     <ion-item [class.highlight]="item.selected" *ngFor="let item of items; let i = index">
       {{item.title}}
+      <ion-label item-right text-right>Macro</ion-label>
     </ion-item>
-  </ion-list>
+  </ion-list></ion-card>
 </ion-content>
