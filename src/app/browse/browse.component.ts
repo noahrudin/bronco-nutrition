@@ -81,11 +81,13 @@ export class BrowseComponent implements OnInit {
         })
        
     }
+//Austin, can you have this act like the selecting 
+  //list component in recipelist.page.ts?
+  listItemClick(index: number) {
+    //RecipeListPage.selectedRecipe = this.recipes[index + 1];
+    this.nav.navigateForward('recipedetails');
+  }
 
-    GotoRecipeDetails() {
-        this.nav.navigateForward('recipedetails');
-        
-    }
 
   ngOnInit() {
   }

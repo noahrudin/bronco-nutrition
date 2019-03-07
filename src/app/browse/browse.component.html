@@ -1,24 +1,24 @@
 <ion-content>
-<ion-searchbar animated debounce="500" placeholder="Search Here" name="search" (ionInput)="getRecipes($event)"></ion-searchbar>
-<ion-list>
-    <ion-item *ngFor="let recipe of recipeList">
-    
-       
-        <ion-slides pager="false" [options]="slideOpts" (click)="GotoRecipeDetails()">
-            <ion-slide>
-                {{recipe[0]}}   
-            </ion-slide>
-            <ion-slide>
-                {{recipe[1]}}   
-            </ion-slide>
-            <ion-slide>
-                {{recipe[3]}}   
-            </ion-slide>
+    <ion-searchbar animated debounce="500" placeholder="Search Here" name="search" (ionInput)="getRecipes($event)"></ion-searchbar>
+    <ion-list>
+        <ion-item *ngFor="let recipe of recipeList" (click)=listItemClick(i)>
+
+
+            <ion-slides pager="false" [options]="slideOpts" (click)="GotoRecipeDetails()">
                 <ion-slide>
-                {{recipe[2]}}   
-            </ion-slide>
-        </ion-slides>
-        
-    </ion-item>
+                    {{recipe[0]}}
+                </ion-slide>
+                <ion-slide>
+                    {{recipe[1]}}
+                </ion-slide>
+                <ion-slide>
+                    {{recipe[3]}}
+                </ion-slide>
+                <ion-slide>
+                    {{recipe[2]}}
+                </ion-slide>
+            </ion-slides>
+
+        </ion-item>
     </ion-list>
- </ion-content>
+</ion-content>
