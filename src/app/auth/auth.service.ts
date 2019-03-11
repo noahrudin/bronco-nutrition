@@ -44,8 +44,9 @@ export class AuthService {
     private ref = firebase.database().ref('recipeSheet/');
     private username: string;
 
-  constructor(public afAuth: AngularFireAuth, public router: Router, public navCtrl: NavController) {
-    this.afAuth.authState.subscribe(user => {
+  constructor(public afAuth: AngularFireAuth, public router: Router, 
+    public navCtrl: NavController) {
+      this.afAuth.authState.subscribe(user => {
       if (user) {
         this.user = user;
           localStorage.setItem('user', JSON.stringify(this.user));
