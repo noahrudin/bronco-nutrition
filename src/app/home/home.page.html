@@ -27,10 +27,15 @@
                 <ion-card>
                     <ion-button expand="block" justify-content-center fill="outline" (click)=SearchButtonClick()>
                         <ion-icon slot="start" name="search"></ion-icon>Browse Recipes and Snacks</ion-button>
+
                 </ion-card>
+
                 <ion-card>
-                    <ion-button expand="block" justify-content-center fill="outline" (click)=ListButtonClick()>
+                    <ion-button expand="block" justify-content-center fill="outline" (click)="ngOnInit()">
                         <ion-icon slot="start" name="list"></ion-icon>View Bookmarked Recipes</ion-button>
+                    <ion-item *ngFor="let recipe of fav_recipes">
+                        {{recipe[0]}}
+                    </ion-item>
                 </ion-card>
                 <ion-card>
                     <ion-button expand="block" justify-content-center fill="outline" (click)=ResourcesButtonClick()>

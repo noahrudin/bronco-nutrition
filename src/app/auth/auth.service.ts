@@ -39,7 +39,7 @@ export const snapshotToRecipeArray = snapshot => {
 })
 
 export class AuthService {
-  private user: User;
+  public user: User;
   private recipes = [];
     private ref = firebase.database().ref('recipeSheet/');
     private username: string;

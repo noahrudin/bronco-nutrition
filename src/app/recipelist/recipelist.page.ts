@@ -10,7 +10,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['recipelist.page.scss']
 })
 export class RecipeListPage implements OnInit {
-  private static selectedRecipe: Recipe;
+  public static selectedRecipe: Recipe;
   private recipes: Array<Recipe>;
   public items: Array<{ title: string }> = [];
 
@@ -30,7 +30,7 @@ export class RecipeListPage implements OnInit {
 
   }
 
- static get getSelectedRecipe() {
+ public static get getSelectedRecipe() {
     return RecipeListPage.selectedRecipe;
   }
 

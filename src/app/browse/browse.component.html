@@ -1,10 +1,12 @@
 <ion-content>
     <ion-searchbar animated debounce="500" placeholder="Search Here" name="search" (ionInput)="getRecipes($event)"></ion-searchbar>
     <ion-list>
-        <ion-item *ngFor="let recipe of recipeList" (click)=listItemClick(i)>
-
-
-            <ion-slides pager="false" [options]="slideOpts" (click)="GotoRecipeDetails()">
+        <ion-item *ngFor="let recipe of recipeList; let i of index" (click)=listItemClick(i)>
+            <ion-slides pager="false" [options]="slideOpts">
+                <ion-slide>
+                    <ion-checkbox (click)=bookMark_Recipe(recipe) [(ngModel)]="recipe.isChecked">
+                    </ion-checkbox>
+                </ion-slide>
                 <ion-slide>
                     {{recipe[0]}}
                 </ion-slide>
@@ -18,7 +20,9 @@
                     {{recipe[2]}}
                 </ion-slide>
             </ion-slides>
-
         </ion-item>
+        <ion-button (click)=save_BookedMarkedRecipes()>
+            SAVE
+        </ion-button>
     </ion-list>
 </ion-content>

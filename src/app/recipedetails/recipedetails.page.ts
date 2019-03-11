@@ -22,8 +22,7 @@ export class RecipeDetailsPage{
   public ingredients: Array <{ name: string }> = [];
   public steps: Array<{ str: string }> = [];
 
-  constructor(private navCtrl: NavController, 
-              public toastController: ToastController) {
+  constructor(private navCtrl: NavController,private toastController:ToastController) {
     this.recipeToDisplay = RecipeListPage.getSelectedRecipe;
     this.recipeTitle = this.recipeToDisplay.getRecipeTitle;
     this.servingSize = this.recipeToDisplay.getNumServings;
@@ -38,7 +37,6 @@ export class RecipeDetailsPage{
 
 
   bookmarkClick(){
-    console.log("button clicked");
     this.presentToast();
     this.bookmarkRecipe();
   }
