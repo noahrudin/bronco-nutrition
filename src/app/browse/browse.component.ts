@@ -7,7 +7,6 @@ import {RecipeDetailsPage} from '../recipedetails/recipedetails.page';
 import {ToastController,Platform} from '@ionic/angular';
 import {RecipeListPage} from '../recipelist/recipelist.page';
 import {NativeStorage} from '@ionic-native/native-storage/ngx';
-
 @Component({
     selector: 'slide-recipes',
     templateUrl: './browse.component.html',
@@ -115,7 +114,7 @@ export class BrowseComponent implements OnInit {
     }
 
     save_BookedMarkedRecipes(){
-        localStorage.setItem('favorites',JSON.stringify(this.fav_Recipes));
-        console.log(localStorage.getItem(this.afAuth.user.email));
+        localStorage.setItem(this.afAuth.user.email,JSON.stringify(this.fav_Recipes));
+        console.log(this.afAuth.user.email);
     }
 }

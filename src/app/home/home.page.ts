@@ -4,7 +4,6 @@ import { NavController } from '@ionic/angular';
 import {NetworkService,ConnectionStatus} from '../services/network.service';
 import {Network} from '@ionic-native/network';
 import {ToastController, Platform} from '@ionic/angular';
-import { User } from 'firebase';
 import {NativeStorage} from '@ionic-native/native-storage/ngx';
 import {AuthService} from '../auth/auth.service';
 
@@ -18,10 +17,9 @@ import {AuthService} from '../auth/auth.service';
 export class HomePage {
   private recipes: any;
   private fav_recipes: Array<any>=[];
-  private user:User;
   private native:NativeStorage=new NativeStorage();
   constructor(public menuCtrl: MenuController, private navCtrl: NavController,private afAuth:AuthService) {
-      this.user=afAuth.user;
+     
   }
   
   SearchButtonClick() {
@@ -41,7 +39,7 @@ export class HomePage {
   }
 
   ngOnInit() {
-   this.recipes=localStorage.getItem('favorites');
+   this.recipes=localStorage.getItem(this.afAuth.user.email);
    if(this.recipes){
      this.fav_recipes=JSON.parse(this.recipes);
    }
