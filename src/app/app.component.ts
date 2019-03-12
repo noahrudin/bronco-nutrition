@@ -5,12 +5,18 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { NavController } from '@ionic/angular';
 import * as firebase from 'firebase/app';
+import { NetworkService, ConnectionStatus } from './services/network.service';
+import { OfflineManagerService } from './services/offline-manager.service';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+  private net_color_status: string = 'yellow';
+public net_title:string = 'Idle';
+
   public appPages = [
     {
       title: 'Home',
@@ -44,6 +50,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private navCtrl: NavController,
+    private networkService: NetworkService,
+    private offlineManager: OfflineManagerService
   ) {
     this.initializeApp();
   }
@@ -51,7 +59,16 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.splashScreen.show();
-
+      this.networkService.onNetworkChange().subscribe((status: ConnectionStatus) => {
+          if (status === ConnectionStatus.Online) {
+            this.net_title ='Online';
+            this.net_color_status='success';
+            this.offlineManager.checkForEvents().subscribe();
+          }else if(status === ConnectionStatus.Offline){
+            this.net_color_status='danger';
+            this.net_title ='Offline';
+          }
+      });
       // check if the user is logged in and show login if needed.
       firebase.auth().onAuthStateChanged((user) => {
         if(user) {
