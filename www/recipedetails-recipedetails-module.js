@@ -61,7 +61,7 @@ var RecipeDetailsPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n          <ion-back-button></ion-back-button>\r\n        </ion-buttons>\r\n        <ion-title>Details</ion-title>\r\n        <ion-buttons slot=\"primary\">\r\n            <ion-button fill=\"outline\" (click)=\"bookmarkClick()\"><ion-icon name=\"bookmark\"></ion-icon></ion-button>\r\n          </ion-buttons>\r\n      </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n\r\n<ion-content>\r\n\r\n  <ion-card>\r\n  <ion-card-header>\r\n      <ion-card-title>{{recipeTitle}}</ion-card-title>\r\n      {{macroString}}\r\n  </ion-card-header>\r\n</ion-card>\r\n\r\n  <ion-card>\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Serving Size (People)</ion-card-subtitle>\r\n      <ion-card-title>{{servingSize}}</ion-card-title>\r\n    </ion-card-header>\r\n  </ion-card>\r\n\r\n  <ion-card>\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Prep Time</ion-card-subtitle>\r\n      <ion-card-title>{{prepTime}}</ion-card-title>\r\n    </ion-card-header>\r\n  </ion-card>\r\n\r\n  <ion-card>\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Ingredients</ion-card-subtitle>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      <ion-list>\r\n        <ion-item *ngFor=\"let ingredient of ingredients;\">\r\n          <ion-label text-wrap>{{ingredient.name}}</ion-label>\r\n          <ion-checkbox slot=\"end\" [(ngModel)]=\"ingredient.isChecked\"></ion-checkbox>\r\n        </ion-item>\r\n      </ion-list>\r\n    </ion-card-content>\r\n  </ion-card>\r\n\r\n <ion-card>\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Steps</ion-card-subtitle>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      <ion-list>\r\n        <ion-item *ngFor=\"let step of steps;\">\r\n          {{step.str}}\r\n        </ion-item>\r\n      </ion-list>\r\n    </ion-card-content>\r\n  </ion-card>\r\n\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n          <ion-back-button></ion-back-button>\n        </ion-buttons>\n        <ion-title>Details</ion-title>\n        <ion-buttons slot=\"primary\">\n            <ion-button fill='outline' (click)=\"bookmarkClick()\" [ngClass]=\"{'activated' : isBookmarked }\"><ion-icon name=\"bookmark\"></ion-icon></ion-button>\n          </ion-buttons>\n      </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-card>\n  <ion-card-header>\n      <ion-card-title>{{recipeTitle}}</ion-card-title>\n      {{macroString}}\n  </ion-card-header>\n</ion-card>\n\n  <ion-card>\n    <ion-card-header>\n      <ion-card-subtitle>Serving Size (People)</ion-card-subtitle>\n      <ion-card-title>{{servingSize}}</ion-card-title>\n    </ion-card-header>\n  </ion-card>\n\n  <ion-card>\n    <ion-card-header>\n      <ion-card-subtitle>Prep Time</ion-card-subtitle>\n      <ion-card-title>{{prepTime}}</ion-card-title>\n    </ion-card-header>\n  </ion-card>\n\n  <ion-card>\n    <ion-card-header>\n      <ion-card-subtitle>Ingredients</ion-card-subtitle>\n    </ion-card-header>\n    <ion-card-content>\n      <ion-list>\n        <ion-item *ngFor=\"let ingredient of ingredients;\">\n          <ion-label text-wrap>{{ingredient.name}}</ion-label>\n          <ion-checkbox slot=\"end\" [(ngModel)]=\"ingredient.isChecked\"></ion-checkbox>\n        </ion-item>\n      </ion-list>\n    </ion-card-content>\n  </ion-card>\n\n <ion-card>\n    <ion-card-header>\n      <ion-card-subtitle>Steps</ion-card-subtitle>\n    </ion-card-header>\n    <ion-card-content>\n      <ion-list>\n        <ion-item *ngFor=\"let step of steps;\">\n          {{step.str}}\n        </ion-item>\n      </ion-list>\n    </ion-card-content>\n  </ion-card>\n\n</ion-content>\n"
 
 /***/ }),
 
@@ -72,7 +72,7 @@ module.exports = "<ion-header>\r\n    <ion-toolbar>\r\n        <ion-buttons slot
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".welcome-card ion-img {\n  max-height: 35vh; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVjaXBlZGV0YWlscy9DOlxcVXNlcnNcXG5vYWgucnVkaW5cXERlc2t0b3BcXGJyb25jby1udXRyaXRpb24vc3JjXFxhcHBcXHJlY2lwZWRldGFpbHNcXHJlY2lwZWRldGFpbHMucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQWdCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9yZWNpcGVkZXRhaWxzL3JlY2lwZWRldGFpbHMucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLndlbGNvbWUtY2FyZCBpb24taW1nIHtcclxuICBtYXgtaGVpZ2h0OiAzNXZoO1xyXG4gIC8vb3ZlcmZsb3c6IGhpZGRlbjtcclxufSJdfQ== */"
+module.exports = ".welcome-card ion-img {\n  max-height: 35vh; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9Ub255L0RvY3VtZW50cy9icm9uY28tbnV0cml0aW9uL3NyYy9hcHAvcmVjaXBlZGV0YWlscy9yZWNpcGVkZXRhaWxzLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdCQUFnQixFQUFBIiwiZmlsZSI6InNyYy9hcHAvcmVjaXBlZGV0YWlscy9yZWNpcGVkZXRhaWxzLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi53ZWxjb21lLWNhcmQgaW9uLWltZyB7XG4gIG1heC1oZWlnaHQ6IDM1dmg7XG4gIC8vb3ZlcmZsb3c6IGhpZGRlbjtcbn0iXX0= */"
 
 /***/ }),
 
@@ -154,9 +154,9 @@ var RecipeDetailsPage = /** @class */ (function () {
         this.setupIngredientsList();
         this.setupStepsList();
         this.macroString = this.getMacroString();
+        this.isBookmarked = false;
     }
     RecipeDetailsPage.prototype.bookmarkClick = function () {
-        console.log("button clicked");
         this.presentToast();
         this.bookmarkRecipe();
     };
@@ -179,6 +179,10 @@ var RecipeDetailsPage = /** @class */ (function () {
     };
     RecipeDetailsPage.prototype.bookmarkRecipe = function () {
         //skeleton to be filled in by Austin/Tony
+    };
+    RecipeDetailsPage.prototype.isRecipeBookmarked = function () {
+        // check and see if the recipe is saved to local storage.
+        return true;
     };
     RecipeDetailsPage.prototype.setupIngredientsList = function () {
         for (var i = 0; i < this.recipeToDisplay.getIngredients.length; i++) {

@@ -16,14 +16,14 @@
   <ion-grid>
     <ion-row size="6">
       <ion-col>
-        <ion-card><ion-button expand="block" justify-content-center fill="outline" (click)=SearchButtonClick()> 
-          <ion-icon  slot="start" name="search"></ion-icon>Browse Recipes and Snacks</ion-button></ion-card>
-          <ion-card><ion-button expand="block" justify-content-center fill="outline" (click)=ListButtonClick()> 
-            <ion-icon  slot="start" name="list"></ion-icon>View Bookmarked Recipes</ion-button></ion-card>
-            <ion-card><ion-button expand="block" justify-content-center fill="outline" (click)=ResourcesButtonClick()> 
-              <ion-icon  slot="start" name="link"></ion-icon>Campus Resources</ion-button></ion-card>
-              <!--<ion-card><ion-button expand="block" justify-content-center fill="outline" (click)=SettingsButtonClick()> 
-                <ion-icon  slot="start" name="settings"></ion-icon>Account and Settings</ion-button></ion-card>
+        <ion-button class="home-page-button" expand="block" justify-content-center  (click)=SearchButtonClick()> 
+          <ion-icon  slot="start" name="search"></ion-icon>Browse Recipes and Snacks</ion-button>
+        <ion-button class="home-page-button" expand="block" justify-content-center  (click)=ListButtonClick()> 
+          <ion-icon  slot="start" name="list"></ion-icon>View Bookmarked Recipes</ion-button>
+        <ion-button class="home-page-button" expand="block" justify-content-center (click)=ResourcesButtonClick()> 
+          <ion-icon  slot="start" name="link"></ion-icon>Campus Resources</ion-button>
+            <!--<ion-card><ion-button expand="block" justify-content-center fill="outline" (click)=SettingsButtonClick()> 
+              <ion-icon  slot="start" name="settings"></ion-icon>Account and Settings</ion-button></ion-card>
                 -->
       </ion-col>
     </ion-row>

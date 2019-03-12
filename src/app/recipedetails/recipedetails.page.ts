@@ -14,6 +14,7 @@ import { ToastController } from '@ionic/angular';
 
 export class RecipeDetailsPage{
   private recipeToDisplay: Recipe;
+  public isBookmarked: boolean;
   public recipeTitle: string;
   public servingSize: string;
   public prepTime: string;
@@ -34,11 +35,11 @@ export class RecipeDetailsPage{
     this.setupIngredientsList();
     this.setupStepsList();
     this.macroString = this.getMacroString();
+
+    this.isBookmarked = false;
   }
 
-
   bookmarkClick(){
-    console.log("button clicked");
     this.presentToast();
     this.bookmarkRecipe();
   }
@@ -53,6 +54,11 @@ export class RecipeDetailsPage{
 
   bookmarkRecipe(){
     //skeleton to be filled in by Austin/Tony
+  }
+
+  isRecipeBookmarked(): boolean {
+    // check and see if the recipe is saved to local storage.
+    return true;
   }
 
   setupIngredientsList() {
@@ -91,7 +97,7 @@ export class RecipeDetailsPage{
     }
     return macroString;
   }
-   
+
   ngOnInit() {
 
   }
