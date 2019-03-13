@@ -11,9 +11,11 @@
 
 <ion-content>
   <ion-card>
-  <ion-list>
-    <ion-item [class.highlight]="item.selected" *ngFor="let item of items; let i = index" (click)=listItemClick(i) detail >
-      {{item.title}}
-    </ion-item>
-  </ion-list></ion-card>
+    <ion-searchbar animated debounce="500" placeholder="Search Here" name="search" (ionInput)="getRecipes($event)"></ion-searchbar>
+    <ion-list>
+      <ion-item [class.highlight]="item.selected" *ngFor="let item of items; let i = index" (click)=listItemClick(item.idx) detail >
+        {{item.title}}
+      </ion-item>
+    </ion-list>
+  </ion-card>
 </ion-content>

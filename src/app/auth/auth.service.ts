@@ -19,6 +19,7 @@ const STEPS_INDEX = 5;
 
 export const snapshotToRecipeArray = snapshot => {
   const returnArr = [];
+  let idx: number = 0;
   snapshot.forEach(childSnapshot => {
       const item = childSnapshot.val();
       // package everything up into an easily usable Recipe object.
@@ -31,8 +32,9 @@ export const snapshotToRecipeArray = snapshot => {
 
       const newRecipe = new Recipe(title, numServings, macros,
                                   prepTime, ingredients,
-                                  steps);
+                                  steps, idx);
       returnArr.push(newRecipe);
+      idx++;
   });
 
   return returnArr;
