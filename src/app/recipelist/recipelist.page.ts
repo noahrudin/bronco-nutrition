@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Recipe } from '../Recipe';
 import { NavController } from '@ionic/angular';
+import { RecipeDetailsPage } from '../recipedetails/recipedetails.page';
 
 
 @Component({
@@ -24,14 +25,10 @@ export class RecipeListPage implements OnInit {
         title: this.recipes[i].getRecipeTitle
       });
     }
-    }
+  }
     
   ngOnInit() {
 
-  }
-
- public static get getSelectedRecipe() {
-    return RecipeListPage.selectedRecipe;
   }
 
   // add back when alpha.4 is out
@@ -40,7 +37,8 @@ export class RecipeListPage implements OnInit {
   // }
 
   listItemClick(index: number) {
-    RecipeListPage.selectedRecipe = this.recipes[index + 1];
+    Recipe.recipeToDisplay = this.recipes[index + 1];
     this.navCtrl.navigateForward('recipedetails');
   }
+
 }

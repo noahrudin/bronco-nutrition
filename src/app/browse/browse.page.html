@@ -4,36 +4,19 @@
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
         <ion-title>
-            Recipes and Food
+            Food Items
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <slide-recipes>
-        Recipes
-    </slide-recipes>
-    <ion-button fill="outline" expand="block" lines="none" (click)=foodListClick() detail>
-        Browse a la Carte Food Items
-    </ion-button>
-    <ion-card>
-        <ion-item>
-            <ion-icon name="list-box" slot="start"></ion-icon>
-            <ion-label>Browse Recipes</ion-label>
-            <ion-button (click)="recipeButtonClick()" fill="outline" slot="end">Go</ion-button>
+  <ion-card>
+    <ion-searchbar animated debounce="500" placeholder="Search Here" name="search" (ionInput)="getFoodItems($event)"></ion-searchbar>
+    <ion-list>
+        <ion-item *ngFor="let item of foodList;">
+            {{item[0]}}
+            <ion-label item-right text-right>{{item[1]}}</ion-label>
         </ion-item>
-        <ion-card-content>
-            Find a Meal on our Nutritionist-Approved Database!
-        </ion-card-content>
-    </ion-card>
-    <ion-card>
-        <ion-item>
-            <ion-icon name="pizza" slot="start"></ion-icon>
-            <ion-label>Browse Food/Snack Items</ion-label>
-            <ion-button (click)="foodButtonClick()" fill="outline" slot="end">Go</ion-button>
-        </ion-item>
-        <ion-card-content>
-            Find Individual Food Items a la Carte!
-        </ion-card-content>
-    </ion-card>
+    </ion-list>
+  </ion-card>
 </ion-content>

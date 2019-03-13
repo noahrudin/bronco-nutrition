@@ -15,7 +15,7 @@ import { OfflineManagerService } from './services/offline-manager.service';
 })
 export class AppComponent {
   private net_color_status: string = 'yellow';
-public net_title:string = 'Idle';
+  public net_title:string = 'Idle';
 
   public appPages = [
     {
@@ -64,9 +64,10 @@ public net_title:string = 'Idle';
             this.net_title ='Online';
             this.net_color_status='success';
             this.offlineManager.checkForEvents().subscribe();
-          }else if(status === ConnectionStatus.Offline){
-            this.net_color_status='danger';
+          }
+          else if(status === ConnectionStatus.Offline) {
             this.net_title ='Offline';
+            this.net_color_status='danger';
           }
       });
       // check if the user is logged in and show login if needed.

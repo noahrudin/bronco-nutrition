@@ -5,7 +5,6 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { BrowsePage } from './browse.page';
-import { BrowseComponent } from './browse.component';
 
 @NgModule({
   imports: [
@@ -19,6 +18,6 @@ import { BrowseComponent } from './browse.component';
       }
     ])
   ],
-  declarations: [BrowsePage, BrowseComponent]
+  declarations: [BrowsePage]
 })
 export class BrowsePageModule {}

@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Recipe } from '../Recipe';
-import { Macro } from '../Recipe'
+import { Macro } from '../Recipe';
 import { NavController } from '@ionic/angular';
-import { RecipeListPage } from '../recipelist/recipelist.page'
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -24,12 +23,12 @@ export class RecipeDetailsPage{
   public steps: Array<{ str: string }> = [];
 
   constructor(private navCtrl: NavController,private toastController:ToastController) {
-    this.recipeToDisplay = RecipeListPage.getSelectedRecipe;
+    this.recipeToDisplay = Recipe.getRecipeToDisplay;
     this.recipeTitle = this.recipeToDisplay.getRecipeTitle;
     this.servingSize = this.recipeToDisplay.getNumServings;
     this.prepTime = this.recipeToDisplay.getPrepTime;
     this.macros = this.recipeToDisplay.getMacros;
-     
+    
     // populate lists of ingredients and steps
     this.setupIngredientsList();
     this.setupStepsList();

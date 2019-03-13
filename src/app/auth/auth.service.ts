@@ -5,6 +5,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase';
 import * as firebase from 'firebase';
 import { Recipe } from '../Recipe';
+import { FoodItem } from '../FoodItem';
+
+const FOOD_ITEM_NAME_INDEX = 0;
+const FOOD_MACRO_INDEX = 1;
 
 const RECIPE_NAME_INDEX = 0;
 const NUM_SERVINGS_INDEX = 1;
@@ -34,6 +38,21 @@ export const snapshotToRecipeArray = snapshot => {
   return returnArr;
 };
 
+export const snapshotToFoodArray = snapshot => {
+  const returnArr = [];
+  snapshot.forEach(childSnapshot => {
+    const item = childSnapshot.val();
+    const title = item[FOOD_ITEM_NAME_INDEX];
+    const macros = Recipe.parseMacros(item[FOOD_MACRO_INDEX]);
+
+    const newFoodItem = new FoodItem(macros, title);
+
+    returnArr.push(newFoodItem);
+  });
+
+  return returnArr;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -41,8 +60,10 @@ export const snapshotToRecipeArray = snapshot => {
 export class AuthService {
   public user: User;
   private recipes = [];
-    private ref = firebase.database().ref('recipeSheet/');
-    private username: string;
+  private foodItems = [];
+  private recipeDB = firebase.database().ref('recipeSheet/');
+  private foodDB = firebase.database().ref('foodSheet/');
+  private username: string;
 
   constructor(public afAuth: AngularFireAuth, public router: Router, 
     public navCtrl: NavController) {
@@ -58,9 +79,13 @@ export class AuthService {
     });
 
     // grab recipe data from Firebase, and pack it into an array.
-    this.ref.on('value', resp => {
-      this.recipes = [];
+    this.recipeDB.on('value', resp => {
       this.recipes = snapshotToRecipeArray(resp);
+    });
+
+    // do the same with food items.
+    this.foodDB.on('value', resp => {
+      this.foodItems = snapshotToFoodArray(resp);
     });
   }
 
@@ -134,5 +159,9 @@ export class AuthService {
 
   get getRecipes(): Array<Recipe> {
     return this.recipes;
+  }
+
+  get foodList(): Array<FoodItem> {
+    return this.foodItems;
   }
 }

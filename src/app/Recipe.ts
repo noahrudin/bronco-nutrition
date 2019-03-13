@@ -6,8 +6,18 @@ const FAT_STR = 'F';
 
 export class Recipe {
 
+  private static _recipeToDisplay: Recipe;
+
   constructor(private title: string, private numServings: string, private macros: Macro[],
               private prepTime: string, private ingredients: string[], private steps: string[]) { }
+
+  static get getRecipeToDisplay() {
+    return Recipe._recipeToDisplay;
+  }
+
+  static set recipeToDisplay(recipe: Recipe) {
+    Recipe._recipeToDisplay = recipe;
+  }
 
   get getRecipeTitle() {
     return this.title;
