@@ -1,31 +1,50 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Home
-    </ion-title>
-    <ion-buttons slot="primary">
-        <ion-button (click)="SettingsButtonClick()"><ion-icon name="settings"></ion-icon></ion-button>
-      </ion-buttons>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            Home
+        </ion-title>
+        <ion-buttons slot="primary">
+            <ion-button (click)="SettingsButtonClick()">
+                <ion-icon name="settings"></ion-icon>
+            </ion-button>
+            <ion-button color={{net_color_status}} slot="secondary">
+                {{net_title}}
+            </ion-button>
+
+        </ion-buttons>
+
+
+    </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-img src="../../assets/img/bg.png"></ion-img>
-  <ion-grid>
-    <ion-row size="6">
-      <ion-col>
-        <ion-card><ion-button expand="block" justify-content-center fill="outline" (click)=SearchButtonClick()> 
-          <ion-icon  slot="start" name="search"></ion-icon>Browse Recipes and Snacks</ion-button></ion-card>
-          <ion-card><ion-button expand="block" justify-content-center fill="outline" (click)=ListButtonClick()> 
-            <ion-icon  slot="start" name="list"></ion-icon>View Bookmarked Recipes</ion-button></ion-card>
-            <ion-card><ion-button expand="block" justify-content-center fill="outline" (click)=ResourcesButtonClick()> 
-              <ion-icon  slot="start" name="link"></ion-icon>Campus Resources</ion-button></ion-card>
-              <!--<ion-card><ion-button expand="block" justify-content-center fill="outline" (click)=SettingsButtonClick()> 
+    <ion-img src="../../assets/img/bg.png"></ion-img>
+    <ion-grid>
+        <ion-row size="6">
+            <ion-col>
+                <ion-card>
+                    <ion-button expand="block" justify-content-center fill="outline" (click)=SearchButtonClick()>
+                        <ion-icon slot="start" name="search"></ion-icon>Browse Recipes and Snacks</ion-button>
+
+                </ion-card>
+
+                <ion-card>
+                    <ion-button expand="block" justify-content-center fill="outline" (click)="ngOnInit()">
+                        <ion-icon slot="start" name="list"></ion-icon>View Bookmarked Recipes</ion-button>
+                    <ion-item *ngFor="let recipe of fav_recipes">
+                        {{recipe[0]}}
+                    </ion-item>
+                </ion-card>
+                <ion-card>
+                    <ion-button expand="block" justify-content-center fill="outline" (click)=ResourcesButtonClick()>
+                        <ion-icon slot="start" name="link"></ion-icon>Campus Resources</ion-button>
+                </ion-card>
+                <!--<ion-card><ion-button expand="block" justify-content-center fill="outline" (click)=SettingsButtonClick()> 
                 <ion-icon  slot="start" name="settings"></ion-icon>Account and Settings</ion-button></ion-card>
                 -->
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

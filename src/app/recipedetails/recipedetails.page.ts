@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Recipe } from '../Recipe';
-import { Macro } from '../Recipe'
+import { Macro } from '../Recipe';
 import { NavController } from '@ionic/angular';
-import { RecipeListPage } from '../recipelist/recipelist.page'
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -14,6 +13,7 @@ import { ToastController } from '@ionic/angular';
 
 export class RecipeDetailsPage{
   private recipeToDisplay: Recipe;
+  public isBookmarked: boolean;
   public recipeTitle: string;
   public servingSize: string;
   public prepTime: string;
@@ -22,23 +22,22 @@ export class RecipeDetailsPage{
   public ingredients: Array <{ name: string }> = [];
   public steps: Array<{ str: string }> = [];
 
-  constructor(private navCtrl: NavController, 
-              public toastController: ToastController) {
-    this.recipeToDisplay = RecipeListPage.getSelectedRecipe;
+  constructor(private navCtrl: NavController,private toastController:ToastController) {
+    this.recipeToDisplay = Recipe.getRecipeToDisplay;
     this.recipeTitle = this.recipeToDisplay.getRecipeTitle;
     this.servingSize = this.recipeToDisplay.getNumServings;
     this.prepTime = this.recipeToDisplay.getPrepTime;
     this.macros = this.recipeToDisplay.getMacros;
-     
+    
     // populate lists of ingredients and steps
     this.setupIngredientsList();
     this.setupStepsList();
     this.macroString = this.getMacroString();
+
+    this.isBookmarked = false;
   }
 
-
   bookmarkClick(){
-    console.log("button clicked");
     this.presentToast();
     this.bookmarkRecipe();
   }
@@ -53,6 +52,11 @@ export class RecipeDetailsPage{
 
   bookmarkRecipe(){
     //skeleton to be filled in by Austin/Tony
+  }
+
+  isRecipeBookmarked(): boolean {
+    // check and see if the recipe is saved to local storage.
+    return true;
   }
 
   setupIngredientsList() {
@@ -91,7 +95,7 @@ export class RecipeDetailsPage{
     }
     return macroString;
   }
-   
+
   ngOnInit() {
 
   }

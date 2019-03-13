@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Recipe } from '../Recipe';
 import { NavController } from '@ionic/angular';
+import { RecipeDetailsPage } from '../recipedetails/recipedetails.page';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['recipelist.page.scss']
 })
 export class RecipeListPage implements OnInit {
-  private static selectedRecipe: Recipe;
+  public static selectedRecipe: Recipe;
   private recipes: Array<Recipe>;
   public items: Array<{ title: string }> = [];
 
@@ -25,13 +26,9 @@ export class RecipeListPage implements OnInit {
       });
     }
   }
-
+    
   ngOnInit() {
 
-  }
-
-  static get getSelectedRecipe() {
-    return RecipeListPage.selectedRecipe;
   }
 
   // add back when alpha.4 is out
@@ -40,7 +37,8 @@ export class RecipeListPage implements OnInit {
   // }
 
   listItemClick(index: number) {
-    RecipeListPage.selectedRecipe = this.recipes[index + 1];
+    Recipe.recipeToDisplay = this.recipes[index + 1];
     this.navCtrl.navigateForward('recipedetails');
   }
+
 }

@@ -92,7 +92,7 @@ var _sPassive,GestureController=function(){function t(t){this.doc=t,this.gesture
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>\r\n      Recipe List\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-card>\r\n  <ion-list>\r\n    <ion-item [class.highlight]=\"item.selected\" *ngFor=\"let item of items; let i = index\" (click)=listItemClick(i) detail >\r\n      {{item.title}}\r\n    </ion-item>\r\n  </ion-list></ion-card>\r\n</ion-content>"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      Recipe List\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-card>\n  <ion-list>\n    <ion-item [class.highlight]=\"item.selected\" *ngFor=\"let item of items; let i = index\" (click)=listItemClick(i) detail >\n      {{item.title}}\n    </ion-item>\n  </ion-list></ion-card>\n</ion-content>"
 
 /***/ }),
 
