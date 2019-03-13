@@ -12,8 +12,9 @@ import { RecipeDetailsPage } from '../recipedetails/recipedetails.page';
 })
 export class RecipeListPage implements OnInit {
   public static selectedRecipe: Recipe;
+  private loadedList: Array<any>;
   private recipes: Array<Recipe>;
-  public items: Array<{ title: string }> = [];
+  public items: Array<{ title: string, idx: number, selected: boolean }> = [];
 
   constructor(private firebaseAuth: AuthService,
               private navCtrl: NavController) {
@@ -22,9 +23,12 @@ export class RecipeListPage implements OnInit {
     this.recipes = this.firebaseAuth.getRecipes;
     for(let i = 1; i < this.recipes.length; i++){
       this.items.push({
-        title: this.recipes[i].getRecipeTitle
+        title: this.recipes[i].getRecipeTitle,
+        idx: this.recipes[i].dbIndex,
+        selected: false
       });
     }
+    this.loadedList = this.items;
   }
     
   ngOnInit() {
@@ -37,8 +41,32 @@ export class RecipeListPage implements OnInit {
   // }
 
   listItemClick(index: number) {
-    Recipe.recipeToDisplay = this.recipes[index + 1];
+    Recipe.recipeToDisplay = this.recipes[index];
     this.navCtrl.navigateForward('recipedetails');
+  }
+
+  initializeRecipeList() {
+    this.items = this.loadedList;
+  }
+
+  getRecipes(searchbar: any) {
+      
+      var search = searchbar.srcElement.value;
+      this.initializeRecipeList();
+
+      if(!search) {
+        return;
+      }
+      
+      this.items = this.items.filter((val) => {
+          if (val && search) {
+              if ((val.title.indexOf(search) > -1) || (val.title.toLowerCase().indexOf(search) > -1)) {
+                  return true;
+              }
+              return false;
+          }
+      });
+
   }
 
 }

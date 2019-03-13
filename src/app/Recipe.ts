@@ -9,7 +9,7 @@ export class Recipe {
   private static _recipeToDisplay: Recipe;
 
   constructor(private title: string, private numServings: string, private macros: Macro[],
-              private prepTime: string, private ingredients: string[], private steps: string[]) { }
+              private prepTime: string, private ingredients: string[], private steps: string[], private absIdx: number) { }
 
   static get getRecipeToDisplay() {
     return Recipe._recipeToDisplay;
@@ -17,6 +17,10 @@ export class Recipe {
 
   static set recipeToDisplay(recipe: Recipe) {
     Recipe._recipeToDisplay = recipe;
+  }
+
+  get dbIndex() {
+    return this.absIdx;
   }
 
   get getRecipeTitle() {
