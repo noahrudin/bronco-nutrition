@@ -32,6 +32,10 @@ export class HomePage {
     this.navCtrl.navigateForward('recipelist');
   }
 
+  BookmarkButtonClick() {
+    this.navCtrl.navigateForward('bookmarkedlist');
+  }
+
   ResourcesButtonClick() {
     this.navCtrl.navigateForward('resources');
   }

@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: './browse/browse.module#BrowsePageModule'
   },
   {
+    path: 'bookmarkedlist',
+    loadChildren: './bookmarkedlist/bookmarkedlist.module#BookmarkedListPageModule'
+  },
+  {
     path: 'foodlist',
     loadChildren: './foodlist/foodlist.module#FoodListPageModule'
   },
@@ -50,9 +54,14 @@ const routes: Routes = [
   {
     path: 'account',
     loadChildren: './account/account.module#AccountPageModule'
+    
   }
 
-
+  // {
+  //   path: 'recipebrowse',
+  //   loadChildren: './recipebrowse/recipebrowse.module#RecipeBrowsePageModule'
+  //   //loadChildren: './tabs/tabs.module#TabsPageModule' 
+  // }
 ];
 
 @NgModule({

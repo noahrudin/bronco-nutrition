@@ -24,14 +24,19 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'Browse',
+      title: 'Snacks and Food Items',
       url: '/browse',
+      icon: 'pizza'
+    },
+    {
+      title: 'Recipes',
+      url: '/recipelist',
       icon: 'search'
     },
     {
-      title: 'Recipe List',
-      url: '/recipelist',
-      icon: 'list'
+      title: 'Bookmarks',
+      url: '/bookmarkedlist',
+      icon: 'bookmark'
     },
     {
       title: 'Resources',
