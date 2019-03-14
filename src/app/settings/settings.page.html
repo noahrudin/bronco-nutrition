@@ -10,30 +10,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item (click)="accountButtonClick()">
-          Account
-      <div class="item-note" slot="end">
-          <ion-icon name="contact"></ion-icon>
-      </div>
-    </ion-item>
-    <ion-item (click)="signoutButtonClick()">
-          Sign Out
-      <div class="item-note" slot="end">
-      <ion-icon name="undo"></ion-icon>
-      </div>
-    </ion-item>
-        <ion-item (click)="aboutButtonClick()">
-          About Bronco Nutrition
-      <div class="item-note" slot="end">
-      <ion-icon name="information-circle"></ion-icon>
-      </div>
-    </ion-item>
-  </ion-list>
-  
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
+  <ion-grid>
+      <ion-row size="6">
+          <ion-col>
+            <ion-button class="homepage_button" expand="block" justify-content-center fill="solid" (click)=accountButtonClick()>
+                <ion-icon slot="start" name="contact"></ion-icon>Account</ion-button>
+            <ion-button class="homepage_button" expand="block" justify-content-center fill="solid" (click)="signoutButtonClick()"><!--ngOnInit()-->
+                <ion-icon slot="start" name="log-out"></ion-icon>Sign Out</ion-button>
+            <ion-button class="homepage_button" expand="block" justify-content-center fill="solid" (click)="aboutButtonClick()"><!--ngOnInit()-->
+                <ion-icon slot="start" name="information-circle"></ion-icon>About Bronco Fuel</ion-button>
+          </ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-content>

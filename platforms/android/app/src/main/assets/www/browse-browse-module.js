@@ -61,7 +61,7 @@ var BrowsePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>\r\n      Recipes and Food\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n          <ion-button fill = \"outline\" expand=\"block\" lines = \"none\" (click)=foodListClick() detail>\r\n            Browse a la Carte Food Items\r\n          </ion-button>\r\n    <ion-searchbar animated debounce=\"500\" placeholder=\"Search Here\" name= \"search\"(ionInput)=\"getRecipes($event)\" ></ion-searchbar>\r\n    <ion-list>\r\n      <ion-card>\r\n        <ion-item *ngFor=\"let recipe of recipeList\" (click)=listItemClick(i) detail>\r\n        {{recipe}}\r\n        </ion-item>\r\n      </ion-card>\r\n    </ion-list>\r\n\r\n</ion-content>\r\n\r\n\r\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      Recipes and Food\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n          <ion-button fill = \"outline\" expand=\"block\" lines = \"none\" (click)=foodListClick() detail>\n            Browse a la Carte Food Items\n          </ion-button>\n    <ion-searchbar animated debounce=\"500\" placeholder=\"Search Here\" name= \"search\"(ionInput)=\"getRecipes($event)\" ></ion-searchbar>\n    <ion-list>\n      <ion-card>\n        <ion-item *ngFor=\"let recipe of recipeList\" (click)=listItemClick(i) detail>\n        {{recipe}}\n        </ion-item>\n      </ion-card>\n    </ion-list>\n\n</ion-content>\n\n\n"
 
 /***/ }),
 
@@ -72,7 +72,7 @@ module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"sta
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".welcome-card ion-img {\n  max-height: 35vh; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYnJvd3NlL0M6XFxVc2Vyc1xcbm9haC5ydWRpblxcRGVza3RvcFxcYnJvbmNvLW51dHJpdGlvbi9zcmNcXGFwcFxcYnJvd3NlXFxicm93c2UucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQWdCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9icm93c2UvYnJvd3NlLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi53ZWxjb21lLWNhcmQgaW9uLWltZyB7XHJcbiAgbWF4LWhlaWdodDogMzV2aDtcclxuICAvL292ZXJmbG93OiBoaWRkZW47XHJcbn0iXX0= */"
+module.exports = ".welcome-card ion-img {\n  max-height: 35vh; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9Ub255L0RvY3VtZW50cy9icm9uY28tbnV0cml0aW9uL3NyYy9hcHAvYnJvd3NlL2Jyb3dzZS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBZ0IsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2Jyb3dzZS9icm93c2UucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLndlbGNvbWUtY2FyZCBpb24taW1nIHtcbiAgbWF4LWhlaWdodDogMzV2aDtcbiAgLy9vdmVyZmxvdzogaGlkZGVuO1xufSJdfQ== */"
 
 /***/ }),
 
