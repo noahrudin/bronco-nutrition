@@ -6,6 +6,8 @@
 
 .no-padding {
   padding: 0px !important;
+  border-radius: 0px !important;
+  $card-ios-border-radius: 0px;
 }
 
 // .ios {
@@ -31,9 +33,10 @@
 }
 
 .home-page-button {
-  margin: 10px;
+  margin: 0px;
 }
 
+
 ion-col {
-  margin-top: 20px;
+  margin-top: 0px;
 }

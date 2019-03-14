@@ -20,38 +20,29 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <ion-img src="../../assets/img/bg.png"></ion-img>
-    <ion-grid>
+    <ion-img class="no-padding" src="../../assets/img/Pre-comp 4 (0;00;00;00).png"></ion-img>
+    <div class="no-padding"><ion-grid>
         <ion-row size="6">
             <ion-col>
-                <ion-card>
+                <ion-card class="no-padding">
                     <ion-button expand="block" justify-content-center fill="outline" (click)=SearchButtonClick()>
                         <ion-icon slot="start" name="pizza"></ion-icon>Browse Snacks</ion-button>
 
                 </ion-card>
-
-                <ion-card>
+                
+                <ion-card class="no-padding">
                     <ion-button expand="block" justify-content-center fill="outline" (click)="ListButtonClick()"><!--ngOnInit()-->
                         <ion-icon slot="start" name="list"></ion-icon>Browse Recipes</ion-button>
-                    <!--<ion-item *ngFor="let recipe of fav_recipes">
-                        {{recipe[0]}}
-                    </ion-item>-->
                 </ion-card>
-                <ion-card>
+                <ion-card class="no-padding">
                     <ion-button expand="block" justify-content-center fill="outline" (click)="BookmarkButtonClick()"><!--ngOnInit()-->
                         <ion-icon slot="start" name="bookmark"></ion-icon>View Bookmarked Recipes</ion-button>
-                    <!--<ion-item *ngFor="let recipe of fav_recipes">
-                        {{recipe[0]}}
-                    </ion-item>-->
                 </ion-card>
-                <ion-card>
+                <ion-card class="no-padding">
                     <ion-button expand="block" justify-content-center fill="outline" (click)=ResourcesButtonClick()>
                         <ion-icon slot="start" name="link"></ion-icon>Campus Resources</ion-button>
                 </ion-card>
-                <!--<ion-card><ion-button expand="block" justify-content-center fill="outline" (click)=SettingsButtonClick()> 
-                <ion-icon  slot="start" name="settings"></ion-icon>Account and Settings</ion-button></ion-card>
-                -->
             </ion-col>
         </ion-row>
-    </ion-grid>
+    </ion-grid></div>
 </ion-content>
