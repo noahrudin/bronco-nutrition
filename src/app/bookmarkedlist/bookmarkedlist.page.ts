@@ -13,7 +13,7 @@ import { RecipeDetailsPage } from '../recipedetails/recipedetails.page';
 export class BookmarkedListPage implements OnInit {
   public static selectedRecipe: Recipe;
   private loadedList: Array<Recipe>;
-  private recipes: Array<Recipe>=[];
+  private recipes: Array<{ title: string, idx: number, selected: boolean }>=[];
   public items: Array<{ title: string, idx: number, selected: boolean }> = [];
 
   constructor(private firebaseAuth: AuthService,
@@ -21,6 +21,7 @@ export class BookmarkedListPage implements OnInit {
                 let recipe = JSON.parse(localStorage.getItem(firebaseAuth.user.email));
              if(recipe){
               this.recipes=recipe;
+              console.log(this.recipes[1].title);
              } 
              //localStorage.removeItem(this.firebaseAuth.user.email);
              console.log(recipe); 
