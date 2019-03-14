@@ -8,15 +8,12 @@
         </ion-title>
         <ion-buttons slot="primary">
             <ion-button (click)="SettingsButtonClick()">
-                <ion-icon name="settings"></ion-icon>
+                <ion-icon id="settings_icon" name="settings"></ion-icon>
             </ion-button>
             <ion-button color={{net_color_status}} slot="secondary">
                 {{net_title}}
             </ion-button>
-
         </ion-buttons>
-
-
     </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -24,24 +21,14 @@
     <div class="no-padding"><ion-grid>
         <ion-row size="6">
             <ion-col>
-                <ion-card class="no-padding">
-                    <ion-button expand="block" justify-content-center fill="outline" (click)=SearchButtonClick()>
-                        <ion-icon slot="start" name="pizza"></ion-icon>Browse Snacks</ion-button>
-
-                </ion-card>
-                
-                <ion-card class="no-padding">
-                    <ion-button expand="block" justify-content-center fill="outline" (click)="ListButtonClick()"><!--ngOnInit()-->
-                        <ion-icon slot="start" name="list"></ion-icon>Browse Recipes</ion-button>
-                </ion-card>
-                <ion-card class="no-padding">
-                    <ion-button expand="block" justify-content-center fill="outline" (click)="BookmarkButtonClick()"><!--ngOnInit()-->
-                        <ion-icon slot="start" name="bookmark"></ion-icon>View Bookmarked Recipes</ion-button>
-                </ion-card>
-                <ion-card class="no-padding">
-                    <ion-button expand="block" justify-content-center fill="outline" (click)=ResourcesButtonClick()>
-                        <ion-icon slot="start" name="link"></ion-icon>Campus Resources</ion-button>
-                </ion-card>
+              <ion-button class="homepage_button" expand="block" justify-content-center fill="solid" (click)=SearchButtonClick()>
+                  <ion-icon slot="start" name="pizza"></ion-icon>Browse Snacks</ion-button>
+              <ion-button class="homepage_button" expand="block" justify-content-center fill="solid" (click)="ListButtonClick()"><!--ngOnInit()-->
+                  <ion-icon slot="start" name="list"></ion-icon>Browse Recipes</ion-button>
+              <ion-button class="homepage_button" expand="block" justify-content-center fill="solid" (click)="BookmarkButtonClick()"><!--ngOnInit()-->
+                  <ion-icon slot="start" name="bookmark"></ion-icon>View Bookmarked Recipes</ion-button>
+              <ion-button class="homepage_button" expand="block" justify-content-center fill="solid" (click)=ResourcesButtonClick()>
+                  <ion-icon slot="start" name="link"></ion-icon>Campus Resources</ion-button>
             </ion-col>
         </ion-row>
     </ion-grid></div>
