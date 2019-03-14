@@ -11,11 +11,13 @@ import { RecipeDetailsPage } from '../recipedetails/recipedetails.page';
   styleUrls: ['recipelist.page.scss']
 })
 export class RecipeListPage implements OnInit {
+  
   public static selectedRecipe: Recipe;
   private loadedList: Array<any>;
   private recipes: Array<Recipe>;
   public items: Array<{ title: string, idx: number, selected: boolean }> = [];
-
+  private favList: Array<any>=[];
+  private inc: any =0;
   constructor(private firebaseAuth: AuthService,
               private navCtrl: NavController) {
     // grab the recipes we got from firebase, and
@@ -69,4 +71,12 @@ export class RecipeListPage implements OnInit {
 
   }
 
+  addtoFavorites(list:any){
+    this.favList[this.inc]=list;
+    this.inc++;
+    localStorage.setItem(this.firebaseAuth.user.email,JSON.stringify(this.favList));
+  }
+public static set getRecipe(recipe: { title: string, idx: number, selected: boolean } ) {
+ this.prototype.listItemClick(recipe.idx);
+}
 }

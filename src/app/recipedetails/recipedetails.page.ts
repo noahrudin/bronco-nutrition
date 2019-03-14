@@ -21,8 +21,10 @@ export class RecipeDetailsPage{
   public macroString: string;
   public ingredients: Array <{ name: string }> = [];
   public steps: Array<{ str: string }> = [];
+  private inc: any = 0;
+  private recipeToBook:Array<string>=[];
 
-  constructor(private navCtrl: NavController,private toastController:ToastController) {
+  constructor(private navCtrl: NavController,private toastController:ToastController,private afAuth:AuthService) {
     this.recipeToDisplay = Recipe.getRecipeToDisplay;
     this.recipeTitle = this.recipeToDisplay.getRecipeTitle;
     this.servingSize = this.recipeToDisplay.getNumServings;
@@ -33,7 +35,6 @@ export class RecipeDetailsPage{
     this.setupIngredientsList();
     this.setupStepsList();
     this.macroString = this.getMacroString();
-
     this.isBookmarked = false;
   }
 
@@ -51,7 +52,20 @@ export class RecipeDetailsPage{
   }
 
   bookmarkRecipe(){
+   /*if(localStorage.getItem("increment")!= null){
+    this.inc=JSON.parse(localStorage.getItem("increment"));
+    this.recipeToBook[this.inc] = this.recipeToDisplay.getRecipeTitle;
+    localStorage.setItem(this.afAuth.user.email, JSON.stringify(this.recipeToBook));
+    this.inc++;
+    localStorage.setItem("increment",JSON.stringify(this.inc));
     //skeleton to be filled in by Austin/Tony
+    }else{
+        this.recipeToBook[this.inc]=this.recipeToDisplay.getRecipeTitle;
+        localStorage.setItem(this.afAuth.user.email,JSON.stringify(this.recipeToBook));
+        this.inc++;
+        localStorage.setItem("increment",JSON.stringify(this.inc));
+    }
+    console.log(this.inc); */
   }
 
   isRecipeBookmarked(): boolean {

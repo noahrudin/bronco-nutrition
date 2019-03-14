@@ -1,21 +1,23 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Browse Recipes
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            Browse Recipes
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-searchbar animated debounce="500" placeholder="Search Here" name="search" (ionInput)="getRecipes($event)"></ion-searchbar>
-    <ion-list>
-      <ion-item [class.highlight]="item.selected" *ngFor="let item of items; let i = index" (click)=listItemClick(item.idx) detail >
-        {{item.title}}
-      </ion-item>
-    </ion-list>
-  </ion-card>
+    <ion-card>
+        <ion-searchbar animated debounce="500" placeholder="Search Here" name="search" (ionInput)="getRecipes($event)"></ion-searchbar>
+        <ion-list>
+            <ion-item [class.highlight]="item.selected" *ngFor="let item of items; let i = index" (click)=listItemClick(item.idx) detail>
+
+                {{item.title}}
+                <ion-checkbox color="success" (click)="addtoFavorites(item)"></ion-checkbox>
+            </ion-item>
+        </ion-list>
+    </ion-card>
 </ion-content>
