@@ -10,7 +10,7 @@ module.exports = [
   },
   {
     "id": "cordova-plugin-ionic-keyboard.keyboard",
-    "file": "plugins/cordova-plugin-ionic-keyboard/www/ios/keyboard.js",
+    "file": "plugins/cordova-plugin-ionic-keyboard/www/android/keyboard.js",
     "pluginId": "cordova-plugin-ionic-keyboard",
     "clobbers": [
       "window.Keyboard"
@@ -22,14 +22,6 @@ module.exports = [
     "pluginId": "cordova-plugin-ionic-webview",
     "clobbers": [
       "Ionic.WebView"
-    ]
-  },
-  {
-    "id": "cordova-plugin-ionic-webview.ios-wkwebview-exec",
-    "file": "plugins/cordova-plugin-ionic-webview/src/www/ios/ios-wkwebview-exec.js",
-    "pluginId": "cordova-plugin-ionic-webview",
-    "clobbers": [
-      "cordova.exec"
     ]
   },
   {

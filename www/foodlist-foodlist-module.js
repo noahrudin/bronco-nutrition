@@ -61,7 +61,7 @@ var FoodListPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      Food and Snack List\n    </ion-title>\n    \n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-card>\n    <ion-card-content>Take a look at approved grazing items!\n      </ion-card-content></ion-card>\n  <ion-card>\n  <ion-list>\n    <ion-item [class.highlight]=\"item.selected\" *ngFor=\"let item of items; let i = index\">\n      {{item.title}}\n      <ion-label item-right text-right>Macro</ion-label>\n    </ion-item>\n  </ion-list></ion-card>\n</ion-content>\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>\r\n      Browse Food and Snacks\r\n    </ion-title>\r\n    \r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-card>\r\n    <ion-card-content>Take a look at approved grazing items!\r\n      </ion-card-content></ion-card>\r\n  <ion-card>\r\n  <ion-list>\r\n    <ion-item [class.highlight]=\"item.selected\" *ngFor=\"let item of items; let i = index\">\r\n      {{item.title}}\r\n      <ion-label item-right text-right>Macro</ion-label>\r\n    </ion-item>\r\n  </ion-list></ion-card>\r\n</ion-content>\r\n"
 
 /***/ }),
 

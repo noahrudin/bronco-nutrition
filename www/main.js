@@ -843,53 +843,63 @@ var map = {
 	],
 	"./account/account.module": [
 		"./src/app/account/account.module.ts",
-		"default~account-account-module~browse-browse-module~foodlist-foodlist-module~login-login-module~reci~2d3cbe9a",
-		"default~account-account-module~foodlist-foodlist-module~login-login-module~recipedetails-recipedetai~2e537e95",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~browse-browse-module~foodlist-fo~7832de0e",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~foodlist-foodlist-module~home-ho~a9bcad33",
 		"common",
 		"account-account-module"
 	],
+	"./bookmarkedlist/bookmarkedlist.module": [
+		"./src/app/bookmarkedlist/bookmarkedlist.module.ts",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~browse-browse-module~foodlist-fo~7832de0e",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~foodlist-foodlist-module~home-ho~a9bcad33",
+		"common",
+		"bookmarkedlist-bookmarkedlist-module"
+	],
 	"./browse/browse.module": [
 		"./src/app/browse/browse.module.ts",
-		"default~account-account-module~browse-browse-module~foodlist-foodlist-module~login-login-module~reci~2d3cbe9a",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~browse-browse-module~foodlist-fo~7832de0e",
 		"common",
 		"browse-browse-module"
 	],
 	"./foodlist/foodlist.module": [
 		"./src/app/foodlist/foodlist.module.ts",
-		"default~account-account-module~browse-browse-module~foodlist-foodlist-module~login-login-module~reci~2d3cbe9a",
-		"default~account-account-module~foodlist-foodlist-module~login-login-module~recipedetails-recipedetai~2e537e95",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~browse-browse-module~foodlist-fo~7832de0e",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~foodlist-foodlist-module~home-ho~a9bcad33",
 		"common",
 		"foodlist-foodlist-module"
 	],
 	"./home/home.module": [
 		"./src/app/home/home.module.ts",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~browse-browse-module~foodlist-fo~7832de0e",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~foodlist-foodlist-module~home-ho~a9bcad33",
+		"common",
 		"home-home-module"
 	],
 	"./login/login.module": [
 		"./src/app/login/login.module.ts",
-		"default~account-account-module~browse-browse-module~foodlist-foodlist-module~login-login-module~reci~2d3cbe9a",
-		"default~account-account-module~foodlist-foodlist-module~login-login-module~recipedetails-recipedetai~2e537e95",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~browse-browse-module~foodlist-fo~7832de0e",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~foodlist-foodlist-module~home-ho~a9bcad33",
 		"common",
 		"login-login-module"
 	],
 	"./recipedetails/recipedetails.module": [
 		"./src/app/recipedetails/recipedetails.module.ts",
-		"default~account-account-module~browse-browse-module~foodlist-foodlist-module~login-login-module~reci~2d3cbe9a",
-		"default~account-account-module~foodlist-foodlist-module~login-login-module~recipedetails-recipedetai~2e537e95",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~browse-browse-module~foodlist-fo~7832de0e",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~foodlist-foodlist-module~home-ho~a9bcad33",
 		"common",
 		"recipedetails-recipedetails-module"
 	],
 	"./recipelist/recipelist.module": [
 		"./src/app/recipelist/recipelist.module.ts",
-		"default~account-account-module~browse-browse-module~foodlist-foodlist-module~login-login-module~reci~2d3cbe9a",
-		"default~account-account-module~foodlist-foodlist-module~login-login-module~recipedetails-recipedetai~2e537e95",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~browse-browse-module~foodlist-fo~7832de0e",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~foodlist-foodlist-module~home-ho~a9bcad33",
 		"common",
 		"recipelist-recipelist-module"
 	],
 	"./register/register.module": [
 		"./src/app/register/register.module.ts",
-		"default~account-account-module~browse-browse-module~foodlist-foodlist-module~login-login-module~reci~2d3cbe9a",
-		"default~account-account-module~foodlist-foodlist-module~login-login-module~recipedetails-recipedetai~2e537e95",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~browse-browse-module~foodlist-fo~7832de0e",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~foodlist-foodlist-module~home-ho~a9bcad33",
 		"common",
 		"register-register-module"
 	],
@@ -899,8 +909,8 @@ var map = {
 	],
 	"./settings/settings.module": [
 		"./src/app/settings/settings.module.ts",
-		"default~account-account-module~browse-browse-module~foodlist-foodlist-module~login-login-module~reci~2d3cbe9a",
-		"default~account-account-module~foodlist-foodlist-module~login-login-module~recipedetails-recipedetai~2e537e95",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~browse-browse-module~foodlist-fo~7832de0e",
+		"default~account-account-module~bookmarkedlist-bookmarkedlist-module~foodlist-foodlist-module~home-ho~a9bcad33",
 		"common",
 		"settings-settings-module"
 	]
@@ -962,6 +972,10 @@ var routes = [
         loadChildren: './browse/browse.module#BrowsePageModule'
     },
     {
+        path: 'bookmarkedlist',
+        loadChildren: './bookmarkedlist/bookmarkedlist.module#BookmarkedListPageModule'
+    },
+    {
         path: 'foodlist',
         loadChildren: './foodlist/foodlist.module#FoodListPageModule'
     },
@@ -997,6 +1011,11 @@ var routes = [
         path: 'account',
         loadChildren: './account/account.module#AccountPageModule'
     }
+    // {
+    //   path: 'recipebrowse',
+    //   loadChildren: './recipebrowse/recipebrowse.module#RecipeBrowsePageModule'
+    //   //loadChildren: './tabs/tabs.module#TabsPageModule' 
+    // }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -1021,7 +1040,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\n  <ion-split-pane>\n    <ion-menu>\n      <ion-header>\n        <ion-toolbar>\n          <ion-title>Menu</ion-title>\n        </ion-toolbar>\n      </ion-header>\n      <ion-content>\n        <ion-list>\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages\">\n            <ion-item [routerDirection]=\"'root'\" [routerLink]=\"[p.url]\">\n              <ion-icon slot=\"start\" [name]=\"p.icon\"></ion-icon>\n              <ion-label>\n                {{p.title}}\n              </ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet main></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>\n"
+module.exports = "<ion-app>\r\n    <ion-split-pane>\r\n        <ion-menu>\r\n            <ion-header>\r\n                <ion-toolbar>\r\n                    <ion-title class='ion-align-item-center'>\r\n                        Menu\r\n                    </ion-title>\r\n                </ion-toolbar>\r\n            </ion-header>\r\n            <ion-content>\r\n                <ion-list>\r\n                    <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages\">\r\n                        <ion-item [routerDirection]=\"'root'\" [routerLink]=\"[p.url]\">\r\n                            <ion-icon slot=\"start\" [name]=\"p.icon\"></ion-icon>\r\n                            <ion-label>\r\n                                {{p.title}}\r\n                            </ion-label>\r\n                        </ion-item>\r\n                    </ion-menu-toggle>\r\n                </ion-list>\r\n            </ion-content>\r\n        </ion-menu>\r\n        <ion-router-outlet main></ion-router-outlet>\r\n    </ion-split-pane>\r\n</ion-app>"
 
 /***/ }),
 
@@ -1041,6 +1060,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
 /* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
 /* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _services_network_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/network.service */ "./src/app/services/network.service.ts");
+/* harmony import */ var _services_offline_manager_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/offline-manager.service */ "./src/app/services/offline-manager.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1056,12 +1077,20 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var AppComponent = /** @class */ (function () {
-    function AppComponent(platform, splashScreen, statusBar, navCtrl) {
+    function AppComponent(platform, splashScreen, statusBar, navCtrl, networkService, offlineManager) {
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
         this.navCtrl = navCtrl;
+        this.networkService = networkService;
+        this.offlineManager = offlineManager;
+        this.net_color_status = 'yellow';
+        this.net_title = 'Idle';
+        this.platform_title = 'logo-rss';
+        this.platform_color = '#ff471a';
         this.appPages = [
             {
                 title: 'Home',
@@ -1069,14 +1098,19 @@ var AppComponent = /** @class */ (function () {
                 icon: 'home'
             },
             {
-                title: 'Browse',
+                title: 'Snacks and Food Items',
                 url: '/browse',
+                icon: 'pizza'
+            },
+            {
+                title: 'Recipes',
+                url: '/recipelist',
                 icon: 'search'
             },
             {
-                title: 'Recipe List',
-                url: '/recipelist',
-                icon: 'list'
+                title: 'Bookmarks',
+                url: '/bookmarkedlist',
+                icon: 'bookmark'
             },
             {
                 title: 'Resources',
@@ -1095,6 +1129,28 @@ var AppComponent = /** @class */ (function () {
         var _this = this;
         this.platform.ready().then(function () {
             _this.splashScreen.show();
+            if (_this.platform.is('mobile') && _this.platform.is('ios')) {
+                _this.platform_title = 'logo-apple';
+            }
+            else if (_this.platform.is('mobile') && _this.platform.is('android')) {
+                _this.platform_title = 'logo-android';
+            }
+            _this.networkService.onNetworkChange().subscribe(function (status) {
+                if (status === _services_network_service__WEBPACK_IMPORTED_MODULE_5__["ConnectionStatus"].Online) {
+                    _this.net_title = 'checkmark-circle';
+                    _this.net_color_status = 'success';
+                    _this.offlineManager.checkForEvents().subscribe();
+                }
+                else if (status === _services_network_service__WEBPACK_IMPORTED_MODULE_5__["ConnectionStatus"].Offline) {
+                    _this.net_title = 'alert';
+                    _this.net_color_status = 'danger';
+                    _this.offlineManager.checkForEvents().subscribe();
+                }
+                else {
+                    _this.net_title = 'warning';
+                    _this.net_color_status = 'warning';
+                }
+            });
             // check if the user is logged in and show login if needed.
             firebase_app__WEBPACK_IMPORTED_MODULE_4__["auth"]().onAuthStateChanged(function (user) {
                 if (user) {
@@ -1114,7 +1170,9 @@ var AppComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_1__["Platform"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_2__["SplashScreen"],
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_3__["StatusBar"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["NavController"]])
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["NavController"],
+            _services_network_service__WEBPACK_IMPORTED_MODULE_5__["NetworkService"],
+            _services_offline_manager_service__WEBPACK_IMPORTED_MODULE_6__["OfflineManagerService"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -1141,9 +1199,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/ngx/index.js");
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic-native/network/ngx */ "./node_modules/@ionic-native/network/ngx/index.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1161,29 +1222,276 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]],
             entryComponents: [],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot(),
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"],
-                _angular_fire__WEBPACK_IMPORTED_MODULE_3__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_10__["environment"].firebaseConfig),
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_12__["AppRoutingModule"],
+                _ionic_storage__WEBPACK_IMPORTED_MODULE_8__["IonicStorageModule"].forRoot(),
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClientModule"],
+                _angular_fire__WEBPACK_IMPORTED_MODULE_3__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_13__["environment"].firebaseConfig),
                 _angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__["AngularFireAuthModule"]
             ],
             providers: [
                 _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_7__["StatusBar"],
                 _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_6__["SplashScreen"],
-                { provide: _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicRouteStrategy"] }
+                { provide: _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicRouteStrategy"] }, _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_10__["Network"]
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/network.service.ts":
+/*!*********************************************!*\
+  !*** ./src/app/services/network.service.ts ***!
+  \*********************************************/
+/*! exports provided: ConnectionStatus, NetworkService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConnectionStatus", function() { return ConnectionStatus; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NetworkService", function() { return NetworkService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic-native/network/ngx */ "./node_modules/@ionic-native/network/ngx/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+var ConnectionStatus;
+(function (ConnectionStatus) {
+    ConnectionStatus[ConnectionStatus["Online"] = 0] = "Online";
+    ConnectionStatus[ConnectionStatus["Offline"] = 1] = "Offline";
+})(ConnectionStatus || (ConnectionStatus = {}));
+var NetworkService = /** @class */ (function () {
+    function NetworkService(network, toastController, plt) {
+        var _this = this;
+        this.network = network;
+        this.toastController = toastController;
+        this.plt = plt;
+        this.status = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](ConnectionStatus.Offline);
+        this.plt.ready().then(function () {
+            _this.initializeNetworkEvents();
+            var status = _this.network.type !== 'none' || 'unknown' || 'cellular'
+                || '2g' || '3g' || '4g' ? ConnectionStatus.Online : ConnectionStatus.Offline;
+            _this.status.next(status);
+        });
+    }
+    NetworkService.prototype.initializeNetworkEvents = function () {
+        var _this = this;
+        this.network.onDisconnect().subscribe(function () {
+            if (_this.status.getValue() === ConnectionStatus.Online) {
+                _this.updateNetworkStatus(ConnectionStatus.Offline);
+            }
+        });
+        this.network.onConnect().subscribe(function () {
+            if (_this.status.getValue() === ConnectionStatus.Offline) {
+                _this.updateNetworkStatus(ConnectionStatus.Online);
+            }
+        });
+    };
+    NetworkService.prototype.updateNetworkStatus = function (status) {
+        return __awaiter(this, void 0, void 0, function () {
+            var connection, toast;
+            return __generator(this, function (_a) {
+                this.status.next(status);
+                connection = status === ConnectionStatus.Offline ? 'Offline' : 'Online';
+                toast = this.toastController.create({
+                    message: "You are now " + connection,
+                    duration: 3000,
+                    position: 'bottom'
+                });
+                // tslint:disable-next-line:no-shadowed-variable
+                toast.then(function (toast) { return toast.present(); });
+                return [2 /*return*/];
+            });
+        });
+    };
+    NetworkService.prototype.onNetworkChange = function () {
+        return this.status.asObservable();
+    };
+    NetworkService.prototype.getCurrentNetworkStatus = function () {
+        return this.status.getValue();
+    };
+    NetworkService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_1__["Network"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"]])
+    ], NetworkService);
+    return NetworkService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/offline-manager.service.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/services/offline-manager.service.ts ***!
+  \*****************************************************/
+/*! exports provided: OfflineManagerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OfflineManagerService", function() { return OfflineManagerService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var STORAGE_REQ_KEY = 'storedreq';
+var OfflineManagerService = /** @class */ (function () {
+    function OfflineManagerService(storage, http, toastController) {
+        this.storage = storage;
+        this.http = http;
+        this.toastController = toastController;
+    }
+    OfflineManagerService.prototype.checkForEvents = function () {
+        var _this = this;
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])(this.storage.get(STORAGE_REQ_KEY)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(function (storedOperations) {
+            var storedObj = JSON.parse(storedOperations);
+            if (storedObj && storedObj.length > 0) {
+                return _this.sendRequests(storedObj).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["finalize"])(function () {
+                    var toast = _this.toastController.create({
+                        message: "Local data succesfully synced to API!",
+                        duration: 3000,
+                        position: 'bottom'
+                    });
+                    toast.then(function (toast) { return toast.present(); });
+                    _this.storage.remove(STORAGE_REQ_KEY);
+                }));
+            }
+            else {
+                console.log('no local events to sync');
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(false);
+            }
+        }));
+    };
+    OfflineManagerService.prototype.storeRequest = function (url, type, data) {
+        var _this = this;
+        var toast = this.toastController.create({
+            message: "Your data is stored locally because you seem to be offline.",
+            duration: 3000,
+            position: 'bottom'
+        });
+        toast.then(function (toast) { return toast.present(); });
+        var action = {
+            url: url,
+            type: type,
+            data: data,
+            time: new Date().getTime(),
+            id: Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5)
+        };
+        // https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
+        return this.storage.get(STORAGE_REQ_KEY).then(function (storedOperations) {
+            var storedObj = JSON.parse(storedOperations);
+            if (storedObj) {
+                storedObj.push(action);
+            }
+            else {
+                storedObj = [action];
+            }
+            // Save old & new local transactions back to Storage
+            return _this.storage.set(STORAGE_REQ_KEY, JSON.stringify(storedObj));
+        });
+    };
+    OfflineManagerService.prototype.sendRequests = function (operations) {
+        var obs = [];
+        for (var _i = 0, operations_1 = operations; _i < operations_1.length; _i++) {
+            var op = operations_1[_i];
+            console.log('Make one request: ', op);
+            var oneObs = this.http.request(op.type, op.url, op.data);
+            obs.push(oneObs);
+        }
+        // Send out all local events and return once they are finished
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["forkJoin"])(obs);
+    };
+    OfflineManagerService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_ionic_storage__WEBPACK_IMPORTED_MODULE_1__["Storage"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ToastController"]])
+    ], OfflineManagerService);
+    return OfflineManagerService;
 }());
 
 
@@ -1259,7 +1567,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/Tony/Documents/bronco-nutrition/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\adfoy\ionic_App\bronco-nutrition2\src\main.ts */"./src/main.ts");
 
 
 /***/ })

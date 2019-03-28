@@ -92,7 +92,7 @@ var _sPassive,GestureController=function(){function t(t){this.doc=t,this.gesture
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      Recipe List\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-card>\n  <ion-list>\n    <ion-item [class.highlight]=\"item.selected\" *ngFor=\"let item of items; let i = index\" (click)=listItemClick(i) detail >\n      {{item.title}}\n    </ion-item>\n  </ion-list></ion-card>\n</ion-content>"
+module.exports = "<ion-header>\r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n            <ion-menu-button></ion-menu-button>\r\n        </ion-buttons>\r\n        <ion-title>\r\n            Browse Recipes\r\n        </ion-title>\r\n    </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n    <ion-card>\r\n        <ion-searchbar animated debounce=\"500\" placeholder=\"Search Here\" name=\"search\" (ionInput)=\"getRecipes($event)\"></ion-searchbar>\r\n        <ion-list>\r\n            <ion-item [class.highlight]=\"item.selected\" *ngFor=\"let item of items; let i = index\" (click)=listItemClick(item.idx) detail>\r\n                <ion-col>\r\n                    <ion-checkbox name=\"star-outline\" color=\"primary\" (click)=\"addtoFavorites(item)\"></ion-checkbox>\r\n                </ion-col>\r\n                <ion-col>\r\n                    {{item.title}}\r\n                </ion-col>\r\n            </ion-item>\r\n        </ion-list>\r\n    </ion-card>\r\n</ion-content>"
 
 /***/ }),
 
@@ -103,7 +103,7 @@ module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3JlY2lwZWxpc3QvcmVjaXBlbGlzdC5wYWdlLnNjc3MifQ== */"
+module.exports = ".highlight {\n  background-color: #DDDDDD; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVjaXBlbGlzdC9DOlxcVXNlcnNcXGFkZm95XFxpb25pY19BcHBcXGJyb25jby1udXRyaXRpb24yL3NyY1xcYXBwXFxyZWNpcGVsaXN0XFxyZWNpcGVsaXN0LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHlCQUF5QixFQUFBIiwiZmlsZSI6InNyYy9hcHAvcmVjaXBlbGlzdC9yZWNpcGVsaXN0LnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5oaWdobGlnaHQge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNEREREREQ7XHJcbn1cclxuIl19 */"
 
 /***/ }),
 
@@ -119,7 +119,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RecipeListPage", function() { return RecipeListPage; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../auth/auth.service */ "./src/app/auth/auth.service.ts");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _Recipe__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Recipe */ "./src/app/Recipe.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -132,47 +133,74 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var RecipeListPage = /** @class */ (function () {
     function RecipeListPage(firebaseAuth, navCtrl) {
         this.firebaseAuth = firebaseAuth;
         this.navCtrl = navCtrl;
         this.items = [];
+        this.favList = [];
+        this.inc = 0;
         // grab the recipes we got from firebase, and
         // put use their titles for the UI list.
         this.recipes = this.firebaseAuth.getRecipes;
         for (var i = 1; i < this.recipes.length; i++) {
             this.items.push({
-                title: this.recipes[i].getRecipeTitle
+                title: this.recipes[i].getRecipeTitle,
+                idx: this.recipes[i].dbIndex,
+                selected: false
             });
         }
+        this.loadedList = this.items;
     }
-    RecipeListPage_1 = RecipeListPage;
     RecipeListPage.prototype.ngOnInit = function () {
     };
-    Object.defineProperty(RecipeListPage, "getSelectedRecipe", {
-        get: function () {
-            return RecipeListPage_1.selectedRecipe;
-        },
-        enumerable: true,
-        configurable: true
-    });
     // add back when alpha.4 is out
     // navigate(item) {
     //   this.router.navigate(['/list', JSON.stringify(item)]);
     // }
     RecipeListPage.prototype.listItemClick = function (index) {
-        RecipeListPage_1.selectedRecipe = this.recipes[index + 1];
+        _Recipe__WEBPACK_IMPORTED_MODULE_2__["Recipe"].recipeToDisplay = this.recipes[index];
         this.navCtrl.navigateForward('recipedetails');
     };
-    var RecipeListPage_1;
-    RecipeListPage = RecipeListPage_1 = __decorate([
+    RecipeListPage.prototype.initializeRecipeList = function () {
+        this.items = this.loadedList;
+    };
+    RecipeListPage.prototype.getRecipes = function (searchbar) {
+        var search = searchbar.srcElement.value;
+        this.initializeRecipeList();
+        if (!search) {
+            return;
+        }
+        this.items = this.items.filter(function (val) {
+            if (val && search) {
+                if ((val.title.indexOf(search) > -1) || (val.title.toLowerCase().indexOf(search) > -1)) {
+                    return true;
+                }
+                return false;
+            }
+        });
+    };
+    RecipeListPage.prototype.addtoFavorites = function (list) {
+        this.favList[this.inc] = list;
+        this.inc++;
+        localStorage.setItem(this.firebaseAuth.user.email, JSON.stringify(this.favList));
+    };
+    Object.defineProperty(RecipeListPage, "getRecipe", {
+        set: function (recipe) {
+            this.prototype.listItemClick(recipe.idx);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    RecipeListPage = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-list',
             template: __webpack_require__(/*! ./recipelist.page.html */ "./src/app/recipelist/recipelist.page.html"),
             styles: [__webpack_require__(/*! ./recipelist.page.scss */ "./src/app/recipelist/recipelist.page.scss")]
         }),
         __metadata("design:paramtypes", [_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"]])
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"]])
     ], RecipeListPage);
     return RecipeListPage;
 }());

@@ -61,7 +61,7 @@ var BrowsePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      Recipes and Food\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n          <ion-button fill = \"outline\" expand=\"block\" lines = \"none\" (click)=foodListClick() detail>\n            Browse a la Carte Food Items\n          </ion-button>\n    <ion-searchbar animated debounce=\"500\" placeholder=\"Search Here\" name= \"search\"(ionInput)=\"getRecipes($event)\" ></ion-searchbar>\n    <ion-list>\n      <ion-card>\n        <ion-item *ngFor=\"let recipe of recipeList\" (click)=listItemClick(i) detail>\n        {{recipe}}\n        </ion-item>\n      </ion-card>\n    </ion-list>\n\n</ion-content>\n\n\n"
+module.exports = "<ion-header>\r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n            <ion-menu-button></ion-menu-button>\r\n        </ion-buttons>\r\n        <ion-title>\r\n            Food Items\r\n        </ion-title>\r\n    </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-card>\r\n    <ion-searchbar animated debounce=\"500\" placeholder=\"Search Here\" name=\"search\" (ionInput)=\"getFoodItems($event)\"></ion-searchbar>\r\n    <ion-list>\r\n        <ion-item *ngFor=\"let item of foodList;\">\r\n            {{item[0]}}\r\n            <ion-label item-right text-right>{{item[1]}}</ion-label>\r\n        </ion-item>\r\n    </ion-list>\r\n  </ion-card>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -72,7 +72,7 @@ module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".welcome-card ion-img {\n  max-height: 35vh; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9Ub255L0RvY3VtZW50cy9icm9uY28tbnV0cml0aW9uL3NyYy9hcHAvYnJvd3NlL2Jyb3dzZS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBZ0IsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2Jyb3dzZS9icm93c2UucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLndlbGNvbWUtY2FyZCBpb24taW1nIHtcbiAgbWF4LWhlaWdodDogMzV2aDtcbiAgLy9vdmVyZmxvdzogaGlkZGVuO1xufSJdfQ== */"
+module.exports = ".welcome-card ion-img {\n  max-height: 35vh; }\n\nion-label {\n  font-weight: bold; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYnJvd3NlL0M6XFxVc2Vyc1xcYWRmb3lcXGlvbmljX0FwcFxcYnJvbmNvLW51dHJpdGlvbjIvc3JjXFxhcHBcXGJyb3dzZVxcYnJvd3NlLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdCQUFnQixFQUFBOztBQUlsQjtFQUNFLGlCQUFpQixFQUFBIiwiZmlsZSI6InNyYy9hcHAvYnJvd3NlL2Jyb3dzZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIud2VsY29tZS1jYXJkIGlvbi1pbWcge1xyXG4gIG1heC1oZWlnaHQ6IDM1dmg7XHJcbiAgLy9vdmVyZmxvdzogaGlkZGVuO1xyXG59XHJcblxyXG5pb24tbGFiZWwge1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -106,48 +106,46 @@ var BrowsePage = /** @class */ (function () {
     function BrowsePage(navCtrl) {
         var _this = this;
         this.navCtrl = navCtrl;
-        this.recipedb = firebase__WEBPACK_IMPORTED_MODULE_2__["database"]().ref('masterSheet/');
-        this.fooddb = firebase__WEBPACK_IMPORTED_MODULE_2__["database"]().ref('foodSheet/');
-        this.recipedb.on('value', function (recipeList) {
-            var recipes = [];
-            recipeList.forEach(function (recipe) {
-                recipes.push(recipe.val());
+        this.foodDB = firebase__WEBPACK_IMPORTED_MODULE_2__["database"]().ref('foodSheet/');
+        this.foodDB.on('value', function (foodList) {
+            var foods = [];
+            foodList.forEach(function (food) {
+                foods.push(food.val());
                 return false;
             });
-            _this.recipeList = recipes;
-            _this.loadedRecipeList = recipes;
+            _this.foodList = foods;
         });
+        this.foodList.shift(); // get rid of descriptions
+        this.loadedFoodList = this.foodList;
     }
     //Austin, can you have this act like the selecting 
-    //list component in recipelist.page.ts?
-    BrowsePage.prototype.listItemClick = function (index) {
-        //RecipeListPage.selectedRecipe = this.recipes[index + 1];
-        this.navCtrl.navigateForward('recipedetails');
-    };
+    //list component in foodList.page.ts?
     BrowsePage.prototype.foodListClick = function () {
         this.navCtrl.navigateForward('foodlist');
     };
-    BrowsePage.prototype.initializeRecipes = function () {
-        this.recipeList = this.loadedRecipeList;
+    BrowsePage.prototype.initializeFoodList = function () {
+        this.foodList = this.loadedFoodList;
     };
-    BrowsePage.prototype.getRecipes = function (searchbar) {
+    BrowsePage.prototype.getFoodItems = function (searchbar) {
         var _this = this;
         var search = searchbar.srcElement.value;
-        this.initializeRecipes();
-        this.recipeList = this.recipeList.filter(function (val) {
+        this.initializeFoodList();
+        if (!search) {
+            return;
+        }
+        this.foodList = this.foodList.filter(function (val) {
             if (val && search) {
                 if ((val[0].indexOf(search) > -1) || (val[0].toLowerCase().indexOf(search) > -1)) {
-                    _this.componentRecipe = search;
+                    _this.componentFoodItem = search;
                     return true;
                 }
                 return false;
             }
         });
-        // console.log(search, this.recipeList.length);
     };
     BrowsePage = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-home',
+            selector: 'app-list',
             template: __webpack_require__(/*! ./browse.page.html */ "./src/app/browse/browse.page.html"),
             styles: [__webpack_require__(/*! ./browse.page.scss */ "./src/app/browse/browse.page.scss")]
         }),
