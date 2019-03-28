@@ -7,11 +7,11 @@ import { AuthService } from '../auth/auth.service';
 })
 export class AccountPage {
    
-    private username: string;
-    private email: string;
+    public   username: string;
+    public  email: string;
     constructor(private afAuth: AuthService) {
-        this.username = afAuth.accountUserName();
-        this.email = afAuth.accountEmail();
+        this.username = afAuth.user.displayName;
+        this.email = afAuth.user.email;
         
     }
 }

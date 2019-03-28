@@ -1,0 +1,4 @@
+#Tue Mar 12 19:04:37 MDT 2019
+base.0=C\:\\Users\\adfoy\\ionic_App\\bronco-nutrition2\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
+path.0=classes.dex
+renamed.0=classes.dex

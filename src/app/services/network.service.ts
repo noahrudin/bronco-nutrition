@@ -19,19 +19,19 @@ export class NetworkService {
   constructor(private network: Network, private toastController: ToastController, private plt: Platform) {
     this.plt.ready().then(() => {
       this.initializeNetworkEvents();
-      let status =  this.network.type !== 'none' ? ConnectionStatus.Online : ConnectionStatus.Offline;
+      const status =  this.network.type !== 'none' || 'unknown' || 'cellular'
+      || '2g' || '3g' || '4g' ? ConnectionStatus.Online : ConnectionStatus.Offline;
       this.status.next(status);
     });
   }
  
   public initializeNetworkEvents() {
  
-    this.network.onDisconnect().subscribe(() => {
+   this.network.onDisconnect().subscribe(() => {
       if (this.status.getValue() === ConnectionStatus.Online) {
         this.updateNetworkStatus(ConnectionStatus.Offline);
       }
     });
- 
     this.network.onConnect().subscribe(() => {
       if (this.status.getValue() === ConnectionStatus.Offline) {
         
@@ -43,13 +43,14 @@ export class NetworkService {
   private async updateNetworkStatus(status: ConnectionStatus) {
     this.status.next(status);
  
-    let connection = status == ConnectionStatus.Offline ? 'Offline' : 'Online';
-    let toast = this.toastController.create({
+    const connection = status === ConnectionStatus.Offline ? 'Offline' : 'Online';
+    const toast = this.toastController.create({
       message: `You are now ${connection}`,
       duration: 3000,
       position: 'bottom'
     });
-    toast.then(toast => toast.present());
+    // tslint:disable-next-line:no-shadowed-variable
+    toast.then( toast => toast.present());
   }
  
   public onNetworkChange(): Observable<ConnectionStatus> {

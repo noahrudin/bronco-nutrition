@@ -3,6 +3,7 @@ import { AuthService } from '../auth/auth.service';
 import { Recipe } from '../Recipe';
 import { NavController } from '@ionic/angular';
 import { RecipeDetailsPage } from '../recipedetails/recipedetails.page';
+import { RecipeService } from '../recipeServices/recipe.service';
 
 
 @Component({
@@ -18,11 +19,11 @@ export class RecipeListPage implements OnInit {
   public items: Array<{ title: string, idx: number, selected: boolean }> = [];
   private favList: Array<any>=[];
   private inc: any =0;
-  constructor(private firebaseAuth: AuthService,
-              private navCtrl: NavController) {
+  constructor(private recipeService: RecipeService,
+              private navCtrl: NavController,private firebaseAuth:AuthService) {
     // grab the recipes we got from firebase, and
     // put use their titles for the UI list.
-    this.recipes = this.firebaseAuth.getRecipes;
+    this.recipes = this.recipeService.getRecipes;
     for(let i = 1; i < this.recipes.length; i++){
       this.items.push({
         title: this.recipes[i].getRecipeTitle,

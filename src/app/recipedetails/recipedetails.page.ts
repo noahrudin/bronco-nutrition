@@ -24,7 +24,7 @@ export class RecipeDetailsPage{
   private inc: any = 0;
   private recipeToBook:Array<string>=[];
 
-  constructor(private navCtrl: NavController,private toastController:ToastController,private afAuth:AuthService) {
+  constructor(private navCtrl: NavController,private toastController:ToastController) {
     this.recipeToDisplay = Recipe.getRecipeToDisplay;
     this.recipeTitle = this.recipeToDisplay.getRecipeTitle;
     this.servingSize = this.recipeToDisplay.getNumServings;

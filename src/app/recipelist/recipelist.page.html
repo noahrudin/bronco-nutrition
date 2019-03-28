@@ -14,9 +14,12 @@
         <ion-searchbar animated debounce="500" placeholder="Search Here" name="search" (ionInput)="getRecipes($event)"></ion-searchbar>
         <ion-list>
             <ion-item [class.highlight]="item.selected" *ngFor="let item of items; let i = index" (click)=listItemClick(item.idx) detail>
-
-                {{item.title}}
-                <ion-checkbox color="success" (click)="addtoFavorites(item)"></ion-checkbox>
+                <ion-col>
+                    <ion-checkbox name="star-outline" color="primary" (click)="addtoFavorites(item)"></ion-checkbox>
+                </ion-col>
+                <ion-col>
+                    {{item.title}}
+                </ion-col>
             </ion-item>
         </ion-list>
     </ion-card>

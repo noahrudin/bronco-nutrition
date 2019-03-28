@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -14,9 +13,10 @@ import { OfflineManagerService } from './services/offline-manager.service';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  private net_color_status: string = 'yellow';
-  public net_title:string = 'Idle';
-
+  public net_color_status: string = 'yellow';
+  public net_title: string = 'Idle';
+  public platform_title: string = 'logo-rss';
+  public platform_color:string = '#ff471a';
   public appPages = [
     {
       title: 'Home',
@@ -64,15 +64,24 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.splashScreen.show();
+      if (this.platform.is('mobile') && this.platform.is('ios')) {
+          this.platform_title = 'logo-apple';
+      } else if ( this.platform.is('mobile') && this.platform.is('android')) {
+          this.platform_title = 'logo-android';
+      }
       this.networkService.onNetworkChange().subscribe((status: ConnectionStatus) => {
           if (status === ConnectionStatus.Online) {
-            this.net_title ='Online';
+            this.net_title ='checkmark-circle';
             this.net_color_status='success';
             this.offlineManager.checkForEvents().subscribe();
           }
-          else if(status === ConnectionStatus.Offline) {
-            this.net_title ='Offline';
+          else if (status === ConnectionStatus.Offline) {
+            this.net_title ='alert';
             this.net_color_status='danger';
+            this.offlineManager.checkForEvents().subscribe();
+          }else{
+              this.net_title = 'warning';
+              this.net_color_status = 'warning';
           }
       });
       // check if the user is logged in and show login if needed.
