@@ -93,9 +93,13 @@ export class AuthService {
 
   async login(email: string, password: string) {
     try {
+      if(this.user.emailVerified){
       firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
       await firebase.auth().signInWithEmailAndPassword(email, password);
       this.navCtrl.navigateRoot(['./home']);
+      }else{
+        alert("Please confirm your email");
+      }
     } catch (error) {
       const errorMsg = error.message;
       alert('Error signing in: ' + errorMsg);
@@ -120,11 +124,16 @@ export class AuthService {
 	
 	async signup(firstname: string,lastname:string,email: string, password: string){
 		try{
+        if(email.includes('u.boisestate.edu')||email.includes('boisestate.edu')){
       await this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       this.confirm_Signup(email);
-      this.accountFirstLastName(firstname, lastname);
+      this.accountFirstLastName(firstname+lastname);
       
       this.router.navigate(['./login']);
+        }else{
+          alert("invalid email format: must be school email");
+          this.router.navigate(['./register']);
+        }
 
 		}catch(e){
       alert("Error!"+e.message);
@@ -132,12 +141,12 @@ export class AuthService {
   }
 
 
-  accountEmail(): string  {
-    return  this.user.email ;
+  accountEmail():string{
+    return this.user.email;
   }
 
-  accountUserName(): string {
-    return this.username;
+  accountUserName():string{
+    return this.user.displayName;
   }
 
   
@@ -150,12 +159,15 @@ export class AuthService {
     }
   }
 
-  confirm_Signup(email: string) {
+  async confirm_Signup(email: string) {
     this.user.sendEmailVerification();
   }
 
-    accountFirstLastName(firstname: string, lastname: string): void {
-        this.username = firstname + lastname;
+     accountFirstLastName(userName:string){
+        this.user.updateProfile({
+          displayName:userName,
+          photoURL:null
+        });
     }
 
 
@@ -166,4 +178,14 @@ export class AuthService {
   get foodList(): Array<FoodItem> {
     return this.foodItems;
   }
+
+  confirm_signup(email: string){
+    var user=firebase.auth().currentUser;
+    user.sendEmailVerification().then(()=>{
+      alert("please confirm your email");
+    }).catch(()=>{
+      alert("There was an error");
+    });
+  }
+
 }
