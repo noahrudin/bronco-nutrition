@@ -15,22 +15,28 @@ const STEPS_INDEX = 5;
 
 export const snapshotToRecipeArray = snapshot => {
   const returnArr = [];
-  let idx: number = 0;
+  let idx = 0;
   snapshot.forEach(childSnapshot => {
-      const item = childSnapshot.val();
-      // package everything up into an easily usable Recipe object.
-      const title = item[RECIPE_NAME_INDEX];
-      const numServings = Recipe.parseNumServings(item[NUM_SERVINGS_INDEX]);
-      const macros = Recipe.parseMacros(item[MACROS_INDEX]);
-      const prepTime = item[PREP_TIME_INDEX];
-      const ingredients = Recipe.parseIngredients(item[INGREDIENTS_INDEX]);
-      const steps = Recipe.parseSteps(item[STEPS_INDEX]);
+    const item = childSnapshot.val();
+    // package everything up into an easily usable Recipe object.
+    const title = item[RECIPE_NAME_INDEX];
+    const numServings = Recipe.parseNumServings(item[NUM_SERVINGS_INDEX]);
+    const macros = Recipe.parseMacros(item[MACROS_INDEX]);
+    const prepTime = item[PREP_TIME_INDEX];
+    const ingredients = Recipe.parseIngredients(item[INGREDIENTS_INDEX]);
+    const steps = Recipe.parseSteps(item[STEPS_INDEX]);
 
-      const newRecipe = new Recipe(title, numServings, macros,
-                                  prepTime, ingredients,
-                                  steps, idx);
-      returnArr.push(newRecipe);
-      idx++;
+    const newRecipe = new Recipe(
+      title,
+      numServings,
+      macros,
+      prepTime,
+      ingredients,
+      steps,
+      idx
+    );
+    returnArr.push(newRecipe);
+    idx++;
   });
 
   return returnArr;
@@ -49,7 +55,7 @@ export const snapshotToFoodArray = snapshot => {
   });
 
   return returnArr;
-}
+};
 
 @Injectable({
   providedIn: 'root'
@@ -60,7 +66,6 @@ export class RecipeService {
   private recipeDB = firebase.database().ref('recipeSheet/');
   private foodDB = firebase.database().ref('foodSheet/');
   constructor() {
-    
     // grab recipe data from Firebase, and pack it into an array.
     this.recipeDB.on('value', resp => {
       this.recipes = snapshotToRecipeArray(resp);
@@ -78,5 +83,4 @@ export class RecipeService {
   get foodList(): Array<FoodItem> {
     return this.foodItems;
   }
-
 }

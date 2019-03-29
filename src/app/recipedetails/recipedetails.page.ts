@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Recipe } from '../Recipe';
 import { Macro } from '../Recipe';
@@ -8,10 +8,9 @@ import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-home',
   templateUrl: 'recipedetails.page.html',
-  styleUrls: ['recipedetails.page.scss'],
+  styleUrls: ['recipedetails.page.scss']
 })
-
-export class RecipeDetailsPage{
+export class RecipeDetailsPage implements OnInit {
   private recipeToDisplay: Recipe;
   public isBookmarked: boolean;
   public recipeTitle: string;
@@ -19,18 +18,21 @@ export class RecipeDetailsPage{
   public prepTime: string;
   public macros: Macro[];
   public macroString: string;
-  public ingredients: Array <{ name: string }> = [];
+  public ingredients: Array<{ name: string }> = [];
   public steps: Array<{ str: string }> = [];
   private inc: any = 0;
-  private recipeToBook:Array<string>=[];
+  private recipeToBook: Array<string> = [];
 
-  constructor(private navCtrl: NavController,private toastController:ToastController) {
+  constructor(
+    private navCtrl: NavController,
+    private toastController: ToastController
+  ) {
     this.recipeToDisplay = Recipe.getRecipeToDisplay;
     this.recipeTitle = this.recipeToDisplay.getRecipeTitle;
     this.servingSize = this.recipeToDisplay.getNumServings;
     this.prepTime = this.recipeToDisplay.getPrepTime;
     this.macros = this.recipeToDisplay.getMacros;
-    
+
     // populate lists of ingredients and steps
     this.setupIngredientsList();
     this.setupStepsList();
@@ -38,7 +40,7 @@ export class RecipeDetailsPage{
     this.isBookmarked = false;
   }
 
-  bookmarkClick(){
+  bookmarkClick() {
     this.presentToast();
     this.bookmarkRecipe();
   }
@@ -51,8 +53,8 @@ export class RecipeDetailsPage{
     toast.present();
   }
 
-  bookmarkRecipe(){
-   /*if(localStorage.getItem("increment")!= null){
+  bookmarkRecipe() {
+    /*if(localStorage.getItem("increment")!= null){
     this.inc=JSON.parse(localStorage.getItem("increment"));
     this.recipeToBook[this.inc] = this.recipeToDisplay.getRecipeTitle;
     localStorage.setItem(this.afAuth.user.email, JSON.stringify(this.recipeToBook));
@@ -74,7 +76,7 @@ export class RecipeDetailsPage{
   }
 
   setupIngredientsList() {
-    for(let i = 0; i < this.recipeToDisplay.getIngredients.length; i++) {
+    for (let i = 0; i < this.recipeToDisplay.getIngredients.length; i++) {
       this.ingredients.push({
         name: this.recipeToDisplay.getIngredients[i]
       });
@@ -82,14 +84,14 @@ export class RecipeDetailsPage{
   }
 
   setupStepsList() {
-    for(let i = 0; i < this.recipeToDisplay.getSteps.length; i++) {
+    for (let i = 0; i < this.recipeToDisplay.getSteps.length; i++) {
       this.steps.push({
         str: this.recipeToDisplay.getSteps[i]
       });
     }
   }
 
-  stringifyMacro(macro: Macro): string{
+  stringifyMacro(macro: Macro): string {
     if (macro === Macro.Carbohydrates) {
       return 'Carbohydrates';
     } else if (macro === Macro.Fat) {
@@ -100,23 +102,20 @@ export class RecipeDetailsPage{
   }
 
   getMacroString(): string {
-    let macroString: string = '';
+    let macroString = '';
     for (let i = 0; i < this.macros.length; i++) {
       macroString += this.stringifyMacro(this.macros[i]);
-      if(i < this.macros.length - 1) {
-        macroString += ', '
+      if (i < this.macros.length - 1) {
+        macroString += ', ';
       }
     }
     return macroString;
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   // add back when alpha.4 is out
   // navigate(item) {
   //   this.router.navigate(['/list', JSON.stringify(item)]);
   // }
-
 }
