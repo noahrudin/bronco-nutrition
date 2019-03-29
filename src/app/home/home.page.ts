@@ -1,29 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
-import {NetworkService,ConnectionStatus} from '../services/network.service';
-import {Network} from '@ionic-native/network';
-import {ToastController, Platform} from '@ionic/angular';
+import { NetworkService, ConnectionStatus } from '../services/network.service';
+import { Network } from '@ionic-native/network';
+import { ToastController, Platform } from '@ionic/angular';
 import { User } from 'firebase';
-import {NativeStorage} from '@ionic-native/native-storage/ngx';
-import {AuthService} from '../auth/auth.service';
-
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  styleUrls: ['home.page.scss']
 })
-
-export class HomePage {
+export class HomePage implements OnInit {
   private recipes: any;
-  private fav_recipes: Array<any>=[];
-  private user:User;
-  private native:NativeStorage=new NativeStorage();
-  constructor(public menuCtrl: MenuController, private navCtrl: NavController,private afAuth:AuthService) {
-      this.user=afAuth.user;
+  private fav_recipes: Array<any> = [];
+  private user: User;
+  private native: NativeStorage = new NativeStorage();
+  constructor(
+    public menuCtrl: MenuController,
+    private navCtrl: NavController,
+    private afAuth: AuthService
+  ) {
+    this.user = afAuth.user;
   }
-  
+
   SearchButtonClick() {
     this.navCtrl.navigateForward('browse');
   }
@@ -45,20 +47,13 @@ export class HomePage {
   }
 
   ngOnInit() {
-   this.recipes=localStorage.getItem('favorites');
-   if(this.recipes){
-     this.fav_recipes=JSON.parse(this.recipes);
-   }
-   
+    this.recipes = localStorage.getItem('favorites');
+    if (this.recipes) {
+      this.fav_recipes = JSON.parse(this.recipes);
+    }
   }
-
 
   ionViewWillEnter() {
     this.menuCtrl.enable(true);
   }
-  
-
-  }
-
-
-
+}
