@@ -12,10 +12,20 @@
 <ion-content>
     <ion-card>
         <ion-searchbar animated debounce="500" placeholder="Search Here" name="search" (ionInput)="getRecipes($event)"></ion-searchbar>
-        <ion-list>
-            <ion-item [class.highlight]="item.selected" *ngFor="let item of items; let i = index" (click)=listItemClick(item.idx) detail>
-                    <ion-checkbox name="star-outline" color="primary" (click)="addtoFavorites(item)"></ion-checkbox>
+        <ion-list *ngFor="let item of items; let i = index">
+            <ion-item [class.highlight]="item.selected" (click)="listItemClick(item.idx)" detail>
+                <ion-row>
+                    <!--                    <ion-item>
+                        <ion-col class="ion-align-self-start">
+                            <ion-button disabled="!{{item.bookmark}}" color="secondary" (click)="removeBookMark(item)"> remove </ion-button>
+                        </ion-col>
+                        <ion-col class="ion-align-self-start">
+                            <ion-button disabled="{{item.bookmark}}" color="secondary" (click)="addtoFavorites(item)"> add </ion-button>
+                        </ion-col>
+                    </ion-item>
+                -->
                     {{item.title}}
+                </ion-row>
             </ion-item>
         </ion-list>
     </ion-card>

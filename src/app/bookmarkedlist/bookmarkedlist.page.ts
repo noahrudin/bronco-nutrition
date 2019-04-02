@@ -4,6 +4,7 @@ import { Recipe } from '../Recipe';
 import { NavController, ToastController } from '@ionic/angular';
 import { RecipeListPage } from '../recipelist/recipelist.page';
 import { RecipeService } from '../recipeServices/recipe.service';
+import { RecipeDetailsPage } from '../recipedetails/recipedetails.page';
 
 @Component({
   selector: 'app-list',
@@ -13,13 +14,10 @@ import { RecipeService } from '../recipeServices/recipe.service';
 export class BookmarkedListPage implements OnInit {
   public static selectedRecipe: Recipe;
   private loadedList: Array<Recipe>;
-  private recipes: Array<{
-    title: string;
-    idx: number;
-    selected: boolean;
-  }> = [];
-  public items: Array<{ title: string; idx: number; selected: boolean }> = [];
+  private recipes: Array<Recipe> = [];
+  public items: Array<Recipe> = [];
   private recipeList: RecipeListPage;
+  private recipedetail: RecipeDetailsPage;
 
   constructor(
     private firebaseAuth: AuthService,
@@ -29,15 +27,23 @@ export class BookmarkedListPage implements OnInit {
   ) {
     this.recipeList = new RecipeListPage(recipeService, navCtrl, firebaseAuth);
     const recipe = JSON.parse(localStorage.getItem(firebaseAuth.user.email));
-    if (recipe) {
+    if (recipe != null) {
       this.recipes = recipe;
-      console.log(this.recipes[1].title);
     }
     // localStorage.removeItem(this.firebaseAuth.user.email);
   }
-
+  removeBookMark(list:Recipe){
+    this.recipes=JSON.parse(localStorage.getItem(this.firebaseAuth.user.email));  
+    if(this.recipes.indexOf(list)!== null){
+        this.recipes.splice(this.recipes.indexOf(list));
+      localStorage.setItem(
+        this.firebaseAuth.user.email,
+        JSON.stringify(this.recipes)
+      );
+    }
+  }
   ngOnInit() {}
-  gotoDetail(recipe: { title: string; idx: number; selected: boolean }) {
-    this.recipeList.listItemClick(recipe.idx);
+  gotoDetail(index: number) {
+    this.recipeList.listItemClick(index);
   }
 }

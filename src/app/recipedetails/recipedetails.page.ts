@@ -4,6 +4,9 @@ import { Recipe } from '../Recipe';
 import { Macro } from '../Recipe';
 import { NavController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
+import * as firebase from 'firebase';
+import { FirebaseDatabase } from '@angular/fire';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -20,12 +23,15 @@ export class RecipeDetailsPage implements OnInit {
   public macroString: string;
   public ingredients: Array<{ name: string }> = [];
   public steps: Array<{ str: string }> = [];
-  private inc: any = 0;
-  private recipeToBook: Array<string> = [];
+  private inc: number = 0;
+  private recipeBook: Array<Recipe>=[];
+  private recipeCheckMarked:boolean = false;
+  
 
   constructor(
     private navCtrl: NavController,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private afAuth:AuthService,
   ) {
     this.recipeToDisplay = Recipe.getRecipeToDisplay;
     this.recipeTitle = this.recipeToDisplay.getRecipeTitle;
@@ -37,12 +43,15 @@ export class RecipeDetailsPage implements OnInit {
     this.setupIngredientsList();
     this.setupStepsList();
     this.macroString = this.getMacroString();
-    this.isBookmarked = false;
-  }
+    const bookMarked=this.isRecipeBookmarked();
+    this.recipeCheckMarked = bookMarked;
+  } 
+
 
   bookmarkClick() {
     this.presentToast();
     this.bookmarkRecipe();
+    this.navCtrl.navigateBack('recipelist');
   }
 
   async presentToast() {
@@ -68,11 +77,21 @@ export class RecipeDetailsPage implements OnInit {
         localStorage.setItem("increment",JSON.stringify(this.inc));
     }
     console.log(this.inc); */
+    //firebase.database().ref('favorites/'+this.afAuth.user.uid).push(this.recipeToDisplay);
+    this.recipeBook=JSON.parse(localStorage.getItem(this.afAuth.user.email));
+    this.recipeBook.push(this.recipeToDisplay);
+    localStorage.setItem(this.afAuth.user.email,JSON.stringify(this.recipeBook));
   }
 
-  isRecipeBookmarked(): boolean {
+   isRecipeBookmarked(): boolean {
     // check and see if the recipe is saved to local storage.
-    return true;
+    this.recipeBook=JSON.parse(localStorage.getItem(this.afAuth.user.email));
+    this.recipeBook.forEach(recipe=>{
+      if(this.recipeToDisplay.getRecipeTitle === recipe.title){  
+        this.recipeCheckMarked = true;
+      }
+    });
+    return this.recipeCheckMarked;
   }
 
   setupIngredientsList() {

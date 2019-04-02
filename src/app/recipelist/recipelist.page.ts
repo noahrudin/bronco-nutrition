@@ -14,9 +14,10 @@ export class RecipeListPage implements OnInit {
   public static selectedRecipe: Recipe;
   private loadedList: Array<any>;
   private recipes: Array<Recipe>;
-  public items: Array<{ title: string; idx: number; selected: boolean }> = [];
-  private favList: Array<any> = [];
+  public items: Array<{ title: string; idx: number; selected: boolean, bookmark:boolean}> = [];
+  private favList: Array<{ title: string; idx: number; selected: boolean,bookmark:boolean }> = [];
   private inc: any = 0;
+  private bookmarked:boolean=false;
   constructor(
     private recipeService: RecipeService,
     private navCtrl: NavController,
@@ -24,15 +25,28 @@ export class RecipeListPage implements OnInit {
   ) {
     // grab the recipes we got from firebase, and
     // put use their titles for the UI list.
+    
     this.recipes = this.recipeService.getRecipes;
     for (let i = 1; i < this.recipes.length; i++) {
       this.items.push({
         title: this.recipes[i].getRecipeTitle,
         idx: this.recipes[i].dbIndex,
-        selected: false
+        selected: false,
+        bookmark: false
       });
     }
+    this.favList=JSON.parse(localStorage.getItem(this.firebaseAuth.user.email));
+    if(this.favList != null){
+        this.favList.forEach(element => {
+          this.items.forEach(item=>{
+            if(element.title === item.title){
+              item.bookmark = element.bookmark;
+            }
+          });
+        });
+    }else{
     this.loadedList = this.items;
+    }
   }
 
   ngOnInit() {}
@@ -48,7 +62,18 @@ export class RecipeListPage implements OnInit {
   }
 
   initializeRecipeList() {
+    this.favList=JSON.parse(localStorage.getItem(this.firebaseAuth.user.email));
+    if(this.favList != null){
+        this.favList.forEach(element => {
+          this.items.forEach(item=>{
+            if(element === item){
+              item = element;
+            }
+          });
+        });
+    }else{
     this.items = this.loadedList;
+    }
   }
 
   getRecipes(searchbar: any) {
@@ -72,9 +97,10 @@ export class RecipeListPage implements OnInit {
     });
   }
 
-  addtoFavorites(list: any) {
-    this.favList[this.inc] = list;
-    this.inc++;
+  addtoFavorites(list: { title: string; idx: number; selected: boolean;bookmark:boolean }) {
+    this.favList=JSON.parse(localStorage.getItem(this.firebaseAuth.user.email));
+    this.favList.push(list);
+    this.favList[this.favList.indexOf(list)].bookmark=true;
     localStorage.setItem(
       this.firebaseAuth.user.email,
       JSON.stringify(this.favList)
@@ -84,7 +110,20 @@ export class RecipeListPage implements OnInit {
     title: string;
     idx: number;
     selected: boolean;
+    bookmark: boolean
   }) {
     this.prototype.listItemClick(recipe.idx);
+  }
+  removeBookMark(list: { title: string, idx: number, selected: boolean,bookmark:boolean }){
+    this.favList=JSON.parse(localStorage.getItem(this.firebaseAuth.user.email));  
+    if(this.favList.indexOf(list)!== null){
+      this.favList[this.favList.indexOf(list)].bookmark=false;
+        this.favList.splice(this.favList.indexOf(list));
+      localStorage.setItem(
+        this.firebaseAuth.user.email,
+        JSON.stringify(this.favList)
+      );
+      console.log(this.favList);
+    }
   }
 }
