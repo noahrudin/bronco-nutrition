@@ -1,63 +1,65 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-back-button></ion-back-button>
+            <ion-back-button></ion-back-button>
         </ion-buttons>
         <ion-title>Details</ion-title>
         <ion-buttons slot="primary">
-            <ion-button fill='outline' (click)="bookmarkClick()" [ngClass]="{'activated' : isBookmarked }"><ion-icon name="bookmark"></ion-icon></ion-button>
-          </ion-buttons>
-      </ion-toolbar>
+            <ion-button fill='outline' (click)="bookmarkClick()" disabled="{{recipeCheckMarked}}">
+                <ion-icon name="bookmark"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-card>
-  <ion-card-header>
-      <ion-card-title>{{recipeTitle}}</ion-card-title>
-      {{macroString}}
-  </ion-card-header>
-</ion-card>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>{{recipeTitle}}</ion-card-title>
+            {{macroString}}
+        </ion-card-header>
+    </ion-card>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Serving Size (People)</ion-card-subtitle>
-      <ion-card-title>{{servingSize}}</ion-card-title>
-    </ion-card-header>
-  </ion-card>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-subtitle>Serving Size (People)</ion-card-subtitle>
+            <ion-card-title>{{servingSize}}</ion-card-title>
+        </ion-card-header>
+    </ion-card>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Prep Time</ion-card-subtitle>
-      <ion-card-title>{{prepTime}}</ion-card-title>
-    </ion-card-header>
-  </ion-card>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-subtitle>Prep Time</ion-card-subtitle>
+            <ion-card-title>{{prepTime}}</ion-card-title>
+        </ion-card-header>
+    </ion-card>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Ingredients</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let ingredient of ingredients;">
-          <ion-label text-wrap>{{ingredient.name}}</ion-label>
-          <ion-checkbox slot="end" [(ngModel)]="ingredient.isChecked"></ion-checkbox>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-subtitle>Ingredients</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <ion-item *ngFor="let ingredient of ingredients;">
+                    <ion-label text-wrap>{{ingredient.name}}</ion-label>
+                    <ion-checkbox slot="end" [(ngModel)]="ingredient.isChecked"></ion-checkbox>
+                </ion-item>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
 
- <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Steps</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let step of steps;">
-          {{step.str}}
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-subtitle>Steps</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <ion-item *ngFor="let step of steps;">
+                    {{step.str}}
+                </ion-item>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
 
 </ion-content>

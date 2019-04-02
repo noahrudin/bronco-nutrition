@@ -8,7 +8,7 @@ export class Recipe {
 
   private static _recipeToDisplay: Recipe;
 
-  constructor(private title: string, private numServings: string, private macros: Macro[],
+  constructor(public title: string, private numServings: string, private macros: Macro[],
               private prepTime: string, private ingredients: string[], private steps: string[], private absIdx: number) { }
 
   static get getRecipeToDisplay() {
