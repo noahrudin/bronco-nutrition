@@ -35,18 +35,9 @@ export class RecipeListPage implements OnInit {
         bookmark: false
       });
     }
-    this.favList=JSON.parse(localStorage.getItem(this.firebaseAuth.user.email));
-    if(this.favList != null){
-        this.favList.forEach(element => {
-          this.items.forEach(item=>{
-            if(element.title === item.title){
-              item.bookmark = element.bookmark;
-            }
-          });
-        });
-    }else{
+    
     this.loadedList = this.items;
-    }
+  
   }
 
   ngOnInit() {}
@@ -62,18 +53,9 @@ export class RecipeListPage implements OnInit {
   }
 
   initializeRecipeList() {
-    this.favList=JSON.parse(localStorage.getItem(this.firebaseAuth.user.email));
-    if(this.favList != null){
-        this.favList.forEach(element => {
-          this.items.forEach(item=>{
-            if(element === item){
-              item = element;
-            }
-          });
-        });
-    }else{
+    
     this.items = this.loadedList;
-    }
+  
   }
 
   getRecipes(searchbar: any) {
