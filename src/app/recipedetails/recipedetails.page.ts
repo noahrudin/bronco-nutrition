@@ -24,7 +24,7 @@ export class RecipeDetailsPage implements OnInit {
   public ingredients: Array<{ name: string }> = [];
   public steps: Array<{ str: string }> = [];
   private inc: number = 0;
-  private recipeBook: Array<Recipe>=[];
+  private recipeBook: Array<Recipe> = [];
   private recipeCheckMarked:boolean = false;
   private testinc: Array<number>=[];
 

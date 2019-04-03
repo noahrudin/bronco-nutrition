@@ -103,7 +103,11 @@ export class AuthService {
     try {
         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
         await firebase.auth().signInWithEmailAndPassword(email, password);
+        if(this.user.emailVerified){
         this.navCtrl.navigateRoot(['./home']);
+        } else{
+          alert("Please verify your email");
+        }
     } catch (error) {
       const errorMsg = error.message;
       alert('Error signing in: ' + errorMsg);
@@ -139,11 +143,7 @@ export class AuthService {
         await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
         this.confirm_Signup(email);
         this.accountFirstLastName(firstname + lastname);
-        if(
-           this.afAuth.auth.currentUser.emailVerified 
-        ){
         this.router.navigate(['./login']);
-        }
       } else {
         alert('invalid email format: must be school email');
         this.router.navigate(['./register']);
