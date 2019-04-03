@@ -1,8 +1,8 @@
 {
-  "name": "bronco-nutrition",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "name": "Bronco Fuel",
+  "version": "1.0",
+  "author": "Boise State Senior Design Team",
+  "homepage": "https://noahrudin.github.io/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
