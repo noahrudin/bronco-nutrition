@@ -84,7 +84,7 @@ export class RecipeDetailsPage implements OnInit {
     this.recipeBook.push(this.recipeToDisplay);
     localStorage.setItem(this.afAuth.user.email,JSON.stringify(this.recipeBook));
     }else{
-      localStorage.setItem(this.afAuth.user.email,JSON.stringify(this.recipeToDisplay));
+      localStorage.setItem(this.afAuth.user.email,JSON.stringify(Array(this.recipeToDisplay)));
     }
   }
 
