@@ -26,7 +26,7 @@ export class RecipeDetailsPage implements OnInit {
   private inc: number = 0;
   private recipeBook: Array<Recipe>=[];
   private recipeCheckMarked:boolean = false;
-  
+  private testinc: Array<number>=[];
 
   constructor(
     private navCtrl: NavController,
@@ -79,18 +79,32 @@ export class RecipeDetailsPage implements OnInit {
     console.log(this.inc); */
     //firebase.database().ref('favorites/'+this.afAuth.user.uid).push(this.recipeToDisplay);
     this.recipeBook=JSON.parse(localStorage.getItem(this.afAuth.user.email));
+    console.log(this.recipeBook);
+    if(this.recipeBook !== null){
     this.recipeBook.push(this.recipeToDisplay);
     localStorage.setItem(this.afAuth.user.email,JSON.stringify(this.recipeBook));
+    }else{
+      localStorage.setItem(this.afAuth.user.email,JSON.stringify(this.recipeToDisplay));
+    }
   }
 
    isRecipeBookmarked(): boolean {
     // check and see if the recipe is saved to local storage.
-    this.recipeBook=JSON.parse(localStorage.getItem(this.afAuth.user.email));
-    this.recipeBook.forEach(recipe=>{
+    this.recipeBook=<Array<Recipe>> JSON.parse(localStorage.getItem(this.afAuth.user.email));
+    if(this.recipeBook !== null){
+      for( var i = 0; i < this.recipeBook.length; i++){
+        if(this.recipeToDisplay.getRecipeTitle==this.recipeBook[i].title){
+          this.recipeCheckMarked = true;
+        }
+      }
+    /*this.recipeBook.forEach(recipe => {
+      console.log(recipe);
       if(this.recipeToDisplay.getRecipeTitle === recipe.title){  
         this.recipeCheckMarked = true;
       }
     });
+    */
+  }
     return this.recipeCheckMarked;
   }
 
