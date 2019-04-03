@@ -28,6 +28,10 @@ const routes: Routes = [
     loadChildren: './about/about.module#AboutPageModule'
   },
   {
+    path: 'help',
+    loadChildren: './help/help.module#HelpPageModule'
+  },
+  {
     path: 'recipedetails',
     loadChildren: './recipedetails/recipedetails.module#RecipeDetailsPageModule'
   },

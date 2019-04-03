@@ -45,6 +45,10 @@ export class HomePage implements OnInit {
   SettingsButtonClick() {
     this.navCtrl.navigateForward('settings');
   }
+  HelpButtonClick() {
+    this.navCtrl.navigateForward('help');
+  }
+
 
   ngOnInit() {
     this.recipes = localStorage.getItem('favorites');

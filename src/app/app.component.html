@@ -3,7 +3,7 @@
         <ion-menu>
             <ion-header>
                 <ion-toolbar>
-                    <ion-title class='ion-align-item-center'>
+                    <ion-title id="sidebar_color" class='ion-align-item-center'>
                         Menu
                     </ion-title>
                 </ion-toolbar>
@@ -11,7 +11,7 @@
             <ion-content>
                 <ion-list>
                     <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-                        <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+                        <ion-item  id="sidebar_color" [routerDirection]="'root'" [routerLink]="[p.url]">
                             <ion-icon slot="start" [name]="p.icon"></ion-icon>
                             <ion-label>
                                 {{p.title}}
