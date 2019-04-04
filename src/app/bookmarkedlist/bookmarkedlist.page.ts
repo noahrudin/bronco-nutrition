@@ -35,18 +35,20 @@ export class BookmarkedListPage implements OnInit {
     // localStorage.removeItem(this.firebaseAuth.user.email);
   }
 
-  removeBookmarkClick(list:Recipe){
+  removeBookmarkClick(list: Recipe) {
     this.displayBookmarkAlert(list);
   }
-  removeBookMark(list:Recipe){
-    var flag=false;
-    this.recipes=JSON.parse(localStorage.getItem(this.firebaseAuth.user.email));  
-    if(this.recipes!== null){
-      for(var i=0;i<this.recipes.length && flag === false;i++){
-          if(this.recipes[i].title===list.title){
-            this.recipes.splice(i,1);
-            flag=true;
-          }
+  removeBookMark(list: Recipe) {
+    let flag = false;
+    this.recipes = JSON.parse(
+      localStorage.getItem(this.firebaseAuth.user.email)
+    );
+    if (this.recipes !== null) {
+      for (let i = 0; i < this.recipes.length && flag === false; i++) {
+        if (this.recipes[i].title === list.title) {
+          this.recipes.splice(i, 1);
+          flag = true;
+        }
       }
       localStorage.setItem(
         this.firebaseAuth.user.email,
@@ -66,7 +68,7 @@ export class BookmarkedListPage implements OnInit {
       message: 'Are you sure?',
       buttons: [
         {
-          text: 'Yes', 
+          text: 'Yes',
           handler: () => {
             this.removeBookMark(list);
           }
