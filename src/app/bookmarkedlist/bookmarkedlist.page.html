@@ -1,25 +1,23 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>
-            Bookmarked Recipes
-        </ion-title>
-    </ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Bookmarked Recipes</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-card>
-        <ion-list *ngFor="let recipe of recipes">
-            <ion-item no-lines>
-                <ion-item no-lines (click)="gotoDetail(recipe.absIdx)" details>
-                    {{recipe.title}}
-                </ion-item>
-                <ion-item id="button-color" (click)="removeBookmarkClick(recipe)">
-                    <ion-icon name="trash"></ion-icon>
-                </ion-item>
-            </ion-item>
-        </ion-list>
-    </ion-card>
+  <ion-card>
+    <ion-list *ngFor="let recipe of recipes">
+      <ion-item-sliding>
+        <ion-item (click)="gotoDetail(recipe.absIdx)" detail>
+          {{recipe.title}}
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="removeBookmarkClick(recipe)">Remove</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-card>
 </ion-content>
