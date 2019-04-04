@@ -85,7 +85,7 @@ export class RecipeDetailsPage implements OnInit {
     }else{
       localStorage.setItem(this.afAuth.user.email,JSON.stringify(Array(this.recipeToDisplay)));
     }
-    //localStorage.removeItem(this.afAuth.user.email);
+   // localStorage.removeItem(this.afAuth.user.email);
   }
 
    isRecipeBookmarked(): boolean {
