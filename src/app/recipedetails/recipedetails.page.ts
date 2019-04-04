@@ -86,11 +86,13 @@ export class RecipeDetailsPage implements OnInit {
       localStorage.setItem(this.afAuth.user.email,JSON.stringify(Array(this.recipeToDisplay)));
     }
    // localStorage.removeItem(this.afAuth.user.email);
+   const bookMarked=this.isRecipeBookmarked();
+    this.recipeCheckMarked = bookMarked;
   }
 
    isRecipeBookmarked(): boolean {
     // check and see if the recipe is saved to local storage.
-    this.recipeBook=<Array<Recipe>> JSON.parse(localStorage.getItem(this.afAuth.user.email));
+    this.recipeBook = <Array<Recipe>> JSON.parse(localStorage.getItem(this.afAuth.user.email));
     if(this.recipeBook !== null){
       for( var i = 0; i < this.recipeBook.length; i++){
         if(this.recipeToDisplay.getRecipeTitle === this.recipeBook[i].title){

@@ -39,9 +39,15 @@ export class BookmarkedListPage implements OnInit {
     this.displayBookmarkAlert(list);
   }
   removeBookMark(list:Recipe){
+    var flag=false;
     this.recipes=JSON.parse(localStorage.getItem(this.firebaseAuth.user.email));  
-    if(this.recipes.indexOf(list)!== null){
-        this.recipes.splice(this.recipes.indexOf(list));
+    if(this.recipes!== null){
+      for(var i=0;i<this.recipes.length && flag === false;i++){
+          if(this.recipes[i].title===list.title){
+            this.recipes.splice(i,1);
+            flag=true;
+          }
+      }
       localStorage.setItem(
         this.firebaseAuth.user.email,
         JSON.stringify(this.recipes)
