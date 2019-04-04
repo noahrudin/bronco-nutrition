@@ -5,6 +5,7 @@ import { NavController, ToastController } from '@ionic/angular';
 import { RecipeListPage } from '../recipelist/recipelist.page';
 import { RecipeService } from '../recipeServices/recipe.service';
 import { RecipeDetailsPage } from '../recipedetails/recipedetails.page';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-list',
@@ -23,7 +24,8 @@ export class BookmarkedListPage implements OnInit {
     private firebaseAuth: AuthService,
     private navCtrl: NavController,
     private toast: ToastController,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private alertController: AlertController
   ) {
     this.recipeList = new RecipeListPage(recipeService, navCtrl, firebaseAuth);
     const recipe = JSON.parse(localStorage.getItem(firebaseAuth.user.email));
@@ -31,6 +33,10 @@ export class BookmarkedListPage implements OnInit {
       this.recipes = recipe;
     }
     // localStorage.removeItem(this.firebaseAuth.user.email);
+  }
+
+  removeBookmarkClick(list:Recipe){
+    this.displayBookmarkAlert(list);
   }
   removeBookMark(list:Recipe){
     this.recipes=JSON.parse(localStorage.getItem(this.firebaseAuth.user.email));  
@@ -45,5 +51,25 @@ export class BookmarkedListPage implements OnInit {
   ngOnInit() {}
   gotoDetail(index: number) {
     this.recipeList.listItemClick(index);
+  }
+
+  async displayBookmarkAlert(list) {
+    const newAlert = await this.alertController.create({
+      header: 'Remove Bookmark',
+      subHeader: '',
+      message: 'Are you sure?',
+      buttons: [
+        {
+          text: 'Yes', 
+          handler: () => {
+            this.removeBookMark(list);
+          }
+        },
+        {
+          text: 'Cancel'
+        }
+      ]
+    });
+    await newAlert.present();
   }
 }

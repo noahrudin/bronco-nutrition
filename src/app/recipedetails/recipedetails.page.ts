@@ -51,7 +51,6 @@ export class RecipeDetailsPage implements OnInit {
   bookmarkClick() {
     this.presentToast();
     this.bookmarkRecipe();
-    this.navCtrl.navigateBack('recipelist');
   }
 
   async presentToast() {

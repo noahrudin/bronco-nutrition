@@ -1,5 +1,5 @@
 {
-  "_from": "cordova-plugin-ionic-webview@^3.0.0",
+  "_from": "cordova-plugin-ionic-webview@^3.1.2",
   "_id": "cordova-plugin-ionic-webview@3.1.2",
   "_inBundle": false,
   "_integrity": "sha512-i4hFMMebCPDe0KCNbwWhtYcxNIDdbUEfwuo+HBubfaRL/b5xjti/K5KdaJk5x/zB2pqDkY1E9ggZEt1+6j6iIg==",
@@ -8,12 +8,12 @@
   "_requested": {
     "type": "range",
     "registry": true,
-    "raw": "cordova-plugin-ionic-webview@^3.0.0",
+    "raw": "cordova-plugin-ionic-webview@^3.1.2",
     "name": "cordova-plugin-ionic-webview",
     "escapedName": "cordova-plugin-ionic-webview",
-    "rawSpec": "^3.0.0",
+    "rawSpec": "^3.1.2",
     "saveSpec": null,
-    "fetchSpec": "^3.0.0"
+    "fetchSpec": "^3.1.2"
   },
   "_requiredBy": [
     "#USER",
@@ -21,7 +21,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/cordova-plugin-ionic-webview/-/cordova-plugin-ionic-webview-3.1.2.tgz",
   "_shasum": "80fe1e82067ad8dcbc5ecf00cad2f8dfa0d0e10f",
-  "_spec": "cordova-plugin-ionic-webview@^3.0.0",
+  "_spec": "cordova-plugin-ionic-webview@^3.1.2",
   "_where": "C:\\Users\\noah.rudin\\Desktop\\bronco-nutrition",
   "author": {
     "name": "Ionic Team"
