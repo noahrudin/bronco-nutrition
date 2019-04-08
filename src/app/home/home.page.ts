@@ -17,6 +17,7 @@ export class HomePage implements OnInit {
   private recipes: any;
   private fav_recipes: Array<any> = [];
   private user: User;
+  private username:String;
   private native: NativeStorage = new NativeStorage();
   constructor(
     public menuCtrl: MenuController,
