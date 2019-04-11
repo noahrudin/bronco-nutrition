@@ -4,13 +4,10 @@ import { AuthService } from '../auth/auth.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
-  styleUrls: ['./register.page.scss'],
+  styleUrls: ['./register.page.scss']
 })
 export class RegisterPage implements OnInit {
+  constructor(public authService: AuthService) {}
 
-  constructor(private authService: AuthService) { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

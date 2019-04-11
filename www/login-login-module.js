@@ -62,7 +62,7 @@ var LoginPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content color=\"primary\" padding>\r\n  <form #form=\"ngForm\" (ngSubmit)=\"login(form)\">\r\n    <ion-grid>\r\n      <ion-row color=\"primary\" justify-content-center>\r\n        <ion-col align-self-center size-md=\"6\" size-lg=\"5\" size-xs=\"12\">\r\n          <div text-center>\r\n            <h3>Login</h3>\r\n          </div>\r\n          <div padding class=\"login_form\">\r\n            <ion-item>\r\n              <ion-input name=\"email\" type=\"email\" placeholder=\"you@u.boisestate.edu\" #email required></ion-input>\r\n            </ion-item>\r\n            <ion-item>\r\n              <ion-input name=\"password\" type=\"password\" placeholder=\"Password\" #password required></ion-input>\r\n            </ion-item>\r\n          </div>\r\n          <div padding>\r\n            <ion-button size=\"large\" type=\"submit\" [disabled]=\"form.invalid\" expand=\"block\" (click)=\"authService.login(email.value,password.value)\">Login</ion-button>\r\n          </div>\r\n        </ion-col>\r\n      </ion-row>\r\n\t  <ion-row>\r\n          <div text-center>\r\n        If you don't have an account, please <a routerLink='/register'>\r\n          register</a> first!\r\n          </div>\r\n      </ion-row>\r\n    </ion-grid>\r\n  </form>\r\n</ion-content>\r\n"
+module.exports = "<ion-content color=\"primary\" padding>\n  <form #form=\"ngForm\">\n    <ion-grid>\n      <ion-row color=\"primary\" justify-content-center>\n        <ion-col align-self-center size-md=\"6\" size-lg=\"5\" size-xs=\"12\">\n          <div text-center>\n            <h3>Login</h3>\n          </div>\n          <div padding class=\"login_form\">\n            <ion-item>\n              <ion-input name=\"email\" type=\"email\" placeholder=\"you@u.boisestate.edu\" #email required></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-input name=\"password\" type=\"password\" placeholder=\"Password\" #password required></ion-input>\n            </ion-item>\n          </div>\n          <div padding>\n            <ion-button size=\"large\" type=\"submit\" [disabled]=\"form.invalid\" expand=\"block\" (click)=\"authService.login(email.value,password.value)\">Login</ion-button>\n          </div>\n        </ion-col>\n      </ion-row>\n\t  <ion-row>\n          <div text-center>\n        If you don't have an account, please <a routerLink='/register'>\n          register</a> first!\n          </div>\n      </ion-row>\n    </ion-grid>\n  </form>\n</ion-content>\n"
 
 /***/ }),
 
@@ -73,7 +73,7 @@ module.exports = "<ion-content color=\"primary\" padding>\r\n  <form #form=\"ngF
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "ion-item {\n  --background: #3880ff;\n  --color: #fff; }\n\nion-button {\n  --background: #062f77; }\n\na {\n  color: #fff; }\n\nion-content {\n  --overflow: hidden; }\n\n.login_form {\n  --background: #0033A0; }\n\nion-input {\n  --background: #0033A0; }\n\nion-item {\n  --background: #0033A0; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vQzpcXFVzZXJzXFxhZGZveVxcaW9uaWNfQXBwXFxicm9uY28tbnV0cml0aW9uMi9zcmNcXGFwcFxcbG9naW5cXGxvZ2luLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHFCQUFhO0VBQ2IsYUFBUSxFQUFBOztBQUVaO0VBQ0kscUJBQWEsRUFBQTs7QUFHakI7RUFDSSxXQUFXLEVBQUE7O0FBR2Y7RUFDRSxrQkFBVyxFQUFBOztBQUdiO0VBQ0kscUJBQWEsRUFBQTs7QUFHakI7RUFDSSxxQkFBYSxFQUFBOztBQUdqQjtFQUNJLHFCQUFhLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9sb2dpbi9sb2dpbi5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24taXRlbXtcclxuICAgIC0tYmFja2dyb3VuZDogIzM4ODBmZjtcclxuICAgIC0tY29sb3I6ICNmZmY7XHJcbn1cclxuaW9uLWJ1dHRvbntcclxuICAgIC0tYmFja2dyb3VuZDogIzA2MmY3NztcclxufVxyXG5cclxuYXtcclxuICAgIGNvbG9yOiAjZmZmO1xyXG59XHJcblxyXG5pb24tY29udGVudCB7XHJcbiAgLS1vdmVyZmxvdzogaGlkZGVuO1xyXG59XHJcblxyXG4ubG9naW5fZm9ybSB7XHJcbiAgICAtLWJhY2tncm91bmQ6ICMwMDMzQTA7XHJcbn1cclxuXHJcbmlvbi1pbnB1dCB7XHJcbiAgICAtLWJhY2tncm91bmQ6ICMwMDMzQTA7XHJcbn1cclxuXHJcbmlvbi1pdGVtIHtcclxuICAgIC0tYmFja2dyb3VuZDogIzAwMzNBMDtcclxufVxyXG4iXX0= */"
+module.exports = "ion-item {\n  --background: #3880ff;\n  --color: #fff; }\n\nion-button {\n  --background: #062f77; }\n\na {\n  color: #fff; }\n\nion-content {\n  --overflow: hidden; }\n\n.login_form {\n  --background: #0033A0; }\n\nion-input {\n  --background: #0033A0; }\n\nion-item {\n  --background: #0033A0; }\n"
 
 /***/ }),
 
@@ -107,8 +107,7 @@ var LoginPage = /** @class */ (function () {
         this.authService = authService;
         this.menuCtrl = menuCtrl;
     }
-    LoginPage.prototype.ngOnInit = function () {
-    };
+    LoginPage.prototype.ngOnInit = function () { };
     LoginPage.prototype.ionViewWillEnter = function () {
         this.menuCtrl.enable(false);
     };
@@ -118,7 +117,8 @@ var LoginPage = /** @class */ (function () {
             template: __webpack_require__(/*! ./login.page.html */ "./src/app/login/login.page.html"),
             styles: [__webpack_require__(/*! ./login.page.scss */ "./src/app/login/login.page.scss")]
         }),
-        __metadata("design:paramtypes", [_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"]])
+        __metadata("design:paramtypes", [_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"]])
     ], LoginPage);
     return LoginPage;
 }());
@@ -128,4 +128,3 @@ var LoginPage = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=login-login-module.js.map

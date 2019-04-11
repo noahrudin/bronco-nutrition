@@ -61,7 +61,7 @@ var AboutPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>\r\n      About\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n    <ion-card class=\"welcome-card\">\r\n      <ion-img src=\"../../assets/img/bronco.png\"></ion-img>\r\n      <ion-card-header>\r\n        <ion-card-title>About Bronco Fuel</ion-card-title>\r\n      </ion-card-header>\r\n      <ion-card-content>\r\n        <p>v1.0</p>\r\n      </ion-card-content>\r\n    </ion-card>\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n            <ion-back-button></ion-back-button>\n        </ion-buttons>\n    <ion-title>\n      About\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-card class=\"welcome-card\">\n    <ion-img src=\"../../assets/img/bronco.png\"></ion-img>\n    <ion-card-header>\n      <ion-card-title>About Bronco Fuel</ion-card-title>\n    </ion-card-header>\n    <ion-card-content>\n      <p>v1.0</p>\n      <ion-card-title>Developers</ion-card-title>\n      <ion-card-subtitle>Boise State CS Senior Design</ion-card-subtitle>\n      <p>Brenden Bixler</p>\n      <p>Austin Foy</p>\n      <p>Noah Rudin</p>\n      <p>Tony Von Wolfe</p>\n    </ion-card-content>\n  </ion-card>\n</ion-content>\n"
 
 /***/ }),
 
@@ -72,7 +72,7 @@ module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"sta
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".welcome-card ion-img {\n  max-height: 35vh;\n  overflow: hidden; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWJvdXQvQzpcXFVzZXJzXFxhZGZveVxcaW9uaWNfQXBwXFxicm9uY28tbnV0cml0aW9uMi9zcmNcXGFwcFxcYWJvdXRcXGFib3V0LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdCQUFnQjtFQUNoQixnQkFBZ0IsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2Fib3V0L2Fib3V0LnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi53ZWxjb21lLWNhcmQgaW9uLWltZyB7XHJcbiAgbWF4LWhlaWdodDogMzV2aDtcclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG59XHJcbiJdfQ== */"
+module.exports = ".welcome-card ion-img {\n  max-height: 35vh;\n  overflow: hidden; }\n\n.about-card {\n  padding: 15px;\n  overflow: hidden; }\n"
 
 /***/ }),
 
@@ -112,4 +112,3 @@ var AboutPage = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=about-about-module.js.map

@@ -1,5 +1,170 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["foodlist-foodlist-module"],{
 
+/***/ "./src/app/FoodItem.ts":
+/*!*****************************!*\
+  !*** ./src/app/FoodItem.ts ***!
+  \*****************************/
+/*! exports provided: FoodItem */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FoodItem", function() { return FoodItem; });
+var FoodItem = /** @class */ (function () {
+    function FoodItem(macros, name) {
+        this._macros = macros;
+        this._foodName = name;
+    }
+    Object.defineProperty(FoodItem.prototype, "foodName", {
+        get: function () {
+            return this._foodName;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(FoodItem.prototype, "macros", {
+        get: function () {
+            return this._macros;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return FoodItem;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/Recipe.ts":
+/*!***************************!*\
+  !*** ./src/app/Recipe.ts ***!
+  \***************************/
+/*! exports provided: Macro, Recipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Macro", function() { return Macro; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Recipe", function() { return Recipe; });
+var Macro;
+(function (Macro) {
+    Macro[Macro["Carbohydrates"] = 0] = "Carbohydrates";
+    Macro[Macro["Protein"] = 1] = "Protein";
+    Macro[Macro["Fat"] = 2] = "Fat";
+})(Macro || (Macro = {}));
+var CARBS_STR = 'C';
+var PROTEIN_STR = 'P';
+var FAT_STR = 'F';
+var Recipe = /** @class */ (function () {
+    function Recipe(title, numServings, macros, prepTime, ingredients, steps, absIdx) {
+        this.title = title;
+        this.numServings = numServings;
+        this.macros = macros;
+        this.prepTime = prepTime;
+        this.ingredients = ingredients;
+        this.steps = steps;
+        this.absIdx = absIdx;
+    }
+    Object.defineProperty(Recipe, "getRecipeToDisplay", {
+        get: function () {
+            return Recipe._recipeToDisplay;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Recipe, "recipeToDisplay", {
+        set: function (recipe) {
+            Recipe._recipeToDisplay = recipe;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Recipe.prototype, "dbIndex", {
+        get: function () {
+            return this.absIdx;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Recipe.prototype, "getRecipeTitle", {
+        get: function () {
+            return this.title;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Recipe.prototype, "getNumServings", {
+        get: function () {
+            return this.numServings;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Recipe.prototype, "getMacros", {
+        get: function () {
+            return this.macros;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Recipe.prototype, "getPrepTime", {
+        get: function () {
+            return this.prepTime;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Recipe.prototype, "getIngredients", {
+        get: function () {
+            return this.ingredients;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Recipe.prototype, "getSteps", {
+        get: function () {
+            return this.steps;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Recipe.parseNumServings = function (servings) {
+        return servings;
+    };
+    // parse out the 3 basic nutrition macros from
+    // the firebase data store.
+    Recipe.parseMacros = function (macros) {
+        var returnArray = [];
+        if (macros.indexOf('C') !== -1) {
+            returnArray.push(Macro.Carbohydrates);
+        }
+        if (macros.indexOf('P') !== -1) {
+            returnArray.push(Macro.Protein);
+        }
+        if (macros.indexOf('F') !== -1) {
+            returnArray.push(Macro.Fat);
+        }
+        return returnArray;
+    };
+    Recipe.parseSteps = function (stepsStr) {
+        var steps = stepsStr.split("\n");
+        var regex = /\d. /;
+        for (var i = 0; i < steps.length; i++) {
+            steps[i] = steps[i].replace(regex, "");
+        }
+        return steps;
+    };
+    Recipe.parseIngredients = function (ingredientsStr) {
+        return ingredientsStr.split("\n");
+    };
+    return Recipe;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/foodlist/foodlist.module.ts":
 /*!*********************************************!*\
   !*** ./src/app/foodlist/foodlist.module.ts ***!
@@ -61,7 +226,7 @@ var FoodListPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>\r\n      Browse Food and Snacks\r\n    </ion-title>\r\n    \r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-card>\r\n    <ion-card-content>Take a look at approved grazing items!\r\n      </ion-card-content></ion-card>\r\n  <ion-card>\r\n  <ion-list>\r\n    <ion-item [class.highlight]=\"item.selected\" *ngFor=\"let item of items; let i = index\">\r\n      {{item.title}}\r\n      <ion-label item-right text-right>Macro</ion-label>\r\n    </ion-item>\r\n  </ion-list></ion-card>\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      Browse Food and Snacks\n    </ion-title>\n    \n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-card>\n    <ion-card-content>Take a look at approved grazing items!\n      </ion-card-content></ion-card>\n  <ion-card>\n  <ion-list>\n    <ion-item [class.highlight]=\"item.selected\" *ngFor=\"let item of items; let i = index\">\n      {{item.title}}\n      <ion-label item-right text-right>Macro</ion-label>\n    </ion-item>\n  </ion-list></ion-card>\n</ion-content>\n"
 
 /***/ }),
 
@@ -72,7 +237,7 @@ module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"sta
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Zvb2RsaXN0L2Zvb2RsaXN0LnBhZ2Uuc2NzcyJ9 */"
+module.exports = ""
 
 /***/ }),
 
@@ -87,8 +252,8 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FoodListPage", function() { return FoodListPage; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../auth/auth.service */ "./src/app/auth/auth.service.ts");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _recipeServices_recipe_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../recipeServices/recipe.service */ "./src/app/recipeServices/recipe.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -102,31 +267,31 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var FoodListPage = /** @class */ (function () {
-    function FoodListPage(firebaseAuth, navCtrl) {
-        this.firebaseAuth = firebaseAuth;
+    function FoodListPage(recipeService, navCtrl) {
+        this.recipeService = recipeService;
         this.navCtrl = navCtrl;
         this.items = [];
         // grab the recipes we got from firebase, and
         // put use their titles for the UI list.
-        this.recipes = this.firebaseAuth.getRecipes;
+        this.recipes = this.recipeService.getRecipes;
         var i = 1;
-        while (this.recipes[i]) { //check for valid element, live
+        while (this.recipes[i]) {
+            // check for valid element, live
             this.items.push({
                 title: this.recipes[i].getRecipeTitle
             });
             i++;
         }
     }
-    FoodListPage.prototype.ngOnInit = function () {
-    };
+    FoodListPage.prototype.ngOnInit = function () { };
     FoodListPage = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-list',
             template: __webpack_require__(/*! ./foodlist.page.html */ "./src/app/foodlist/foodlist.page.html"),
             styles: [__webpack_require__(/*! ./foodlist.page.scss */ "./src/app/foodlist/foodlist.page.scss")]
         }),
-        __metadata("design:paramtypes", [_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"]])
+        __metadata("design:paramtypes", [_recipeServices_recipe_service__WEBPACK_IMPORTED_MODULE_2__["RecipeService"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["NavController"]])
     ], FoodListPage);
     return FoodListPage;
 }());
@@ -136,4 +301,3 @@ var FoodListPage = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=foodlist-foodlist-module.js.map

@@ -17,7 +17,7 @@ export class BrowsePage {
     .ref('foodSheet/');
   private loadedFoodList: Array<any>;
   private componentFoodItem: any;
-  private foodList: Array<any>;
+  public foodList: Array<any>;
 
   constructor(private navCtrl: NavController) {
     this.foodDB.on('value', foodList => {

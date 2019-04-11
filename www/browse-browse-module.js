@@ -61,7 +61,7 @@ var BrowsePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n            <ion-menu-button></ion-menu-button>\r\n        </ion-buttons>\r\n        <ion-title>\r\n            Food Items\r\n        </ion-title>\r\n    </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-card>\r\n    <ion-searchbar animated debounce=\"500\" placeholder=\"Search Here\" name=\"search\" (ionInput)=\"getFoodItems($event)\"></ion-searchbar>\r\n    <ion-list>\r\n        <ion-item *ngFor=\"let item of foodList;\">\r\n            {{item[0]}}\r\n            <ion-label item-right text-right>{{item[1]}}</ion-label>\r\n        </ion-item>\r\n    </ion-list>\r\n  </ion-card>\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-menu-button></ion-menu-button>\n        </ion-buttons>\n        <ion-title>\n            Food Items\n        </ion-title>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-card>\n    <ion-searchbar animated debounce=\"500\" placeholder=\"Search Here\" name=\"search\" (ionInput)=\"getFoodItems($event)\"></ion-searchbar>\n    <ion-list>\n        <ion-item *ngFor=\"let item of foodList;\">\n            {{item[0]}}\n            <ion-label item-right text-right>{{item[1]}}</ion-label>\n        </ion-item>\n    </ion-list>\n  </ion-card>\n</ion-content>\n"
 
 /***/ }),
 
@@ -72,7 +72,7 @@ module.exports = "<ion-header>\r\n    <ion-toolbar>\r\n        <ion-buttons slot
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".welcome-card ion-img {\n  max-height: 35vh; }\n\nion-label {\n  font-weight: bold; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYnJvd3NlL0M6XFxVc2Vyc1xcYWRmb3lcXGlvbmljX0FwcFxcYnJvbmNvLW51dHJpdGlvbjIvc3JjXFxhcHBcXGJyb3dzZVxcYnJvd3NlLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdCQUFnQixFQUFBOztBQUlsQjtFQUNFLGlCQUFpQixFQUFBIiwiZmlsZSI6InNyYy9hcHAvYnJvd3NlL2Jyb3dzZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIud2VsY29tZS1jYXJkIGlvbi1pbWcge1xyXG4gIG1heC1oZWlnaHQ6IDM1dmg7XHJcbiAgLy9vdmVyZmxvdzogaGlkZGVuO1xyXG59XHJcblxyXG5pb24tbGFiZWwge1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcbiJdfQ== */"
+module.exports = ".welcome-card ion-img {\n  max-height: 35vh; }\n\nion-label {\n  font-weight: bold; }\n"
 
 /***/ }),
 
@@ -106,7 +106,8 @@ var BrowsePage = /** @class */ (function () {
     function BrowsePage(navCtrl) {
         var _this = this;
         this.navCtrl = navCtrl;
-        this.foodDB = firebase__WEBPACK_IMPORTED_MODULE_2__["database"]().ref('foodSheet/');
+        this.foodDB = firebase__WEBPACK_IMPORTED_MODULE_2__["database"]()
+            .ref('foodSheet/');
         this.foodDB.on('value', function (foodList) {
             var foods = [];
             foodList.forEach(function (food) {
@@ -118,8 +119,8 @@ var BrowsePage = /** @class */ (function () {
         this.foodList.shift(); // get rid of descriptions
         this.loadedFoodList = this.foodList;
     }
-    //Austin, can you have this act like the selecting 
-    //list component in foodList.page.ts?
+    // Austin, can you have this act like the selecting
+    // list component in foodList.page.ts?
     BrowsePage.prototype.foodListClick = function () {
         this.navCtrl.navigateForward('foodlist');
     };
@@ -135,7 +136,8 @@ var BrowsePage = /** @class */ (function () {
         }
         this.foodList = this.foodList.filter(function (val) {
             if (val && search) {
-                if ((val[0].indexOf(search) > -1) || (val[0].toLowerCase().indexOf(search) > -1)) {
+                if (val[0].indexOf(search) > -1 ||
+                    val[0].toLowerCase().indexOf(search) > -1) {
                     _this.componentFoodItem = search;
                     return true;
                 }
@@ -159,4 +161,3 @@ var BrowsePage = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=browse-browse-module.js.map

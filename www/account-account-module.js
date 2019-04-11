@@ -61,7 +61,7 @@ var AccountPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n            <ion-back-button></ion-back-button>\r\n        </ion-buttons>\r\n        <ion-title>Account</ion-title>\r\n    </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n    <ion-card>\r\n        <ion-list>\r\n            <ion-item lines=\"none\">\r\n                {{username}}\r\n                <div class=\"item-note\" slot=\"end\">\r\n                    <ion-icon name=\"contact\"></ion-icon>\r\n                </div>\r\n            </ion-item>\r\n            <ion-item lines=\"none\">\r\n                {{email}}\r\n                <div class=\"item-note\" slot=\"end\">\r\n                    <ion-icon name=\"contact\"></ion-icon>\r\n                </div>\r\n            </ion-item>\r\n\r\n        </ion-list>\r\n    </ion-card>\r\n    <!--\r\n    <div *ngIf=\"selectedItem\" padding>\r\n      You navigated here from <b>{{selectedItem.title }}</b>\r\n    </div>\r\n  -->\r\n</ion-content>"
+module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-back-button></ion-back-button>\n        </ion-buttons>\n        <ion-title>Account</ion-title>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n    <ion-card>\n        <ion-list>\n            <ion-item lines=\"none\">\n                {{username}}\n                <div class=\"item-note\" slot=\"end\">\n                    <ion-icon name=\"contact\"></ion-icon>\n                </div>\n            </ion-item>\n            <ion-item lines=\"none\">\n                {{email}}\n                <div class=\"item-note\" slot=\"end\">\n                    <ion-icon name=\"mail\"></ion-icon>\n                </div>\n            </ion-item>\n\n        </ion-list>\n    </ion-card>\n    <!--\n    <div *ngIf=\"selectedItem\" padding>\n      You navigated here from <b>{{selectedItem.title }}</b>\n    </div>\n  -->\n</ion-content>"
 
 /***/ }),
 
@@ -72,7 +72,7 @@ module.exports = "<ion-header>\r\n    <ion-toolbar>\r\n        <ion-buttons slot
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".welcome-card ion-img {\n  max-height: 35vh;\n  overflow: hidden; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWNjb3VudC9DOlxcVXNlcnNcXGFkZm95XFxpb25pY19BcHBcXGJyb25jby1udXRyaXRpb24yL3NyY1xcYXBwXFxhY2NvdW50XFxhY2NvdW50LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdCQUFnQjtFQUNoQixnQkFBZ0IsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2FjY291bnQvYWNjb3VudC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIud2VsY29tZS1jYXJkIGlvbi1pbWcge1xyXG4gIG1heC1oZWlnaHQ6IDM1dmg7XHJcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcclxufVxyXG4iXX0= */"
+module.exports = ".welcome-card ion-img {\n  max-height: 35vh;\n  overflow: hidden; }\n"
 
 /***/ }),
 
@@ -121,4 +121,3 @@ var AccountPage = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=account-account-module.js.map

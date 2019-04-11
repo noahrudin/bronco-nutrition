@@ -101,13 +101,13 @@ export class AuthService {
 
   async login(email: string, password: string) {
     try {
-        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-        await firebase.auth().signInWithEmailAndPassword(email, password);
-        if(this.user.emailVerified){
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+      await firebase.auth().signInWithEmailAndPassword(email, password);
+      if (this.user.emailVerified) {
         this.navCtrl.navigateRoot(['./home']);
-        } else{
-          alert("Please verify your email");
-        }
+      } else {
+        alert('Please verify your email');
+      }
     } catch (error) {
       const errorMsg = error.message;
       alert('Error signing in: ' + errorMsg);

@@ -62,7 +62,7 @@ var RegisterPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content color=\"primary\" padding>\r\n  <form #form=\"ngForm\" (ngSubmit)=\"login(form)\">\r\n    <ion-grid>\r\n      <ion-row color=\"primary\" justify-content-center>\r\n        <ion-col align-self-center size-md=\"6\" size-lg=\"5\" size-xs=\"12\">\r\n          <div text-center>\r\n            <h3>Sign Up</h3>\r\n          </div>\r\n          <div padding>\r\n              <ion-item>\r\n                  <ion-input name=\"firstname\" type=\"string\" placeholder=\"First Name\" #firstname required> </ion-input>\r\n              </ion-item>\r\n\r\n              <ion-item>\r\n                  <ion-input name=\"lastname\" type=\"string\" placeholder=\"Last Name\" #lastname required> </ion-input>\r\n              </ion-item>\r\n\r\n              <ion-item>\r\n                  <ion-input name=\"email\" type=\"email\" placeholder=\"you@u.boisestate.edu\" #email required></ion-input>\r\n              </ion-item>\r\n              <ion-item>\r\n                  <ion-input name=\"password\" type=\"password\" placeholder=\"Password\" #password required></ion-input>\r\n              </ion-item>\r\n          </div>\r\n          <div padding>\r\n            <ion-button size=\"large\" type=\"submit\" [disabled]=\"form.invalid\" expand=\"block\" (click)=\"authService.signup(firstname.value,lastname.value,email.value,password.value)\">Sign Up</ion-button>\r\n          </div>\r\n        </ion-col>\r\n      </ion-row>\r\n\t  <ion-row>\r\n          <div text-center>\r\n        If you have an account, please <a routerLink='/login' routerDirection=\"backward\">\r\n          login</a> here!\r\n          </div>\r\n      </ion-row>\r\n    </ion-grid>\r\n  </form>\r\n</ion-content>\r\n"
+module.exports = "<ion-content color=\"primary\" padding>\n  <form #form=\"ngForm\">\n    <ion-grid>\n      <ion-row color=\"primary\" justify-content-center>\n        <ion-col align-self-center size-md=\"6\" size-lg=\"5\" size-xs=\"12\">\n          <div text-center>\n            <h3>Sign Up</h3>\n          </div>\n          <div padding>\n              <ion-item>\n                  <ion-input name=\"firstname\" type=\"string\" placeholder=\"First Name\" #firstname required> </ion-input>\n              </ion-item>\n\n              <ion-item>\n                  <ion-input name=\"lastname\" type=\"string\" placeholder=\"Last Name\" #lastname required> </ion-input>\n              </ion-item>\n\n              <ion-item>\n                  <ion-input name=\"email\" type=\"email\" placeholder=\"you@u.boisestate.edu\" #email required></ion-input>\n              </ion-item>\n              <ion-item>\n                  <ion-input name=\"password\" type=\"password\" placeholder=\"Password\" #password required></ion-input>\n              </ion-item>\n          </div>\n          <div padding>\n            <ion-button size=\"large\" type=\"submit\" [disabled]=\"form.invalid\" expand=\"block\" (click)=\"authService.signup(firstname.value,lastname.value,email.value,password.value)\">Sign Up</ion-button>\n          </div>\n        </ion-col>\n      </ion-row>\n\t  <ion-row>\n          <div text-center>\n        If you have an account, please <a routerLink='/login' routerDirection=\"backward\">\n          login</a> here!\n          </div>\n      </ion-row>\n    </ion-grid>\n  </form>\n</ion-content>\n"
 
 /***/ }),
 
@@ -73,7 +73,7 @@ module.exports = "<ion-content color=\"primary\" padding>\r\n  <form #form=\"ngF
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "ion-item {\n  --background: #3880ff;\n  --color: #fff; }\n\nion-button {\n  --background: #062f77; }\n\na {\n  color: #fff; }\n\nion-item {\n  --background: #0033A0; }\n\nion-input {\n  --background: #0033A0; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVnaXN0ZXIvQzpcXFVzZXJzXFxhZGZveVxcaW9uaWNfQXBwXFxicm9uY28tbnV0cml0aW9uMi9zcmNcXGFwcFxccmVnaXN0ZXJcXHJlZ2lzdGVyLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHFCQUFhO0VBQ2IsYUFBUSxFQUFBOztBQUVaO0VBQ0kscUJBQWEsRUFBQTs7QUFFakI7RUFDSSxXQUFXLEVBQUE7O0FBR2Y7RUFDRSxxQkFBYSxFQUFBOztBQUdmO0VBQ0UscUJBQWEsRUFBQSIsImZpbGUiOiJzcmMvYXBwL3JlZ2lzdGVyL3JlZ2lzdGVyLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi1pdGVte1xyXG4gICAgLS1iYWNrZ3JvdW5kOiAjMzg4MGZmO1xyXG4gICAgLS1jb2xvcjogI2ZmZjtcclxufVxyXG5pb24tYnV0dG9ue1xyXG4gICAgLS1iYWNrZ3JvdW5kOiAjMDYyZjc3O1xyXG59XHJcbmF7XHJcbiAgICBjb2xvcjogI2ZmZjtcclxufVxyXG5cclxuaW9uLWl0ZW0ge1xyXG4gIC0tYmFja2dyb3VuZDogIzAwMzNBMDtcclxufVxyXG5cclxuaW9uLWlucHV0IHtcclxuICAtLWJhY2tncm91bmQ6ICMwMDMzQTA7XHJcbn1cclxuIl19 */"
+module.exports = "ion-item {\n  --background: #3880ff;\n  --color: #fff; }\n\nion-button {\n  --background: #062f77; }\n\na {\n  color: #fff; }\n\nion-item {\n  --background: #0033A0; }\n\nion-input {\n  --background: #0033A0; }\n"
 
 /***/ }),
 
@@ -104,8 +104,7 @@ var RegisterPage = /** @class */ (function () {
     function RegisterPage(authService) {
         this.authService = authService;
     }
-    RegisterPage.prototype.ngOnInit = function () {
-    };
+    RegisterPage.prototype.ngOnInit = function () { };
     RegisterPage = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-register',
@@ -122,4 +121,3 @@ var RegisterPage = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=register-register-module.js.map

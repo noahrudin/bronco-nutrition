@@ -1,5 +1,5 @@
 import { NavController } from '@ionic/angular';
-import { AboutPage } from "../about/about.page";
+import { AboutPage } from '../about/about.page';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { AlertController } from '@ionic/angular';
@@ -9,14 +9,12 @@ import { AlertController } from '@ionic/angular';
   templateUrl: 'settings.page.html',
   styleUrls: ['settings.page.scss']
 })
-
-
-
 export class SettingsPage implements OnInit {
-
-  constructor(private alertController: AlertController, 
-              private authService: AuthService, 
-              private navCtrl: NavController) { }
+  constructor(
+    private alertController: AlertController,
+    private authService: AuthService,
+    private navCtrl: NavController
+  ) {}
 
   accountButtonClick() {
     this.navCtrl.navigateForward('account');
@@ -26,11 +24,11 @@ export class SettingsPage implements OnInit {
     this.displaySignoutAlert();
   }
 
-  aboutButtonClick(){
+  aboutButtonClick() {
     this.navCtrl.navigateForward('about');
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   async displaySignoutAlert() {
     const newAlert = await this.alertController.create({
@@ -39,8 +37,9 @@ export class SettingsPage implements OnInit {
       message: 'Are you sure?',
       buttons: [
         {
-          text: 'OK', 
+          text: 'OK',
           handler: () => {
+            this.authService.logout();
             this.navCtrl.navigateRoot(['/login']);
           }
         },

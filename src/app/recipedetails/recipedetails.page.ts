@@ -23,15 +23,15 @@ export class RecipeDetailsPage implements OnInit {
   public macroString: string;
   public ingredients: Array<{ name: string }> = [];
   public steps: Array<{ str: string }> = [];
-  private inc: number = 0;
+  private inc = 0;
   private recipeBook: Array<Recipe> = [];
-  private recipeCheckMarked:boolean = false;
-  private testinc: Array<number>=[];
+  public recipeCheckMarked = false;
+  private testinc: Array<number> = [];
 
   constructor(
     private navCtrl: NavController,
     private toastController: ToastController,
-    private afAuth:AuthService,
+    private afAuth: AuthService
   ) {
     this.recipeToDisplay = Recipe.getRecipeToDisplay;
     this.recipeTitle = this.recipeToDisplay.getRecipeTitle;
@@ -43,10 +43,9 @@ export class RecipeDetailsPage implements OnInit {
     this.setupIngredientsList();
     this.setupStepsList();
     this.macroString = this.getMacroString();
-    const bookMarked=this.isRecipeBookmarked();
+    const bookMarked = this.isRecipeBookmarked();
     this.recipeCheckMarked = bookMarked;
-  } 
-
+  }
 
   bookmarkClick() {
     this.presentToast();
@@ -76,37 +75,45 @@ export class RecipeDetailsPage implements OnInit {
         localStorage.setItem("increment",JSON.stringify(this.inc));
     }
     console.log(this.inc); */
-    //firebase.database().ref('favorites/'+this.afAuth.user.uid).push(this.recipeToDisplay);
-    this.recipeBook=JSON.parse(localStorage.getItem(this.afAuth.user.email));
+    // firebase.database().ref('favorites/'+this.afAuth.user.uid).push(this.recipeToDisplay);
+    this.recipeBook = JSON.parse(localStorage.getItem(this.afAuth.user.email));
     console.log(this.recipeBook);
-    if(this.recipeBook !== null){
-    this.recipeBook.push(this.recipeToDisplay);
-    localStorage.setItem(this.afAuth.user.email,JSON.stringify(this.recipeBook));
-    }else{
-      localStorage.setItem(this.afAuth.user.email,JSON.stringify(Array(this.recipeToDisplay)));
+    if (this.recipeBook !== null) {
+      this.recipeBook.push(this.recipeToDisplay);
+      localStorage.setItem(
+        this.afAuth.user.email,
+        JSON.stringify(this.recipeBook)
+      );
+    } else {
+      localStorage.setItem(
+        this.afAuth.user.email,
+        JSON.stringify(Array(this.recipeToDisplay))
+      );
     }
-   // localStorage.removeItem(this.afAuth.user.email);
-   const bookMarked=this.isRecipeBookmarked();
+    // localStorage.removeItem(this.afAuth.user.email);
+    const bookMarked = this.isRecipeBookmarked();
     this.recipeCheckMarked = bookMarked;
   }
 
-   isRecipeBookmarked(): boolean {
+  isRecipeBookmarked(): boolean {
     // check and see if the recipe is saved to local storage.
-    this.recipeBook = <Array<Recipe>> JSON.parse(localStorage.getItem(this.afAuth.user.email));
-    if(this.recipeBook !== null){
-      for( var i = 0; i < this.recipeBook.length; i++){
-        if(this.recipeToDisplay.getRecipeTitle === this.recipeBook[i].title){
+    this.recipeBook = <Array<Recipe>>(
+      JSON.parse(localStorage.getItem(this.afAuth.user.email))
+    );
+    if (this.recipeBook !== null) {
+      for (let i = 0; i < this.recipeBook.length; i++) {
+        if (this.recipeToDisplay.getRecipeTitle === this.recipeBook[i].title) {
           this.recipeCheckMarked = true;
         }
       }
-    /*this.recipeBook.forEach(recipe => {
+      /*this.recipeBook.forEach(recipe => {
       console.log(recipe);
-      if(this.recipeToDisplay.getRecipeTitle === recipe.title){  
+      if(this.recipeToDisplay.getRecipeTitle === recipe.title){
         this.recipeCheckMarked = true;
       }
     });
     */
-  }
+    }
     return this.recipeCheckMarked;
   }
 

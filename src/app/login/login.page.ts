@@ -5,14 +5,15 @@ import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  styleUrls: ['./login.page.scss']
 })
 export class LoginPage implements OnInit {
+  constructor(
+    public authService: AuthService,
+    public menuCtrl: MenuController
+  ) {}
 
-  constructor(private authService: AuthService, public menuCtrl: MenuController) { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ionViewWillEnter() {
     this.menuCtrl.enable(false);

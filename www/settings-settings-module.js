@@ -61,7 +61,7 @@ var SettingsPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>\r\n      Account and Settings\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-grid>\r\n      <ion-row size=\"6\">\r\n          <ion-col>\r\n            <ion-button class=\"homepage_button\" expand=\"block\" justify-content-center fill=\"solid\" (click)=accountButtonClick()>\r\n                <ion-icon slot=\"start\" name=\"contact\"></ion-icon>Account</ion-button>\r\n            <ion-button class=\"homepage_button\" expand=\"block\" justify-content-center fill=\"solid\" (click)=\"signoutButtonClick()\"><!--ngOnInit()-->\r\n                <ion-icon slot=\"start\" name=\"log-out\"></ion-icon>Sign Out</ion-button>\r\n            <ion-button class=\"homepage_button\" expand=\"block\" justify-content-center fill=\"solid\" (click)=\"aboutButtonClick()\"><!--ngOnInit()-->\r\n                <ion-icon slot=\"start\" name=\"information-circle\"></ion-icon>About Bronco Fuel</ion-button>\r\n          </ion-col>\r\n      </ion-row>\r\n    </ion-grid>\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      Account and Settings\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n      <ion-row size=\"6\">\n          <ion-col>\n            <ion-button class=\"homepage_button\" expand=\"block\" justify-content-center fill=\"solid\" (click)=accountButtonClick()>\n                <ion-icon slot=\"start\" name=\"contact\"></ion-icon>Account</ion-button>\n            <ion-button class=\"homepage_button\" expand=\"block\" justify-content-center fill=\"solid\" (click)=\"signoutButtonClick()\"><!--ngOnInit()-->\n                <ion-icon slot=\"start\" name=\"log-out\"></ion-icon>Sign Out</ion-button>\n            <ion-button class=\"homepage_button\" expand=\"block\" justify-content-center fill=\"solid\" (click)=\"aboutButtonClick()\"><!--ngOnInit()-->\n                <ion-icon slot=\"start\" name=\"information-circle\"></ion-icon>About Bronco Fuel</ion-button>\n          </ion-col>\n      </ion-row>\n    </ion-grid>\n</ion-content>\n"
 
 /***/ }),
 
@@ -72,7 +72,7 @@ module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"sta
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NldHRpbmdzL3NldHRpbmdzLnBhZ2Uuc2NzcyJ9 */"
+module.exports = ""
 
 /***/ }),
 
@@ -203,4 +203,3 @@ var SettingsPage = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=settings-settings-module.js.map

@@ -61,7 +61,7 @@ var RecipeDetailsPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n          <ion-back-button></ion-back-button>\r\n        </ion-buttons>\r\n        <ion-title>Details</ion-title>\r\n        <ion-buttons slot=\"primary\">\r\n            <ion-button fill='outline' (click)=\"bookmarkClick()\" [ngClass]=\"{'activated' : isBookmarked }\"><ion-icon name=\"bookmark\"></ion-icon></ion-button>\r\n          </ion-buttons>\r\n      </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n  <ion-card>\r\n  <ion-card-header>\r\n      <ion-card-title>{{recipeTitle}}</ion-card-title>\r\n      {{macroString}}\r\n  </ion-card-header>\r\n</ion-card>\r\n\r\n  <ion-card>\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Serving Size (People)</ion-card-subtitle>\r\n      <ion-card-title>{{servingSize}}</ion-card-title>\r\n    </ion-card-header>\r\n  </ion-card>\r\n\r\n  <ion-card>\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Prep Time</ion-card-subtitle>\r\n      <ion-card-title>{{prepTime}}</ion-card-title>\r\n    </ion-card-header>\r\n  </ion-card>\r\n\r\n  <ion-card>\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Ingredients</ion-card-subtitle>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      <ion-list>\r\n        <ion-item *ngFor=\"let ingredient of ingredients;\">\r\n          <ion-label text-wrap>{{ingredient.name}}</ion-label>\r\n          <ion-checkbox slot=\"end\" [(ngModel)]=\"ingredient.isChecked\"></ion-checkbox>\r\n        </ion-item>\r\n      </ion-list>\r\n    </ion-card-content>\r\n  </ion-card>\r\n\r\n <ion-card>\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Steps</ion-card-subtitle>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      <ion-list>\r\n        <ion-item *ngFor=\"let step of steps;\">\r\n          {{step.str}}\r\n        </ion-item>\r\n      </ion-list>\r\n    </ion-card-content>\r\n  </ion-card>\r\n\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-back-button></ion-back-button>\n        </ion-buttons>\n        <ion-title>Details</ion-title>\n        <ion-buttons slot=\"primary\">\n            <ion-button fill='outline' (click)=\"bookmarkClick()\" disabled=\"{{recipeCheckMarked}}\">\n                <ion-icon name=\"bookmark\"></ion-icon>\n            </ion-button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-card>\n        <ion-card-header>\n            <ion-card-title>{{recipeTitle}}</ion-card-title>\n            {{macroString}}\n        </ion-card-header>\n    </ion-card>\n\n    <ion-card>\n        <ion-card-header>\n            <ion-card-subtitle>Serving Size (People)</ion-card-subtitle>\n            <ion-card-title>{{servingSize}}</ion-card-title>\n        </ion-card-header>\n    </ion-card>\n\n    <ion-card>\n        <ion-card-header>\n            <ion-card-subtitle>Prep Time</ion-card-subtitle>\n            <ion-card-title>{{prepTime}}</ion-card-title>\n        </ion-card-header>\n    </ion-card>\n\n    <ion-card>\n        <ion-card-header>\n            <ion-card-subtitle>Ingredients</ion-card-subtitle>\n        </ion-card-header>\n        <ion-card-content>\n            <ion-list>\n                <ion-item *ngFor=\"let ingredient of ingredients;\">\n                    <ion-label text-wrap>{{ingredient.name}}</ion-label>\n                    <ion-checkbox slot=\"end\" [(ngModel)]=\"ingredient.isChecked\"></ion-checkbox>\n                </ion-item>\n            </ion-list>\n        </ion-card-content>\n    </ion-card>\n\n    <ion-card>\n        <ion-card-header>\n            <ion-card-subtitle>Steps</ion-card-subtitle>\n        </ion-card-header>\n        <ion-card-content>\n            <ion-list>\n                <ion-item *ngFor=\"let step of steps;\">\n                    {{step.str}}\n                </ion-item>\n            </ion-list>\n        </ion-card-content>\n    </ion-card>\n\n</ion-content>"
 
 /***/ }),
 
@@ -72,7 +72,7 @@ module.exports = "<ion-header>\r\n    <ion-toolbar>\r\n        <ion-buttons slot
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".welcome-card ion-img {\n  max-height: 35vh; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVjaXBlZGV0YWlscy9DOlxcVXNlcnNcXGFkZm95XFxpb25pY19BcHBcXGJyb25jby1udXRyaXRpb24yL3NyY1xcYXBwXFxyZWNpcGVkZXRhaWxzXFxyZWNpcGVkZXRhaWxzLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdCQUFnQixFQUFBIiwiZmlsZSI6InNyYy9hcHAvcmVjaXBlZGV0YWlscy9yZWNpcGVkZXRhaWxzLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi53ZWxjb21lLWNhcmQgaW9uLWltZyB7XHJcbiAgbWF4LWhlaWdodDogMzV2aDtcclxuICAvL292ZXJmbG93OiBoaWRkZW47XHJcbn0iXX0= */"
+module.exports = ".welcome-card ion-img {\n  max-height: 35vh; }\n"
 
 /***/ }),
 
@@ -148,7 +148,9 @@ var RecipeDetailsPage = /** @class */ (function () {
         this.ingredients = [];
         this.steps = [];
         this.inc = 0;
-        this.recipeToBook = [];
+        this.recipeBook = [];
+        this.recipeCheckMarked = false;
+        this.testinc = [];
         this.recipeToDisplay = _Recipe__WEBPACK_IMPORTED_MODULE_2__["Recipe"].getRecipeToDisplay;
         this.recipeTitle = this.recipeToDisplay.getRecipeTitle;
         this.servingSize = this.recipeToDisplay.getNumServings;
@@ -158,7 +160,8 @@ var RecipeDetailsPage = /** @class */ (function () {
         this.setupIngredientsList();
         this.setupStepsList();
         this.macroString = this.getMacroString();
-        this.isBookmarked = false;
+        var bookMarked = this.isRecipeBookmarked();
+        this.recipeCheckMarked = bookMarked;
     }
     RecipeDetailsPage.prototype.bookmarkClick = function () {
         this.presentToast();
@@ -183,23 +186,51 @@ var RecipeDetailsPage = /** @class */ (function () {
     };
     RecipeDetailsPage.prototype.bookmarkRecipe = function () {
         /*if(localStorage.getItem("increment")!= null){
-         this.inc=JSON.parse(localStorage.getItem("increment"));
-         this.recipeToBook[this.inc] = this.recipeToDisplay.getRecipeTitle;
-         localStorage.setItem(this.afAuth.user.email, JSON.stringify(this.recipeToBook));
-         this.inc++;
-         localStorage.setItem("increment",JSON.stringify(this.inc));
-         //skeleton to be filled in by Austin/Tony
-         }else{
-             this.recipeToBook[this.inc]=this.recipeToDisplay.getRecipeTitle;
-             localStorage.setItem(this.afAuth.user.email,JSON.stringify(this.recipeToBook));
-             this.inc++;
-             localStorage.setItem("increment",JSON.stringify(this.inc));
-         }
-         console.log(this.inc); */
+        this.inc=JSON.parse(localStorage.getItem("increment"));
+        this.recipeToBook[this.inc] = this.recipeToDisplay.getRecipeTitle;
+        localStorage.setItem(this.afAuth.user.email, JSON.stringify(this.recipeToBook));
+        this.inc++;
+        localStorage.setItem("increment",JSON.stringify(this.inc));
+        //skeleton to be filled in by Austin/Tony
+        }else{
+            this.recipeToBook[this.inc]=this.recipeToDisplay.getRecipeTitle;
+            localStorage.setItem(this.afAuth.user.email,JSON.stringify(this.recipeToBook));
+            this.inc++;
+            localStorage.setItem("increment",JSON.stringify(this.inc));
+        }
+        console.log(this.inc); */
+        // firebase.database().ref('favorites/'+this.afAuth.user.uid).push(this.recipeToDisplay);
+        this.recipeBook = JSON.parse(localStorage.getItem(this.afAuth.user.email));
+        console.log(this.recipeBook);
+        if (this.recipeBook !== null) {
+            this.recipeBook.push(this.recipeToDisplay);
+            localStorage.setItem(this.afAuth.user.email, JSON.stringify(this.recipeBook));
+        }
+        else {
+            localStorage.setItem(this.afAuth.user.email, JSON.stringify(Array(this.recipeToDisplay)));
+        }
+        // localStorage.removeItem(this.afAuth.user.email);
+        var bookMarked = this.isRecipeBookmarked();
+        this.recipeCheckMarked = bookMarked;
     };
     RecipeDetailsPage.prototype.isRecipeBookmarked = function () {
         // check and see if the recipe is saved to local storage.
-        return true;
+        this.recipeBook = (JSON.parse(localStorage.getItem(this.afAuth.user.email)));
+        if (this.recipeBook !== null) {
+            for (var i = 0; i < this.recipeBook.length; i++) {
+                if (this.recipeToDisplay.getRecipeTitle === this.recipeBook[i].title) {
+                    this.recipeCheckMarked = true;
+                }
+            }
+            /*this.recipeBook.forEach(recipe => {
+            console.log(recipe);
+            if(this.recipeToDisplay.getRecipeTitle === recipe.title){
+              this.recipeCheckMarked = true;
+            }
+          });
+          */
+        }
+        return this.recipeCheckMarked;
     };
     RecipeDetailsPage.prototype.setupIngredientsList = function () {
         for (var i = 0; i < this.recipeToDisplay.getIngredients.length; i++) {
@@ -236,15 +267,16 @@ var RecipeDetailsPage = /** @class */ (function () {
         }
         return macroString;
     };
-    RecipeDetailsPage.prototype.ngOnInit = function () {
-    };
+    RecipeDetailsPage.prototype.ngOnInit = function () { };
     RecipeDetailsPage = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-home',
             template: __webpack_require__(/*! ./recipedetails.page.html */ "./src/app/recipedetails/recipedetails.page.html"),
             styles: [__webpack_require__(/*! ./recipedetails.page.scss */ "./src/app/recipedetails/recipedetails.page.scss")]
         }),
-        __metadata("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"], _auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
+        __metadata("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"],
+            _auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
     ], RecipeDetailsPage);
     return RecipeDetailsPage;
 }());
@@ -254,4 +286,3 @@ var RecipeDetailsPage = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=recipedetails-recipedetails-module.js.map
