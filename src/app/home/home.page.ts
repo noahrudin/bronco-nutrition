@@ -17,7 +17,7 @@ export class HomePage implements OnInit {
   private recipes: any;
   private fav_recipes: Array<any> = [];
   private user: User;
-  private username:String;
+  private username: string;
   private native: NativeStorage = new NativeStorage();
   constructor(
     public menuCtrl: MenuController,
@@ -49,7 +49,6 @@ export class HomePage implements OnInit {
   HelpButtonClick() {
     this.navCtrl.navigateForward('help');
   }
-
 
   ngOnInit() {
     this.recipes = localStorage.getItem('favorites');

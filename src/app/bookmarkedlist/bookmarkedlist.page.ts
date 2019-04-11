@@ -15,7 +15,7 @@ import { AlertController } from '@ionic/angular';
 export class BookmarkedListPage implements OnInit {
   public static selectedRecipe: Recipe;
   private loadedList: Array<Recipe>;
-  private recipes: Array<Recipe> = [];
+  public recipes: Array<Recipe> = [];
   public items: Array<Recipe> = [];
   private recipeList: RecipeListPage;
   private recipedetail: RecipeDetailsPage;
