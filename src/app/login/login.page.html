@@ -1,30 +1,30 @@
 <ion-content color="primary" padding>
-  <form #form="ngForm">
-    <ion-grid>
-      <ion-row color="primary" justify-content-center>
-        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-          <div text-center>
-            <h3>Login</h3>
-          </div>
-          <div padding class="login_form">
-            <ion-item>
-              <ion-input name="email" type="email" placeholder="you@u.boisestate.edu" #email required></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input name="password" type="password" placeholder="Password" #password required></ion-input>
-            </ion-item>
-          </div>
-          <div padding>
-            <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block" (click)="authService.login(email.value,password.value)">Login</ion-button>
-          </div>
-        </ion-col>
-      </ion-row>
-	  <ion-row>
-          <div text-center>
-        If you don't have an account, please <a routerLink='/register'>
+    <form #form="ngForm">
+        <ion-grid>
+            <ion-row color="primary" justify-content-center>
+                <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                    <div text-center>
+                        <h3>Login</h3>
+                    </div>
+                    <div padding class="login_form">
+                        <ion-item>
+                            <ion-input name="email" type="email" placeholder="you@u.boisestate.edu" #email required></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-input name="password" type="password" placeholder="Password" #password required></ion-input>
+                        </ion-item>
+                    </div>
+                    <div padding>
+                        <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block" (click)="authService.login(email.value,password.value)">Login</ion-button>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <div text-center>
+                    If you don't have an account, please <a routerLink='/register'>
           register</a> first!
-          </div>
-      </ion-row>
-    </ion-grid>
-  </form>
+                </div>
+            </ion-row>
+        </ion-grid>
+    </form>
 </ion-content>

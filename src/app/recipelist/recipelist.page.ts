@@ -13,7 +13,7 @@ import { RecipeService } from '../recipeServices/recipe.service';
 export class RecipeListPage implements OnInit {
   public static selectedRecipe: Recipe;
   private loadedList: Array<any>;
-  private recipes: Array<Recipe>;
+  public recipes: Array<Recipe>;
   public items: Array<{ title: string; idx: number; selected: boolean, bookmark:boolean}> = [];
   private favList: Array<{ title: string; idx: number; selected: boolean,bookmark:boolean }> = [];
   private inc: any = 0;

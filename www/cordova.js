@@ -2159,4 +2159,8 @@ window.cordova = require('cordova');
 
 require('cordova/init');
 
+<<<<<<< HEAD
 })();
+=======
+})();
+>>>>>>> pulling from master
