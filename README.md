@@ -13,10 +13,9 @@
    - Download Android Studio
    - Got to the SDK manager > SDK Tools > show product details
    - Download the SDK build-tools v19.1> we are using 29.0.0-rc2
-   - we have built a keystore for android deployment it exists
-    in: /platforms/android/app/build/outputs/apk/release
-    file. the password is :BRONCO_FUEL
-   - this will be how you sign the file
+   - Build a keystore that will allow you to sign the apk
+      keytool -genkey -v -keystore bronco-fuel-key.keystore -alias bronco_fuel -keyalg RSA -keysize 2048 -validity 10000
+   - Our advice, when prompted keep both passwords the same, for simplicity
    - To sign:
          jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore bronco-fuel-key.keystore app-release-unsigned.apk bronc_fuel.
    - To compress for deployment
