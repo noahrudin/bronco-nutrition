@@ -18,8 +18,9 @@
    - Our advice, when prompted keep both passwords the same, for simplicity
    - To sign:
          jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore bronco-fuel-key.keystore app-release-unsigned.apk bronc_fuel.
-   - To compress for deployment zipalign -v 4 app-release-unsigned.apk <your_app>.apk
-   -To install on your Android Device follow these instructions
+   - To compress for deployment, 
+      zipalign -v 4 app-release-unsigned.apk <your_app>.apk
+   - To install on your Android Device follow these instructions
         https://ionicframework.com/docs/building/android
    - good to go
 ## Known Issues
