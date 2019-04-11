@@ -7,6 +7,8 @@ import { ToastController, Platform } from '@ionic/angular';
 import { User } from 'firebase';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { AuthService } from '../auth/auth.service';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-home',
@@ -22,8 +24,10 @@ export class HomePage implements OnInit {
   constructor(
     public menuCtrl: MenuController,
     private navCtrl: NavController,
-    private afAuth: AuthService
+    private afAuth: AuthService,
+    private statusBar: StatusBar
   ) {
+    this.statusBar.styleDefault();
     this.user = afAuth.user;
   }
 
