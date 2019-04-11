@@ -10,20 +10,20 @@
 `ionic-serve -l`
 - This will pull up a browser window with both iOS and Android simulators. Simply running `ionic serve` runs the application as a desktop-style web app.
 ## Android Apk
-    - Download Android Studio
-    - Got to the SDK manager > SDK Tools > show product details
-    - Download the SDK build-tools v19.1> we are using 29.0.0-rc2
-    -we have built a keystore for android deployment it exists
+   - Download Android Studio
+   - Got to the SDK manager > SDK Tools > show product details
+   - Download the SDK build-tools v19.1> we are using 29.0.0-rc2
+   - we have built a keystore for android deployment it exists
     in: /platforms/android/app/build/outputs/apk/release
     file. the password is :BRONCO_FUEL
-    - this will be how you sign the file
-    - To sign:
+   - this will be how you sign the file
+   - To sign:
          jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore bronco-fuel-key.keystore app-release-unsigned.apk bronc_fuel.
-    - To compress for deployment
+   - To compress for deployment
      zipalign -v 4 app-release-unsigned.apk <your_app>.apk
-     -To install on your Android Device follow these instructions
+   -To install on your Android Device follow these instructions
         https://ionicframework.com/docs/building/android
-    - good to go
+   - good to go
 ## Known Issues
 - general lag when loading each page up from the app sidemenu
 - when we load up the app as a user, we will hit the login screen briefly
