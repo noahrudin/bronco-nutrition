@@ -25,7 +25,7 @@
    - good to go
 ## Known Issues
 - general lag when loading each page up from the app sidemenu
-- when we load up the app as a user, we will hit the login screen briefly
+- [Android] when we load up the app as a user, we will hit the login screen briefly
   before routing to the home page.
 - [Android] the splashscreen will fade away to white to next page instead 
    of disappearing smoothly.
