@@ -15,5 +15,5 @@ function parse_git_hash() {
 	GIT_BRANCH=$(parse_git_branch)
 	GIT_HASH=$(parse_git_hash)	
 	git add .
-	git commit -m "pulling from current branch: $GIT_BRANCH and last commit: $GIT_HASH"
+	git commit -m "pulling from current branch: $GIT_BRANCH and last hash: $GIT_HASH"
 	git pull --rebase
