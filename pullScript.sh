@@ -12,7 +12,8 @@ function parse_git_branch() {
 function parse_git_hash() {
   git rev-parse --short HEAD 2> /dev/null | sed "s/\(.*\)/@\1/"
 }
-	GIT_BRANCH=$(parse_git_branch)	
+	GIT_BRANCH=$(parse_git_branch)
+	GIT_HASH=$(parse_git_hash)	
 	git add .
-	git commit -m "pulling from current: $GIT_BRANCH"
+	git commit -m "pulling from current branch: $GIT_BRANCH and last commit: $GIT_HASH" 
 	git pull --rebase
