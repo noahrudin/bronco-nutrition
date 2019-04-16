@@ -1,6 +1,6 @@
 	# checks if branch has something pending
 function parse_git_dirty() {
-  git diff --quiet --ignore-submodules HEAD 2>/dev/null; [ $? -eq 1 ] && echo "*"
+  git diff --quiet --ignore-submodules HEAD 2>/dev/null;
 }
 
 # gets the current git branch
