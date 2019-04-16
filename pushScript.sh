@@ -19,5 +19,6 @@ function parse_git_hash() {
 	git add .
 	git commit -m "($message) branch:$GIT_BRANCH hash:$GIT_HASH"
 	git push origin $GIT_BRANCH
+	git status
 	
 
