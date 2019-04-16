@@ -17,3 +17,4 @@ function parse_git_hash() {
 	git add .
 	git commit -m "pulling from current branch: $GIT_BRANCH and last hash: $GIT_HASH"
 	git pull --rebase
+	git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"
