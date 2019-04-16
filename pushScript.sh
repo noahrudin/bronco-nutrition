@@ -18,7 +18,7 @@ function parse_git_hash() {
 	echo "$GIT_BRANCH"
 	message=$1
 	git add .
-	git commit -m "$message $GIT_BRANCH $GIT_HASH"
+	git commit -m "($message) current branch:$GIT_BRANCH last Commit:$GIT_HASH"
 	git push origin $GIT_BRANCH
 	
 
