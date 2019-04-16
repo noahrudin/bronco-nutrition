@@ -1,6 +1,4 @@
-	rm -rf node_modules
+	current_Branch=$((git branch))
 	git add .
-	git commit -m "pulling from current"
+	git commit -m "pulling from $current_Branch"
 	git pull --rebase
-	rm -rf node_modules
-	npm install

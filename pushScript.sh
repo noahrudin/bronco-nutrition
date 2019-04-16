@@ -1,8 +1,8 @@
-
-	rm -rf node_modules
+	current_Branch=$((git branch))
+	message=$1
 	git add .
-	git commit -m "push to master"
+	git commit -m "$message $current_Branch"
 	git pull --rebase
-	git push origin master
-	npm install
+	git push origin $current_Branch
+
 
