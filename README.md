@@ -1,14 +1,20 @@
 # Bronco Fuel
-- Follow npm and ionic guidelines to run this project. 
-- use `ionic cordova build` followed by the platform name (`android` or `ios`) to create a native build project file for each respective platform.
 
-- To create a full production build for either platform, use the `ionic cordova build` command above, along with the `--prod --release` parameters.
+### [Setup and Testing Documentation](https://docs.google.com/document/d/1no3_boTWDg3TmVCAs5MlSsOi85rqgbfbDmeNilEhXHI/edit?usp=sharing)
 
 ## Setup
 - After pulling, run inside folder:
 `npm i -g`
 `ionic-serve -l`
 - This will pull up a browser window with both iOS and Android simulators. Simply running `ionic serve` runs the application as a desktop-style web app.
+
+## Building
+
+- Follow npm and ionic guidelines to run this project. 
+- use `ionic cordova build` followed by the platform name (`android` or `ios`) to create a native build project file for each respective platform.
+
+- To create a full production build for either platform, use the `ionic cordova build` command above, along with the `--prod --release` parameters.
+
 ## Android Apk
    - Download Android Studio
    - Got to the SDK manager > SDK Tools > show product details
@@ -22,7 +28,8 @@
       zipalign -v 4 app-release-unsigned.apk <your_app>.apk
    - To install on your Android Device follow these instructions
         https://ionicframework.com/docs/building/android
-   - good to go
+        
+       
 ## Known Issues
 - general lag when loading each page up from the app sidemenu
 - [Android] when we load up the app as a user, we will hit the login screen briefly
