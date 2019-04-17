@@ -10,7 +10,7 @@ function parse_git_branch() {
 
 # get last commit hash prepended with @ (i.e. @8a323d0)
 function parse_git_hash() {
-  git rev-parse --short HEAD 2> /dev/null
+  git rev-parse --short HEAD 2> /dev/null | sed "s/\(.*\)/@\1/"
 }
 	
 	GIT_BRANCH=$(parse_git_branch)
@@ -19,6 +19,6 @@ function parse_git_hash() {
 	git add .
 	git commit -m "($message) branch:$GIT_BRANCH hash:$GIT_HASH"
 	git push origin $GIT_BRANCH
-	git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"
+	git status
 	
 
