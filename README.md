@@ -39,7 +39,7 @@
 ## Known Issues
 - See Setup Docs.
 
-### [Recipe Access](https://docs.google.com/spreadsheets/d/1Mq1VMv3s3y7RVxYli8dbiSiJllthyyfrsqME3C-3eAw/edit?usp=sharing)
+### [Recipe Spreadsheet Access](https://docs.google.com/spreadsheets/d/1Mq1VMv3s3y7RVxYli8dbiSiJllthyyfrsqME3C-3eAw/edit?usp=sharing)
 
-### [Food Access](https://docs.google.com/spreadsheets/d/1YYhiSgtEh3QdEvazxbTcN9OujIMVK6KiGh8KfM7eUZY/edit?usp=sharing)
+### [Food Spreadsheet Access](https://docs.google.com/spreadsheets/d/1YYhiSgtEh3QdEvazxbTcN9OujIMVK6KiGh8KfM7eUZY/edit?usp=sharing)
 
