@@ -22,8 +22,8 @@
 - To create a full production build for either platform, use the `ionic cordova build` command above, along with the `--prod --release` parameters.
 
 ## Automated GitHub
-   - pushScript.sh -> this script interactively adds files, effective commit messaging, and push to the current branch working
-      ./pushScript.sh "the git commit message"
+   - pushScript.sh -> this script interactively adds files, effective commit messaging, and push to the current branch working   
+   -  `./pushScript.sh "the git commit message"`
    - pullScript.sh -> this script interactively adds files, notifies which branch and commit, rebases clean
    - WARNING! do not run the pullscript twice in a row it will delete the script, you will have to push to retrieve the script
 
