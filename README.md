@@ -37,11 +37,7 @@
         
        
 ## Known Issues
-- general lag when loading each page up from the app sidemenu
-- [Android] when we load up the app as a user, we will hit the login screen briefly
-  before routing to the home page.
-- [Android] the splashscreen will fade away to white to next page instead 
-   of disappearing smoothly.
+- See Setup Docs.
 
 ### [Recipe Access](https://docs.google.com/spreadsheets/d/1Mq1VMv3s3y7RVxYli8dbiSiJllthyyfrsqME3C-3eAw/edit?usp=sharing)
 
