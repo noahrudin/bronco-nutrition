@@ -1,6 +1,8 @@
 # Bronco Fuel
 
-### [Setup and Testing Documentation](https://docs.google.com/document/d/1no3_boTWDg3TmVCAs5MlSsOi85rqgbfbDmeNilEhXHI/edit?usp=sharing)
+### [Setup Documentation](https://docs.google.com/document/d/1no3_boTWDg3TmVCAs5MlSsOi85rqgbfbDmeNilEhXHI/edit?usp=sharing)
+
+### [Smoke Test Documentation](https://docs.google.com/document/d/1SEqOCs096Gtt8I0I5kdrrX61ftj3SWmi7e_63U6zKWs/edit?usp=sharing)
 
 ## Setup
 - After pulling, run inside folder:
