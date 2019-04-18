@@ -7,7 +7,11 @@
 `npm i -g`
 `ionic-serve -l`
 - This will pull up a browser window with both iOS and Android simulators. Simply running `ionic serve` runs the application as a desktop-style web app.
-
+## Firebase
+- a NO-Sql, non-relational database, it would be more accurate to describe the database as a set of nodes that can be the head of other sets of nodes.
+- The database manager is user friendly, and easy to control read and write privileges.
+- We are using the Realtime Database, which is good for asynchronous changes and updates, there is also a cloud functions.
+- The cloud functions operate as a way for a team to develop projects that have heavy loads on the database and timed updates.
 ## Building
 
 - Follow npm and ionic guidelines to run this project. 
