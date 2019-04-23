@@ -6,7 +6,11 @@
 
 ## Setup
 - After pulling, run inside folder:
-`npm i -g`
+`npm i -g ionic`
+`npm i -g cordova`
+`ionic repair`
+(For sass issues: `sudo npm install --save-dev  --unsafe-perm node-sass`)
+`npm audit fix`
 `ionic-serve -l`
 - This will pull up a browser window with both iOS and Android simulators. Simply running `ionic serve` runs the application as a desktop-style web app.
 ## Firebase
