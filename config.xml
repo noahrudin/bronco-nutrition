@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="bronco.io.fuel" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Bronco Fuel</name>
     <description>A Boise State Athletics App.</description>
     <author email="noahrudin@gmail.com" href="noahrudin.github.io">Boise State Senior Design Team</author>
