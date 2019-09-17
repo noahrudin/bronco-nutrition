@@ -1,21 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
-import { MenuController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core'
+import { AuthService } from '../auth/auth.service'
+import { MenuController } from '@ionic/angular'
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss']
+    selector: 'app-login',
+    templateUrl: './login.page.html',
+    styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  constructor(
-    public authService: AuthService,
-    public menuCtrl: MenuController
-  ) {}
+    constructor(
+        public authService: AuthService,
+        public menuCtrl: MenuController
+    ) {}
 
-  ngOnInit() {}
+    ngOnInit() {}
 
-  ionViewWillEnter() {
-    this.menuCtrl.enable(false);
-  }
+    ionViewWillEnter() {
+        this.menuCtrl.enable(false)
+    }
 }
