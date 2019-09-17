@@ -1,23 +1,23 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { FormsModule } from '@angular/forms'
+import { IonicModule } from '@ionic/angular'
+import { RouterModule } from '@angular/router'
 
-import { BookmarkedListPage } from './bookmarkedlist.page';
+import { BookmarkedListPage } from './bookmarkedlist.page'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: BookmarkedListPage
-      }
-    ])
-  ],
-  declarations: [BookmarkedListPage]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild([
+            {
+                path: '',
+                component: BookmarkedListPage,
+            },
+        ]),
+    ],
+    declarations: [BookmarkedListPage],
 })
 export class BookmarkedListPageModule {}

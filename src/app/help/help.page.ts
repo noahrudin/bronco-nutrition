@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'help.page.html',
-  styleUrls: ['help.page.scss'],
+    selector: 'app-home',
+    templateUrl: 'help.page.html',
+    styleUrls: ['help.page.scss'],
 })
-export class HelpPage {
-
-}
+export class HelpPage {}

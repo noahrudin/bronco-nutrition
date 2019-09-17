@@ -1,27 +1,26 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { RecipeDetailsPage } from './recipedetails.page';
+import { RecipeDetailsPage } from './recipedetails.page'
 
 describe('RecipeDetailsPage', () => {
-  let component: RecipeDetailsPage;
-  let fixture: ComponentFixture<RecipeDetailsPage>;
+    let component: RecipeDetailsPage
+    let fixture: ComponentFixture<RecipeDetailsPage>
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ RecipeDetailsPage ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [RecipeDetailsPage],
+            schemas: [CUSTOM_ELEMENTS_SCHEMA],
+        }).compileComponents()
+    }))
+
+    beforeEach(() => {
+        fixture = TestBed.createComponent(RecipeDetailsPage)
+        component = fixture.componentInstance
+        fixture.detectChanges()
     })
-      .compileComponents();
-  }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(RecipeDetailsPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    it('should create', () => {
+        expect(component).toBeTruthy()
+    })
+})

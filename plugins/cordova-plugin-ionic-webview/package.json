@@ -16,13 +16,12 @@
     "fetchSpec": "^3.1.2"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/cordova-plugin-ionic-webview/-/cordova-plugin-ionic-webview-3.1.2.tgz",
   "_shasum": "80fe1e82067ad8dcbc5ecf00cad2f8dfa0d0e10f",
   "_spec": "cordova-plugin-ionic-webview@^3.1.2",
-  "_where": "C:\\Users\\noah.rudin\\Desktop\\bronco-nutrition",
+  "_where": "/Users/Davis/source/bronco-nutrition",
   "author": {
     "name": "Ionic Team"
   },
