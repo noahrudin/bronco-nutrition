@@ -46,6 +46,10 @@ const routes: Routes = [
         loadChildren: './resources/resources.module#ResourcesPageModule',
     },
     {
+        path: 'references',
+        loadChildren: './references/references.module#ReferencesPageModule',
+    },
+    {
         path: 'settings',
         loadChildren: './settings/settings.module#SettingsPageModule',
     },

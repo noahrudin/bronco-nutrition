@@ -47,6 +47,10 @@ export class HomePage implements OnInit {
         this.navCtrl.navigateForward('resources')
     }
 
+    ReferencesButtonClick() {
+        this.navCtrl.navigateForward('references')
+    }
+
     SettingsButtonClick() {
         this.navCtrl.navigateForward('settings')
     }
