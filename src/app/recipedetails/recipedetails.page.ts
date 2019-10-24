@@ -23,6 +23,7 @@ export class RecipeDetailsPage implements OnInit {
     public macroString: string
     public ingredients: Array<{ name: string }> = []
     public steps: Array<{ str: string }> = []
+    public recipeImage: HTMLImageElement
     private inc = 0
     private recipeBook: Array<Recipe> = []
     public recipeCheckMarked = false
@@ -38,6 +39,7 @@ export class RecipeDetailsPage implements OnInit {
         this.servingSize = this.recipeToDisplay.getNumServings
         this.prepTime = this.recipeToDisplay.getPrepTime
         this.macros = this.recipeToDisplay.getMacros
+        this.recipeImage = this.recipeToDisplay.getImage
 
         // populate lists of ingredients and steps
         this.setupIngredientsList()
