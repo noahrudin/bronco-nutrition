@@ -16,6 +16,7 @@ const MACROS_INDEX = 2
 const PREP_TIME_INDEX = 3
 const INGREDIENTS_INDEX = 4
 const STEPS_INDEX = 5
+const IMAGE_INDEX = 6
 
 export const snapshotToRecipeArray = snapshot => {
     const returnArr = []
@@ -29,6 +30,7 @@ export const snapshotToRecipeArray = snapshot => {
         const prepTime = item[PREP_TIME_INDEX]
         const ingredients = Recipe.parseIngredients(item[INGREDIENTS_INDEX])
         const steps = Recipe.parseSteps(item[STEPS_INDEX])
+        const recipeImage = item[IMAGE_INDEX]
 
         const newRecipe = new Recipe(
             title,
@@ -37,7 +39,9 @@ export const snapshotToRecipeArray = snapshot => {
             prepTime,
             ingredients,
             steps,
-            idx
+            idx,
+            recipeImage
+
         )
         returnArr.push(newRecipe)
         idx++

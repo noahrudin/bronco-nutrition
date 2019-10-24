@@ -11,9 +11,19 @@
 
 <ion-content>
     <ion-card>
-        <ion-searchbar animated debounce="500" placeholder="Search Here" name="search" (ionInput)="getRecipes($event)"></ion-searchbar>
+        <ion-searchbar
+            animated
+            debounce="500"
+            placeholder="Search Here"
+            name="search"
+            (ionInput)="getRecipes($event)"
+        ></ion-searchbar>
         <ion-list *ngFor="let item of items; let i = index">
-            <ion-item [class.highlight]="item.selected" (click)="listItemClick(item.idx)" detail>
+            <ion-item
+                [class.highlight]="item.selected"
+                (click)="listItemClick(item.idx)"
+                detail
+            >
                 <ion-row>
                     <!--                    <ion-item>
                         <ion-col class="ion-align-self-start">

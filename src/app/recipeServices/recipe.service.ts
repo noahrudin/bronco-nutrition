@@ -26,7 +26,7 @@ export const snapshotToRecipeArray = snapshot => {
         const prepTime = item[PREP_TIME_INDEX]
         const ingredients = Recipe.parseIngredients(item[INGREDIENTS_INDEX])
         const steps = Recipe.parseSteps(item[STEPS_INDEX])
-        const recipeImage = item[IMAGE_INDEX];
+        const recipeImage = item[IMAGE_INDEX]
 
         const newRecipe = new Recipe(
             title,

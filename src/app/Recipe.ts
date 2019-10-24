@@ -10,7 +10,6 @@ const FAT_STR = 'F'
 
 export class Recipe {
     private static _recipeToDisplay: Recipe
-    
 
     constructor(
         public title: string,
@@ -59,9 +58,9 @@ export class Recipe {
         return this.steps
     }
 
-    get getImage(){
+    get getImage() {
         return this.recipeImage
-    } 
+    }
 
     static parseNumServings(servings: string): string {
         return servings
