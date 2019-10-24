@@ -33,6 +33,10 @@ const routes: Routes = [
         loadChildren: './help/help.module#HelpPageModule',
     },
     {
+        path: 'tip',
+        loadChildren: './tip/tip.module#TipPageModule',
+    },
+    {
         path: 'recipedetails',
         loadChildren:
             './recipedetails/recipedetails.module#RecipeDetailsPageModule',
