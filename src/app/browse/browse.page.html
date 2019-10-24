@@ -10,13 +10,19 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-searchbar animated debounce="500" placeholder="Search Here" name="search" (ionInput)="getFoodItems($event)"></ion-searchbar>
-    <ion-list>
-        <ion-item *ngFor="let item of foodList;">
-            {{item[0]}}
-            <ion-label item-right text-right>{{item[1]}}</ion-label>
-        </ion-item>
-    </ion-list>
-  </ion-card>
+    <ion-card>
+        <ion-searchbar
+            animated
+            debounce="500"
+            placeholder="Search Here"
+            name="search"
+            (ionInput)="getFoodItems($event)"
+        ></ion-searchbar>
+        <ion-list>
+            <ion-item *ngFor="let item of foodList;">
+                {{item[0]}}
+                <ion-label item-right text-right>{{item[1]}}</ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-card>
 </ion-content>

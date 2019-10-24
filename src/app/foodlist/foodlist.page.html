@@ -1,24 +1,29 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Browse Food and Snacks
-    </ion-title>
-    
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            Browse Food and Snacks
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-content>Take a look at approved grazing items!
-      </ion-card-content></ion-card>
-  <ion-card>
-  <ion-list>
-    <ion-item [class.highlight]="item.selected" *ngFor="let item of items; let i = index">
-      {{item.title}}
-      <ion-label item-right text-right>Macro</ion-label>
-    </ion-item>
-  </ion-list></ion-card>
+    <ion-card>
+        <ion-card-content
+            >Take a look at approved grazing items!
+        </ion-card-content></ion-card
+    >
+    <ion-card>
+        <ion-list>
+            <ion-item
+                [class.highlight]="item.selected"
+                *ngFor="let item of items; let i = index"
+            >
+                {{item.title}}
+                <ion-label item-right text-right>Macro</ion-label>
+            </ion-item>
+        </ion-list></ion-card
+    >
 </ion-content>

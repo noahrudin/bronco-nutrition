@@ -18,7 +18,8 @@ export class Recipe {
         private prepTime: string,
         private ingredients: string[],
         private steps: string[],
-        private absIdx: number
+        private absIdx: number,
+        private recipeImage: HTMLImageElement
     ) {}
 
     static get getRecipeToDisplay() {
@@ -55,6 +56,10 @@ export class Recipe {
 
     get getSteps() {
         return this.steps
+    }
+
+    get getImage() {
+        return this.recipeImage
     }
 
     static parseNumServings(servings: string): string {
