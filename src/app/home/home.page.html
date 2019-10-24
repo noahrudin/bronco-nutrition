@@ -22,16 +22,58 @@
         <ion-grid>
             <ion-row size="6">
                 <ion-col>
-                    <ion-button class="homepage_button" expand="block" justify-content-center fill="solid" (click)=SearchButtonClick()>
-                        <ion-icon slot="start" name="pizza"></ion-icon>Browse Snacks</ion-button>
-                    <ion-button class="homepage_button" expand="block" justify-content-center fill="solid" (click)="ListButtonClick()">
+                    <ion-button
+                        class="homepage_button"
+                        expand="block"
+                        justify-content-center
+                        fill="solid"
+                        (click)="SearchButtonClick()"
+                    >
+                        <ion-icon slot="start" name="pizza"></ion-icon>Browse
+                        Snacks</ion-button
+                    >
+                    <ion-button
+                        class="homepage_button"
+                        expand="block"
+                        justify-content-center
+                        fill="solid"
+                        (click)="ListButtonClick()"
+                    >
                         <!--ngOnInit()-->
-                        <ion-icon slot="start" name="list"></ion-icon>Browse Recipes</ion-button>
-                    <ion-button class="homepage_button" expand="block" justify-content-center fill="solid" (click)="BookmarkButtonClick()">
+                        <ion-icon slot="start" name="list"></ion-icon>Browse
+                        Recipes</ion-button
+                    >
+                    <ion-button
+                        class="homepage_button"
+                        expand="block"
+                        justify-content-center
+                        fill="solid"
+                        (click)="BookmarkButtonClick()"
+                    >
                         <!--ngOnInit()-->
-                        <ion-icon slot="start" name="bookmark"></ion-icon>View Bookmarked Recipes</ion-button>
-                    <ion-button class="homepage_button" expand="block" justify-content-center fill="solid" (click)=ResourcesButtonClick()>
-                        <ion-icon slot="start" name="link"></ion-icon>Campus Resources</ion-button>
+                        <ion-icon slot="start" name="bookmark"></ion-icon>View
+                        Bookmarked Recipes</ion-button
+                    >
+                    <ion-button
+                        class="homepage_button"
+                        expand="block"
+                        justify-content-center
+                        fill="solid"
+                        (click)="ResourcesButtonClick()"
+                    >
+                        <ion-icon slot="start" name="people"></ion-icon>Campus
+                        Resources</ion-button
+                    >
+                    <ion-button
+                        class="homepage_button"
+                        expand="block"
+                        justify-content-center
+                        fill="solid"
+                        (click)="ReferencesButtonClick()"
+                    >
+                        <ion-icon slot="start" name="link"></ion-icon
+                        >Documentation References</ion-button
+                    >
                 </ion-col>
             </ion-row>
         </ion-grid>

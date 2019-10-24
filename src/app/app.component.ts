@@ -40,6 +40,11 @@ export class AppComponent {
         {
             title: 'Resources',
             url: '/resources',
+            icon: 'people',
+        },
+        {
+            title: 'References',
+            url: '/references',
             icon: 'link',
         },
         {

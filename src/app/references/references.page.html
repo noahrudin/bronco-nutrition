@@ -1,0 +1,109 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            References
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-grid fixed>
+            <ion-row align-items-stretch>
+                <ion-col size="12" size-md="6">
+                    <ion-card>
+                        <ion-card-content>
+                            <ion-list>
+                                <div text-center>
+                                    <h2>Bronco Sports Health and Wellness</h2>
+                                </div>
+                            </ion-list>
+                            <ion-button
+                                expand="block"
+                                justify-content-center
+                                (click)="
+                                    openBrowser(
+                                        'https://broncosports.com/sports/2019/9/23/sports-performance-health-and-wellness-home.aspx'
+                                    )
+                                "
+                            >
+                                <ion-icon slot="start" name="link"></ion-icon
+                                >Open</ion-button
+                            >
+                        </ion-card-content>
+                    </ion-card>
+                    <ion-card>
+                        <ion-card-content>
+                            <ion-list>
+                                <div text-center>
+                                    <h2>NCAA Dietary Supplements</h2>
+                                </div>
+                            </ion-list>
+                            <ion-button
+                                expand="block"
+                                justify-content-center
+                                (click)="
+                                    openBrowser(
+                                        'https://www.ncaa.org/sport-science-institute/dietary-supplements'
+                                    )
+                                "
+                            >
+                                <ion-icon slot="start" name="link"></ion-icon
+                                >Open</ion-button
+                            >
+                        </ion-card-content>
+                    </ion-card>
+
+                    <ion-card>
+                        <ion-card-content>
+                            <ion-list>
+                                <div text-center>
+                                    <h2>NCAA Nutrition</h2>
+                                </div>
+                            </ion-list>
+                            <ion-button
+                                expand="block"
+                                justify-content-center
+                                (click)="
+                                    openBrowser(
+                                        'https://www.ncaa.org/sport-science-institute/nutrition'
+                                    )
+                                "
+                            >
+                                <ion-icon slot="start" name="link"></ion-icon
+                                >Open</ion-button
+                            >
+                        </ion-card-content>
+                    </ion-card>
+
+                    <ion-card>
+                        <ion-card-content>
+                            <ion-list>
+                                <div text-center>
+                                    <h2>
+                                        Team USA Nutrition
+                                    </h2>
+                                </div>
+                            </ion-list>
+                            <ion-button
+                                expand="block"
+                                justify-content-center
+                                (click)="
+                                    openBrowser(
+                                        'https://www.teamusa.org/nutrition'
+                                    )
+                                "
+                            >
+                                <ion-icon slot="start" name="link"></ion-icon
+                                >Open</ion-button
+                            >
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-list>
+</ion-content>
