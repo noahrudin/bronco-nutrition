@@ -7,9 +7,9 @@ const FOOD_ITEM_NAME_INDEX = 0
 const FOOD_MACRO_INDEX = 1
 
 const Restaurant_NAME_INDEX = 0
-const LOCATION_INDEX = 2
-const CHOICES_INDEX = 3
-const IMAGE_INDEX = 4
+const LOCATION_INDEX = 1
+const CHOICES_INDEX = 2
+const IMAGE_INDEX = 3
 
 export const snapshotToRestaurantArray = snapshot => {
     const returnArr = []
@@ -36,21 +36,6 @@ export const snapshotToRestaurantArray = snapshot => {
     return returnArr
 }
 
-// export const snapshotToFoodArray = snapshot => {
-//     const returnArr = []
-//     snapshot.forEach(childSnapshot => {
-//         const item = childSnapshot.val()
-//         const title = item[FOOD_ITEM_NAME_INDEX]
-//         const macros = Recipe.parseMacros(item[FOOD_MACRO_INDEX])
-
-//         const newFoodItem = new FoodItem(macros, title)
-
-//         returnArr.push(newFoodItem)
-//     })
-
-//     return returnArr
-// }
-
 @Injectable({
     providedIn: 'root',
 })
@@ -60,7 +45,7 @@ export class RestaurantService {
     private restaurantDB = firebase.database().ref('restaurantSheet/')
     private foodDB = firebase.database().ref('foodSheet/')
     constructor() {
-        // grab recipe data from Firebase, and pack it into an array.
+        // grab restaurant data from Firebase, and pack it into an array.
         this.restaurantDB.on('value', resp => {
             this.restaurants = snapshotToRestaurantArray(resp)
         })

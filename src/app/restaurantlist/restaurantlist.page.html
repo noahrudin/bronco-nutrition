@@ -21,7 +21,7 @@
         <ion-list *ngFor="let item of items; let i = index">
             <ion-item
                 [class.highlight]="item.selected"
-                (click)="listItemClick(item.idx)"
+                (click)="listItemClick(item.id)"
                 detail
             >
                 <ion-row>
