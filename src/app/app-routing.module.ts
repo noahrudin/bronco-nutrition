@@ -46,6 +46,15 @@ const routes: Routes = [
         loadChildren: './recipelist/recipelist.module#RecipeListPageModule',
     },
     {
+        path: 'restaurantdetails',
+        loadChildren:
+            './restaurantdetails/restaurantdetails.module#RestaurantDetailsPageModule',
+    },
+    {
+        path: 'restaurantlist',
+        loadChildren: './restaurantlist/restaurantlist.module#RestaurantListPageModule',
+    },
+    {
         path: 'resources',
         loadChildren: './resources/resources.module#ResourcesPageModule',
     },
