@@ -18,7 +18,6 @@ export class RestaurantDetailsPage implements OnInit {
     public location: string
     public choices: Array<{ str: string }> = []
     public restaurantImage: HTMLImageElement
-    private restaurantBook: Array<Restaurant> = []
 
 
     constructor(

@@ -3,8 +3,6 @@ import * as firebase from 'firebase'
 import { Restaurant } from '../Restaurant'
 import { FoodItem } from '../FoodItem'
 
-const FOOD_ITEM_NAME_INDEX = 0
-const FOOD_MACRO_INDEX = 1
 
 const Restaurant_NAME_INDEX = 0
 const LOCATION_INDEX = 1
@@ -41,9 +39,7 @@ export const snapshotToRestaurantArray = snapshot => {
 })
 export class RestaurantService {
     private restaurants = []
-    private foodItems = []
     private restaurantDB = firebase.database().ref('restaurantSheet/')
-    private foodDB = firebase.database().ref('foodSheet/')
     constructor() {
         // grab restaurant data from Firebase, and pack it into an array.
         this.restaurantDB.on('value', resp => {

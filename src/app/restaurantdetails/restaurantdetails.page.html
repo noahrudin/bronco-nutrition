@@ -11,7 +11,6 @@
     <ion-card>
         <ion-card-header>
             <ion-card-title>{{restaurantTitle}}</ion-card-title>
-            {{macroString}}
         </ion-card-header>
     </ion-card>
 
@@ -32,8 +31,8 @@
         </ion-card-header>
         <ion-card-content>
             <ion-list>
-                <ion-item *ngFor="let Choice of Choices;">
-                    {{Choice.str}}
+                <ion-item *ngFor="let choice of choices;">
+                    {{choice.str}}
                 </ion-item>
             </ion-list>
         </ion-card-content>

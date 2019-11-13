@@ -35,7 +35,7 @@ export class AppComponent {
         {
             title: 'Restaurants',
             url: '/restaurantlist',
-            icon: 'search',
+            icon: 'restaurant',
         },
         {
             title: 'Bookmarks',
