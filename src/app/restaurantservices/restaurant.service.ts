@@ -3,11 +3,11 @@ import * as firebase from 'firebase'
 import { Restaurant } from '../Restaurant'
 import { FoodItem } from '../FoodItem'
 
-
 const Restaurant_NAME_INDEX = 0
 const LOCATION_INDEX = 1
 const CHOICES_INDEX = 2
-const IMAGE_INDEX = 3
+const CALORIES_INDEX = 3
+const IMAGE_INDEX = 4
 
 export const snapshotToRestaurantArray = snapshot => {
     const returnArr = []
@@ -18,12 +18,14 @@ export const snapshotToRestaurantArray = snapshot => {
         const title = item[Restaurant_NAME_INDEX]
         const location = item[LOCATION_INDEX]
         const choices = Restaurant.parseChoices(item[CHOICES_INDEX])
+        const calories = Restaurant.parseChoices(item[CALORIES_INDEX])
         const restaurantImage = item[IMAGE_INDEX]
 
         const newRestaurant = new Restaurant(
             title,
             location,
             choices,
+            calories,
             id,
             restaurantImage
         )

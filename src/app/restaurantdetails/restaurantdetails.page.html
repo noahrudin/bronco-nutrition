@@ -10,29 +10,32 @@
 <ion-content>
     <ion-card>
         <ion-card-header>
-            <ion-card-title>{{restaurantTitle}}</ion-card-title>
+            <ion-card-title>{{ restaurantTitle }}</ion-card-title>
         </ion-card-header>
     </ion-card>
 
     <ion-card>
-        <ion-img src="{{restaurantImage}}"></ion-img>
+        <ion-img src="{{ restaurantImage }}"></ion-img>
     </ion-card>
 
     <ion-card>
         <ion-card-header>
             <ion-card-subtitle>Location</ion-card-subtitle>
-            <ion-card-title>{{location}}</ion-card-title>
+            <ion-card-title>{{ location }}</ion-card-title>
         </ion-card-header>
     </ion-card>
 
     <ion-card>
         <ion-card-header>
-            <ion-card-subtitle>Choices</ion-card-subtitle>
+            <ion-card-subtitle>Healthy Choices</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
             <ion-list>
-                <ion-item *ngFor="let choice of choices;">
-                    {{choice.str}}
+                <ion-item *ngFor="let choice of choices">
+                    <ion-label text-wrap>{{ choice.menuItemName }}</ion-label>
+                    <ion-note slot="end">{{
+                        choice.menuItemCalorieCount
+                    }}</ion-note>
                 </ion-item>
             </ion-list>
         </ion-card-content>

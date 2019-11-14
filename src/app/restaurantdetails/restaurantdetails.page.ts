@@ -3,9 +3,6 @@ import { AuthService } from '../auth/auth.service'
 import { Restaurant } from '../Restaurant'
 import { NavController } from '@ionic/angular'
 import { ToastController } from '@ionic/angular'
-import * as firebase from 'firebase'
-import { FirebaseDatabase } from '@angular/fire'
-import { Observable } from 'rxjs'
 
 @Component({
     selector: 'app-home',
@@ -16,9 +13,11 @@ export class RestaurantDetailsPage implements OnInit {
     private restaurantToDisplay: Restaurant
     public restaurantTitle: string
     public location: string
-    public choices: Array<{ str: string }> = []
+    public choices: Array<{
+        menuItemName: string
+        menuItemCalorieCount: string
+    }> = []
     public restaurantImage: HTMLImageElement
-
 
     constructor(
         private navCtrl: NavController,
@@ -34,11 +33,11 @@ export class RestaurantDetailsPage implements OnInit {
         this.setupChoicesList()
     }
 
-
     setupChoicesList() {
         for (let i = 0; i < this.restaurantToDisplay.getChoices.length; i++) {
             this.choices.push({
-                str: this.restaurantToDisplay.getChoices[i],
+                menuItemName: this.restaurantToDisplay.getChoices[i],
+                menuItemCalorieCount: this.restaurantToDisplay.getCalories[i],
             })
         }
     }

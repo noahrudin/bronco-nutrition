@@ -22,7 +22,8 @@ const IMAGE_INDEX = 6
 const Restaurant_NAME_INDEX = 0
 const LOCATION_INDEX = 2
 const CHOICES_INDEX = 3
-const REST_IMAGE_INDEX = 4
+const CALORIES_INDEX = 4
+const REST_IMAGE_INDEX = 5
 
 export const snapshotToRecipeArray = snapshot => {
     const returnArr = []
@@ -64,12 +65,14 @@ export const snapshotToRestaurantArray = snapshot => {
         const title = item[Restaurant_NAME_INDEX]
         const location = item[LOCATION_INDEX]
         const choices = Restaurant.parseChoices(item[CHOICES_INDEX])
+        const calories = Restaurant.parseChoices(item[CALORIES_INDEX])
         const restaurantImage = item[REST_IMAGE_INDEX]
 
         const newRestaurant = new Restaurant(
             title,
             location,
             choices,
+            calories,
             id,
             restaurantImage
         )
@@ -128,7 +131,7 @@ export class AuthService {
         this.recipeDB.on('value', resp => {
             this.recipes = snapshotToRecipeArray(resp)
         })
-        this.restaurantDB.on('value', resp =>{
+        this.restaurantDB.on('value', resp => {
             this.restaurants = snapshotToRestaurantArray(resp)
         })
 

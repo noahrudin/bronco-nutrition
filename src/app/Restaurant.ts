@@ -1,4 +1,3 @@
-
 export class Restaurant {
     private static _restaurantToDisplay: Restaurant
 
@@ -6,6 +5,7 @@ export class Restaurant {
         public title: string,
         private location: string,
         private choices: string[],
+        private calories: string[],
         private id: number,
         private restaurantImage: HTMLImageElement
     ) {}
@@ -34,10 +34,13 @@ export class Restaurant {
         return this.choices
     }
 
+    get getCalories() {
+        return this.calories
+    }
+
     get getImage() {
         return this.restaurantImage
     }
-
 
     static parseChoices(choicesStr: string): string[] {
         const choices = choicesStr.split('\n')

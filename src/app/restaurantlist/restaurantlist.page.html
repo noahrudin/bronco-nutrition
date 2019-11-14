@@ -10,6 +10,19 @@
 </ion-header>
 
 <ion-content>
+    <ion-button
+        class="homepage_button"
+        expand="block"
+        justify-content-center
+        fill="solid"
+        (click)="
+            openBrowser(
+                'https://boisestate.campusdish.com/LocationsAndMenus/BoiseRiverCafe#menusContent'
+            )
+        "
+    >
+        <ion-icon slot="start" name="pizza"></ion-icon>Open BRC Menu</ion-button
+    >
     <ion-card>
         <ion-searchbar
             animated
@@ -34,7 +47,7 @@
                         </ion-col>
                     </ion-item>
                 -->
-                    {{item.title}}
+                    {{ item.title }}
                 </ion-row>
             </ion-item>
         </ion-list>

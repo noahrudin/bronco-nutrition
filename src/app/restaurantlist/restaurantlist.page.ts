@@ -3,7 +3,8 @@ import { AuthService } from '../auth/auth.service'
 import { Restaurant } from '../Restaurant'
 import { NavController } from '@ionic/angular'
 import { RestaurantDetailsPage } from '../restaurantdetails/restaurantdetails.page'
-import { RestaurantService } from '../restaurantServices/restaurant.service'
+import { RestaurantService } from '../restaurantservices/restaurant.service'
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx'
 
 @Component({
     selector: 'app-list',
@@ -20,13 +21,13 @@ export class RestaurantListPage implements OnInit {
         selected: boolean
         bookmark: boolean
     }> = []
-    
+
     private inc: any = 0
     private bookmarked = false
     constructor(
         private restaurantService: RestaurantService,
         private navCtrl: NavController,
-        private firebaseAuth: AuthService
+        private iab: InAppBrowser
     ) {
         // grab the restaurants we got from firebase, and
         // put use their titles for the UI list.
@@ -45,6 +46,10 @@ export class RestaurantListPage implements OnInit {
     }
 
     ngOnInit() {}
+
+    openBrowser(link: string) {
+        this.iab.create(link, '_system', 'location=yes')
+    }
 
     // add back when alpha.4 is out
     // navigate(item) {
