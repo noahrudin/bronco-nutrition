@@ -17,6 +17,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx'
 })
 export class HomePage implements OnInit {
     private recipes: any
+    private restaurants: any
     private fav_recipes: Array<any> = []
     private user: User
     private username: string
@@ -37,6 +38,10 @@ export class HomePage implements OnInit {
 
     ListButtonClick() {
         this.navCtrl.navigateForward('recipelist')
+    }
+
+    RListButtonClick() {
+        this.navCtrl.navigateForward('restaurantlist')
     }
 
     BookmarkButtonClick() {

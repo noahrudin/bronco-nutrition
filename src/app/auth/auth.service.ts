@@ -5,6 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth'
 import { User } from 'firebase'
 import * as firebase from 'firebase'
 import { Recipe } from '../Recipe'
+import { Restaurant } from '../Restaurant'
 import { FoodItem } from '../FoodItem'
 
 const FOOD_ITEM_NAME_INDEX = 0
@@ -17,6 +18,12 @@ const PREP_TIME_INDEX = 3
 const INGREDIENTS_INDEX = 4
 const STEPS_INDEX = 5
 const IMAGE_INDEX = 6
+
+const Restaurant_NAME_INDEX = 0
+const LOCATION_INDEX = 2
+const CHOICES_INDEX = 3
+const CALORIES_INDEX = 4
+const REST_IMAGE_INDEX = 5
 
 export const snapshotToRecipeArray = snapshot => {
     const returnArr = []
@@ -41,10 +48,36 @@ export const snapshotToRecipeArray = snapshot => {
             steps,
             idx,
             recipeImage
-
         )
         returnArr.push(newRecipe)
         idx++
+    })
+
+    return returnArr
+}
+
+export const snapshotToRestaurantArray = snapshot => {
+    const returnArr = []
+    let id = 0
+    snapshot.forEach(childSnapshot => {
+        const item = childSnapshot.val()
+        // package everything up into an easily usable Restaurant object.
+        const title = item[Restaurant_NAME_INDEX]
+        const location = item[LOCATION_INDEX]
+        const choices = Restaurant.parseChoices(item[CHOICES_INDEX])
+        const calories = Restaurant.parseChoices(item[CALORIES_INDEX])
+        const restaurantImage = item[REST_IMAGE_INDEX]
+
+        const newRestaurant = new Restaurant(
+            title,
+            location,
+            choices,
+            calories,
+            id,
+            restaurantImage
+        )
+        returnArr.push(newRestaurant)
+        id++
     })
 
     return returnArr
@@ -71,8 +104,10 @@ export const snapshotToFoodArray = snapshot => {
 export class AuthService {
     public user: User
     private recipes = []
+    private restaurants = []
     private foodItems = []
     private recipeDB = firebase.database().ref('recipeSheet/')
+    private restaurantDB = firebase.database().ref('restaurantSheet/')
     private foodDB = firebase.database().ref('foodSheet/')
     private username: string
 
@@ -95,6 +130,9 @@ export class AuthService {
         // grab recipe data from Firebase, and pack it into an array.
         this.recipeDB.on('value', resp => {
             this.recipes = snapshotToRecipeArray(resp)
+        })
+        this.restaurantDB.on('value', resp => {
+            this.restaurants = snapshotToRestaurantArray(resp)
         })
 
         // do the same with food items.
@@ -191,6 +229,9 @@ export class AuthService {
 
     get getRecipes(): Array<Recipe> {
         return this.recipes
+    }
+    get getRestaurants(): Array<Restaurant> {
+        return this.restaurants
     }
 
     get foodList(): Array<FoodItem> {

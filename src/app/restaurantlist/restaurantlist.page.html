@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            Browse Restaurants
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-button
+        class="homepage_button"
+        expand="block"
+        justify-content-center
+        fill="solid"
+        (click)="
+            openBrowser(
+                'https://boisestate.campusdish.com/LocationsAndMenus/BoiseRiverCafe#menusContent'
+            )
+        "
+    >
+        <ion-icon slot="start" name="pizza"></ion-icon>Open BRC Menu</ion-button
+    >
+    <ion-card>
+        <ion-searchbar
+            animated
+            debounce="500"
+            placeholder="Search Here"
+            name="search"
+            (ionInput)="getRestaurant($event)"
+        ></ion-searchbar>
+        <ion-list *ngFor="let item of items; let i = index">
+            <ion-item
+                [class.highlight]="item.selected"
+                (click)="listItemClick(item.id)"
+                detail
+            >
+                <ion-row>
+                    <!--                    <ion-item>
+                        <ion-col class="ion-align-self-start">
+                            <ion-button disabled="!{{item.bookmark}}" color="secondary" (click)="removeBookMark(item)"> remove </ion-button>
+                        </ion-col>
+                        <ion-col class="ion-align-self-start">
+                            <ion-button disabled="{{item.bookmark}}" color="secondary" (click)="addtoFavorites(item)"> add </ion-button>
+                        </ion-col>
+                    </ion-item>
+                -->
+                    {{ item.title }}
+                </ion-row>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+</ion-content>

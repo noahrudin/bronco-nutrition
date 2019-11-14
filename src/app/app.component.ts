@@ -33,6 +33,11 @@ export class AppComponent {
             icon: 'search',
         },
         {
+            title: 'Restaurants',
+            url: '/restaurantlist',
+            icon: 'restaurant',
+        },
+        {
             title: 'Bookmarks',
             url: '/bookmarkedlist',
             icon: 'bookmark',
